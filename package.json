@@ -1,6 +1,6 @@
 {
   "name": "@sensearena/ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -58,13 +58,14 @@
     "dist"
   ],
   "sideEffects": false,
-  "main": "./dist/@sa-ui.cjs.js",
-  "module": "./dist/@sa-ui.es.js",
+  "type": "module",
+  "main": "./dist/@sa-ui.umd.js",
+  "module": "./dist/@sa-ui.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/@sa-ui.es.js",
-      "require": "./dist/@sa-ui.cjs.js"
+      "import": "./dist/@sa-ui.js",
+      "require": "./dist/@sa-ui.umd.js"
     },
     "./theme.css": "./dist/style.css"
   }

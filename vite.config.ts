@@ -20,12 +20,23 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: '@sa-ui',
-      formats: ['es', 'cjs'],
-      fileName: format => `@sa-ui.${format}.js`,
+      name: 'UI',
+      fileName: '@sa-ui',
     },
     rollupOptions: {
       external: [...Object.keys(peerDependencies)],
+      output: {
+        globals: {
+          '@emotion/react': 'EmoReact',
+          '@emotion/styled': 'Emo',
+          '@mui/material': 'MUI',
+          '@react-spring/web': 'SpringWeb',
+          '@vanilla-extract/css': 'VanillaCss',
+          '@vanilla-extract/recipes': 'VanillaRecipes',
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
     },
   },
 });
