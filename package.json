@@ -58,13 +58,12 @@
     "dist"
   ],
   "sideEffects": false,
-  "type": "module",
   "main": "./dist/@sa-ui.umd.js",
-  "module": "./dist/@sa-ui.js",
+  "module": "./dist/@sa-ui.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/@sa-ui.js",
+      "import": "./dist/@sa-ui.es.js",
       "require": "./dist/@sa-ui.umd.js"
     },
     "./theme.css": "./dist/style.css"
