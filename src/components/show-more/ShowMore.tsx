@@ -45,7 +45,7 @@ export const ShowMore = ({ items, visible, className }: Props) => {
       </div>
       {visibleItems.length === items.length ? null : (
         <div className={smButtonWrap}>
-          <Button color="outline" noIcon onClick={showAll} style={{ marginTop: '1.5rem' }}>
+          <Button color="outline" onClick={showAll} style={{ marginTop: '1.5rem' }}>
             Show all
           </Button>
         </div>
