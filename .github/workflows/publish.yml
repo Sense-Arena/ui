@@ -28,7 +28,7 @@ jobs:
       - name: Publish package on NPM 📦
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.ui_npm }}
+          NODE_AUTH_TOKEN: ${{ secrets.UI_NPM }}
       - name: Prepare Deploy for Storybook 🚀
         run: |
           rm -rf ./dist
