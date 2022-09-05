@@ -38,10 +38,8 @@ export const ModalContainer = () => {
       </a>
 
       <div className={modalBtns}>
-        <Button noIcon onClick={accept}>
-          {config.modal?.btnOk}
-        </Button>
-        <Button noIcon onClick={deny} color="secondary">
+        <Button onClick={accept}>{config.modal?.btnOk}</Button>
+        <Button onClick={deny} color="secondary">
           {config.modal?.btnDeny}
         </Button>
       </div>
@@ -68,9 +66,7 @@ export const ModalContainer = () => {
         text={config.modal?.aText ?? ''}
       />
       <div className={stickySave}>
-        <Button onClick={save} noIcon>
-          {config.modal?.btnSave}
-        </Button>
+        <Button onClick={save}>{config.modal?.btnSave}</Button>
       </div>
     </div>
   );
