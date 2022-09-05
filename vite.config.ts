@@ -21,7 +21,8 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'UI',
-      fileName: '@sa-ui',
+      formats: ['es', 'umd'],
+      fileName: format => `@sa-ui.${format}.js`,
     },
     rollupOptions: {
       external: [...Object.keys(peerDependencies)],
