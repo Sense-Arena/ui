@@ -26,9 +26,9 @@ jobs:
           pnpm install
           pnpm build
       - name: Publish package on NPM 📦
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.UI_NPM }}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.UI_NPM }}
       - name: Prepare Deploy for Storybook 🚀
         run: |
           rm -rf ./dist
