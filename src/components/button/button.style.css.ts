@@ -150,7 +150,6 @@ export const btnTxtStyle = recipe({
       true: {
         margin: 'auto 0',
       },
-      false: {},
     },
   },
   defaultVariants: {
@@ -183,7 +182,6 @@ export const btnIconStyle = recipe({
       true: {
         margin: 'auto 0',
       },
-      false: {},
     },
   },
   defaultVariants: {
