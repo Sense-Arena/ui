@@ -1,5 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../theme/theme.css';
+import { globalStyle } from '@vanilla-extract/css';
 
 export const btnStyle = recipe({
   base: {
@@ -24,17 +25,14 @@ export const btnStyle = recipe({
       small: {
         height: '36px',
         minWidth: '90px',
-        borderRadius: '17px',
       },
       standard: {
         height: '48px',
         minWidth: '148px',
-        borderRadius: '24px',
       },
       big: {
         height: '64px',
         minWidth: '199px',
-        borderRadius: '32px',
         '@media': {
           'screen and (max-width: 768px)': {
             height: '48px',
@@ -83,11 +81,44 @@ export const btnStyle = recipe({
           },
         },
       },
+      outline_secondary: {
+        background: 'transparent',
+        color: vars.colors.blackMetal,
+        border: `1px solid ${vars.colors.grey}`,
+        selectors: {
+          '&:hover:not(:disabled)': {
+            background: `linear-gradient(270deg, ${vars.colors.greyLight2} 0%, ${vars.colors.greyLight2} 100%)`,
+          },
+          '&:active:not(:disabled)': {
+            background: `linear-gradient(270deg, ${vars.colors.greyLight2} 0%, ${vars.colors.greyLight2} 100%)`,
+            transform: 'translateY(2px)',
+          },
+        },
+      },
+    },
+    mode: {
+      rounded: {
+        borderRadius: '999px',
+      },
+      square: {
+        borderRadius: '10px',
+      },
+    },
+    fullWidth: {
+      true: {
+        width: '100%',
+        justifyContent: 'space-between',
+      },
+      false: {
+        width: 'auto',
+      },
     },
   },
   defaultVariants: {
     size: 'standard',
     color: 'primary',
+    mode: 'rounded',
+    fullWidth: false,
   },
 });
 
@@ -115,9 +146,16 @@ export const btnTxtStyle = recipe({
         lineHeight: '22px',
       },
     },
+    fullWidth: {
+      true: {
+        margin: 'auto 0',
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     size: 'standard',
+    fullWidth: false,
   },
 });
 
@@ -137,9 +175,23 @@ export const btnIconStyle = recipe({
       outline: {
         color: vars.colors.blackMetal,
       },
+      outline_secondary: {
+        color: vars.colors.blackMetal,
+      },
+    },
+    fullWidth: {
+      true: {
+        margin: 'auto 0',
+      },
+      false: {},
     },
   },
   defaultVariants: {
     color: 'primary',
+    fullWidth: false,
   },
+});
+
+globalStyle(`${btnIconStyle} svg`, {
+  display: 'block',
 });
