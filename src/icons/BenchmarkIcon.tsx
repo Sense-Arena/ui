@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, forwardRef, SVGAttributes } from 'react';
 
 type Props = { className?: string } & DetailedHTMLProps<SVGAttributes<SVGSVGElement>, SVGSVGElement>;
-export const ArrowRightCircle = forwardRef<SVGSVGElement, Props>(({ className, ...rest }, ref) => {
+export const BenchmarkIcon = forwardRef<SVGSVGElement, Props>(({ className, ...rest }, ref) => {
   return (
     <svg
       width="24px"
@@ -16,8 +16,7 @@ export const ArrowRightCircle = forwardRef<SVGSVGElement, Props>(({ className, .
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <polygon id="Path" points="0 0 24 0 24 24 0 24" />
         <path
-          d="M12,11 L12,8 L16,12 L12,16 L12,13 L8,13 L8,11 L12,11 Z M12,2 C17.52,2 22,6.48 22,12 C22,17.52 17.52,22 12,22 C6.48,22 2,17.52 2,12 C2,6.48 6.48,2 12,2 Z M12,20 C16.42,20 20,16.42 20,12 C20,7.58 16.42,4 12,4 C7.58,4 4,7.58 4,12 C4,16.42 7.58,20 12,20 Z"
-          id="Shape"
+          d="M5,3 L5,19 L21,19 L21,21 L3,21 L3,3 L5,3 Z M20.293,6.293 L21.707,7.707 L16,13.414 L13,10.415 L8.707,14.707 L7.293,13.293 L13,7.586 L16,10.585 L20.293,6.293 Z"
           fill="currentColor"
           fillRule="nonzero"
         />
