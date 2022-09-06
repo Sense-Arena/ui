@@ -26,7 +26,6 @@ export const [themeClass, vars] = createTheme({
     modal: '10998',
     gdpr: '10997',
     dropdown: '9999',
-    testimonialBanner: '1',
   },
 });
 
