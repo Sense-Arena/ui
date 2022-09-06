@@ -17,7 +17,12 @@ module.exports = {
   features: {
     "storyStoreV7": true
   },
-  async viteFinal(config) {
+  async viteFinal(config, { configType }) {
+    if (configType === 'PRODUCTION') {
+      // Your production configuration goes here.
+      config.base = '/ui/'
+    }
+
     config.plugins.push(vanillaExtractPlugin());
     return config;
   },
