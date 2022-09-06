@@ -1,4 +1,4 @@
-export enum LSKeys {
+export const enum LSKeys {
   CookieConsent = 'cookie_consent',
 }
 
@@ -8,11 +8,11 @@ export type CookieConsentModel = {
   advertising: boolean;
 };
 
-export type LSData = {
+export interface LSData {
   [LSKeys.CookieConsent]: CookieConsentModel | null;
-};
+}
 
-const getItem = <K extends LSKeys, D extends LSData[K]>(key: K, defaultValue: D): D => {
+const getItem = <K extends LSKeys>(key: K, defaultValue: LSData[K]): LSData[K] => {
   try {
     const v = localStorage.getItem(key);
     return v ? JSON.parse(v) : defaultValue;
@@ -20,7 +20,7 @@ const getItem = <K extends LSKeys, D extends LSData[K]>(key: K, defaultValue: D)
     return defaultValue;
   }
 };
-const setItem = <K extends LSKeys, D extends LSData[K]>(key: K, value: D) => {
+const setItem = <K extends LSKeys>(key: K, value: LSData[K]) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
@@ -36,7 +36,6 @@ const deleteItem = <K extends LSKeys>(key: K) => {
 };
 
 export const LS = {
-  keys: LSKeys,
   getItem,
   setItem,
   deleteItem,
