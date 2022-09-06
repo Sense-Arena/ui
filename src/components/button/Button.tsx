@@ -8,15 +8,16 @@ export type ButtonProps = {
   size?: 'standard' | 'big' | 'small';
   color?: 'primary' | 'secondary' | 'outline' | 'outline_secondary';
   mode?: 'rounded' | 'square';
+  minWidth?: boolean;
   fullWidth?: boolean;
 } & Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'ref'>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, icon, onClick, disabled, className, size, color, mode, fullWidth, ...rest }, ref) => {
+  ({ children, icon, onClick, disabled, className, size, color, mode, fullWidth, minWidth, ...rest }, ref) => {
     return (
       <button
         disabled={disabled}
-        className={clsx(btnStyle({ size, color, mode, fullWidth }), className)}
+        className={clsx(btnStyle({ size, color, mode, fullWidth, minWidth }), className)}
         onClick={disabled ? undefined : onClick}
         {...rest}
         ref={ref}
