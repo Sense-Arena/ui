@@ -113,12 +113,18 @@ export const btnStyle = recipe({
         width: 'auto',
       },
     },
+    minWidth: {
+      true: {
+        minWidth: 'auto',
+      },
+    },
   },
   defaultVariants: {
     size: 'standard',
     color: 'primary',
     mode: 'rounded',
     fullWidth: false,
+    minWidth: false,
   },
 });
 

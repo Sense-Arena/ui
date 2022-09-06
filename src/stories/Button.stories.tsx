@@ -12,6 +12,9 @@ export default {
     fullWidth: {
       type: 'boolean',
     },
+    minWidth: {
+      type: 'boolean',
+    },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -53,8 +56,15 @@ Disabled.args = {
   disabled: true,
 };
 
-export const FullWidthWithIcon = Template.bind({});
-FullWidthWithIcon.args = {
+export const SquareMinWidth = Template.bind({});
+SquareMinWidth.args = {
+  minWidth: true,
+  mode: 'square',
+  children: 'Button',
+};
+
+export const SquareFullWidth = Template.bind({});
+SquareFullWidth.args = {
   fullWidth: true,
   mode: 'square',
   children: 'Button',

@@ -15,7 +15,14 @@ export default {
 const Template: ComponentStory<typeof IconButton> = args => <IconButton {...args} children={<TrophyIcon />} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  color: 'primary',
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  color: 'secondary',
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
