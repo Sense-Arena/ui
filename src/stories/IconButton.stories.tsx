@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { IconButton } from '../components/icon-button';
+import { TrophyIcon } from '../icons';
 
 export default {
   title: 'UI/Icon Button',
@@ -11,7 +12,7 @@ export default {
   },
 } as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof IconButton> = args => <IconButton {...args} />;
+const Template: ComponentStory<typeof IconButton> = args => <IconButton {...args} children={<TrophyIcon />} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
