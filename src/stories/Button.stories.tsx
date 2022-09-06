@@ -58,5 +58,5 @@ FullWidthWithIcon.args = {
   fullWidth: true,
   mode: 'square',
   children: 'Button',
-  icon: <ArrowRightCircle color="#fff" />,
+  icon: <ArrowRightCircle />,
 };
