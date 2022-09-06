@@ -1,11 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button } from '../components/button/Button';
+import { ArrowRightCircle } from '../icons';
 
 export default {
   title: 'UI/Button',
   component: Button,
   argTypes: {
     disabled: {
+      type: 'boolean',
+    },
+    fullWidth: {
       type: 'boolean',
     },
   },
@@ -27,6 +31,11 @@ Outline.args = {
   children: 'Button',
   color: 'outline',
 };
+export const OutlineSecondary = Template.bind({});
+OutlineSecondary.args = {
+  children: 'Button',
+  color: 'outline_secondary',
+};
 export const PrimaryBig = Template.bind({});
 PrimaryBig.args = {
   children: 'Button',
@@ -42,4 +51,12 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   children: 'Test long description',
   disabled: true,
+};
+
+export const FullWidthWithIcon = Template.bind({});
+FullWidthWithIcon.args = {
+  fullWidth: true,
+  mode: 'square',
+  children: 'Button',
+  icon: <ArrowRightCircle color="#fff" />,
 };
