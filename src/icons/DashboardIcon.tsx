@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, forwardRef, SVGAttributes } from 'react';
 
 type Props = { className?: string } & DetailedHTMLProps<SVGAttributes<SVGSVGElement>, SVGSVGElement>;
-export const ArrowRightCircle = forwardRef<SVGSVGElement, Props>(({ className, ...rest }, ref) => {
+export const DashboardIcon = forwardRef<SVGSVGElement, Props>(({ className, ...rest }, ref) => {
   return (
     <svg
       width="24px"
@@ -14,10 +14,9 @@ export const ArrowRightCircle = forwardRef<SVGSVGElement, Props>(({ className, .
       {...rest}
     >
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <polygon id="Path" points="0 0 24 0 24 24 0 24" />
+        <polygon fill="none" id="Path" points="0 0 24 0 24 24 0 24" />
         <path
-          d="M12,11 L12,8 L16,12 L12,16 L12,13 L8,13 L8,11 L12,11 Z M12,2 C17.52,2 22,6.48 22,12 C22,17.52 17.52,22 12,22 C6.48,22 2,17.52 2,12 C2,6.48 6.48,2 12,2 Z M12,20 C16.42,20 20,16.42 20,12 C20,7.58 16.42,4 12,4 C7.58,4 4,7.58 4,12 C4,16.42 7.58,20 12,20 Z"
-          id="Shape"
+          d="M13,21 L13,11 L21,11 L21,21 L13,21 Z M3,13 L3,3 L11,3 L11,13 L3,13 Z M9,11 L9,5 L5,5 L5,11 L9,11 Z M3,21 L3,15 L11,15 L11,21 L3,21 Z M5,19 L9,19 L9,17 L5,17 L5,19 Z M15,19 L19,19 L19,13 L15,13 L15,19 Z M13,3 L21,3 L21,9 L13,9 L13,3 Z M15,5 L15,7 L19,7 L19,5 L15,5 Z"
           fill="currentColor"
           fillRule="nonzero"
         />
