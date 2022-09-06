@@ -1,5 +1,6 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
-import { CookieConsentModel, noop } from '../../utils';
+import { noop } from '../../utils';
+import { CookieConsentModel } from '../../utils/local-store';
 import { GDPRConfig } from './types';
 
 export const ConsentContext = createContext<{

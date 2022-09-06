@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { CookieConsentModel, LS, LSKeys, noop } from '../../utils';
+import { noop } from '../../utils';
+import { CookieConsentModel, LS, LSKeys } from '../../utils/local-store';
 import { Banner } from './Banner';
 import { ConsentContext } from './consent-context';
 import { GDPRConfig } from './types';

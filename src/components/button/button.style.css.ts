@@ -1,6 +1,6 @@
+import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../theme/theme.css';
-import { globalStyle } from '@vanilla-extract/css';
 
 export const btnStyle = recipe({
   base: {
@@ -189,7 +189,8 @@ export const btnIconStyle = recipe({
     fullWidth: false,
   },
 });
+export const btnIconBase = style({});
 
-globalStyle(`${btnIconStyle} svg`, {
+globalStyle(`${btnIconBase} svg`, {
   display: 'block',
 });

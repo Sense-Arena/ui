@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, forwardRef, ReactNode } from 'react';
 import { clsx } from '../../utils/clsx';
-import { btnIconStyle, btnStyle, btnTxtStyle } from './button.style.css';
+import { btnIconBase, btnIconStyle, btnStyle, btnTxtStyle } from './button.style.css';
 
 export type ButtonProps = {
   children?: ReactNode;
@@ -22,7 +22,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
       >
         <span className={btnTxtStyle({ size, fullWidth })}>{children}</span>
-        {icon ? <span className={btnIconStyle({ color, fullWidth })}>{icon}</span> : null}
+        {icon ? <span className={clsx(btnIconStyle({ color, fullWidth }), btnIconBase)}>{icon}</span> : null}
       </button>
     );
   },
