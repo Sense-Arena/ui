@@ -14,13 +14,11 @@ type Props = PropsWithChildren<{
 export const Card = ({ children, title, action, withPadding = true, className, ...rest }: Props) => {
   return (
     <section {...rest} className={clsx(cardStyles.section, className)}>
-      {title && action ? (
+      {title || action ? (
         <>
           <div className={cardStyles.header}>
-            <div>
-              <Heading root="h3">{title}</Heading>
-            </div>
-            <div>{action}</div>
+            <div>{title ? <Heading root="h3">{title}</Heading> : <></>}</div>
+            {action ? <div>{action}</div> : <></>}
           </div>
           <div className={cardStyles.paddingX}>
             <Divider />
