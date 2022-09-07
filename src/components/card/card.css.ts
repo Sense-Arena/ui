@@ -36,7 +36,7 @@ const header = style([
   },
 ]);
 
-export const sectionStyles = {
+export const cardStyles = {
   section,
   paddingY,
   paddingX,

@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Section } from '../components/section';
+import { Card } from '../components/card';
 import { Button } from '../components/button';
 import { Paragraph } from '../components/typography';
 
 export default {
-  title: 'UI/Section',
-  component: Section,
+  title: 'UI/Card',
+  component: Card,
   argTypes: {
     withPadding: {
       type: 'boolean',
@@ -17,14 +17,14 @@ export default {
       type: 'string',
     },
   },
-} as ComponentMeta<typeof Section>;
+} as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Section> = args => {
+const Template: ComponentStory<typeof Card> = args => {
   return (
     <div style={{ position: 'relative', backgroundColor: '#eceff9', height: '100vh', padding: 24 }}>
-      <Section withPadding={args.withPadding} title={args.title} action={args.action}>
+      <Card withPadding={args.withPadding} title={args.title} action={args.action}>
         {args.children}
-      </Section>
+      </Card>
     </div>
   );
 };
