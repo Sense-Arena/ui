@@ -10,7 +10,7 @@ export * from './components/show-more';
 export * from './components/slider';
 export * from './components/tabs';
 export * from './components/typography';
-export * from './components/section';
+export * from './components/card';
 export * from './hooks';
 export * from './icons';
 export { themeClass as uiThemeClass } from './theme/theme.css';
