@@ -37,7 +37,6 @@ const header = style([
       'screen and (max-width: 480px)': {
         flexDirection: 'column',
         alignItems: 'flex-start',
-        // paddingTop: '1rem',
         paddingBottom: '1rem',
       },
     },
