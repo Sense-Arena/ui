@@ -33,8 +33,24 @@ const header = style([
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    '@media': {
+      'screen and (max-width: 480px)': {
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        // paddingTop: '1rem',
+        paddingBottom: '1rem',
+      },
+    },
   },
 ]);
+
+const title = style({
+  '@media': {
+    'screen and (max-width: 480px)': {
+      paddingBottom: '1rem',
+    },
+  },
+});
 
 export const cardStyles = {
   section,
@@ -42,4 +58,5 @@ export const cardStyles = {
   paddingX,
   sectionContent,
   header,
+  title,
 };
