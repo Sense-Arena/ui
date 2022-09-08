@@ -17,16 +17,16 @@ export const Card = ({ children, title, action, withPadding = true, className, .
       {title || action ? (
         <>
           <div className={cardStyles.header}>
-            <div className={cardStyles.title}>{title ? <Heading root="h3">{title}</Heading> : <></>}</div>
-            {action ? <div>{action}</div> : <></>}
+            <div className={cardStyles.title}>
+              {title ? typeof title === 'string' ? <Heading root="h3">{title}</Heading> : title : null}
+            </div>
+            {action ? <div>{action}</div> : null}
           </div>
           <div className={cardStyles.paddingX}>
             <Divider />
           </div>
         </>
-      ) : (
-        <></>
-      )}
+      ) : null}
       <div className={cardStyles.sectionContent({ withPadding })}>{children}</div>
     </section>
   );
