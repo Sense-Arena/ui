@@ -43,10 +43,10 @@ const header = style([
   },
 ]);
 
-const title = style({
+const action = style({
   '@media': {
     'screen and (max-width: 480px)': {
-      paddingBottom: '1rem',
+      paddingTop: '1rem',
     },
   },
 });
@@ -57,5 +57,5 @@ export const cardStyles = {
   paddingX,
   sectionContent,
   header,
-  title,
+  action,
 };
