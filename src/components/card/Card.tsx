@@ -17,7 +17,7 @@ export const Card = ({ children, title, action, withPadding = true, className, .
       {title || action ? (
         <>
           <div className={cardStyles.header}>
-            <div>{title ? <Heading root="h3">{title}</Heading> : <></>}</div>
+            <div className={cardStyles.title}>{title ? <Heading root="h3">{title}</Heading> : <></>}</div>
             {action ? <div>{action}</div> : <></>}
           </div>
           <div className={cardStyles.paddingX}>
