@@ -11,6 +11,7 @@ export * from './components/slider';
 export * from './components/tabs';
 export * from './components/typography';
 export * from './components/card';
+export * from './components/table';
 export * from './hooks';
 export * from './icons';
 export { themeClass as uiThemeClass } from './theme/theme.css';
