@@ -13,10 +13,7 @@ type Props = PropsWithChildren<{
 
 export const TCell = ({ align, minWidth, withoutPadding, cellType, className, children, ...rest }: Props) => {
   return (
-    <td
-      {...rest}
-      className={clsx(tableStyles.tCell, tableStyles.tCellM({ align, minWidth, withoutPadding, cellType }), className)}
-    >
+    <td {...rest} className={clsx(tableStyles.tCell({ align, minWidth, withoutPadding, cellType }), className)}>
       {typeof children === 'string' ? <Paragraph variant="caption">{children}</Paragraph> : children}
     </td>
   );
