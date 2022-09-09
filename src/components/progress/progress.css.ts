@@ -4,7 +4,6 @@ import { vars } from '../../theme/theme.css';
 const progressContainer = style({
   width: '100%',
   padding: 4,
-  boxSizing: 'border-box',
   backgroundColor: vars.colors.greyLight,
   border: `1px solid ${vars.colors.grey}`,
   borderRadius: 5,

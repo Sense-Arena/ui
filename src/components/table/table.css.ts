@@ -10,7 +10,6 @@ const table = style({
 
 const tCell = recipe({
   base: {
-    boxSizing: 'border-box',
     selectors: {
       '&:last-child': {
         paddingRight: 0,
