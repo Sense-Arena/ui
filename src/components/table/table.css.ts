@@ -8,19 +8,18 @@ const table = style({
   borderCollapse: 'collapse',
 });
 
-const tCell = style({
-  boxSizing: 'border-box',
-  selectors: {
-    '&:last-child': {
-      paddingRight: 0,
-    },
-    '&:first-child': {
-      paddingLeft: 0,
+const tCell = recipe({
+  base: {
+    boxSizing: 'border-box',
+    selectors: {
+      '&:last-child': {
+        paddingRight: 0,
+      },
+      '&:first-child': {
+        paddingLeft: 0,
+      },
     },
   },
-});
-
-const tCellM = recipe({
   variants: {
     cellType: {
       head: {
@@ -66,5 +65,4 @@ const tCellM = recipe({
 export const tableStyles = {
   table,
   tCell,
-  tCellM,
 };
