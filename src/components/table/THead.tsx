@@ -6,7 +6,7 @@ type Props = PropsWithChildren<{ className?: string }>;
 
 export const THead = ({ className, children, ...rest }: Props) => {
   return (
-    <thead {...rest} className={clsx(tableStyles.tHead, className)}>
+    <thead {...rest} className={clsx(className)}>
       {children}
     </thead>
   );
