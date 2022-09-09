@@ -13,9 +13,9 @@ const Template: ComponentStory<typeof Table> = args => {
     <Table>
       <THead>
         <TRow>
-          <TCell withoutPadding="top">Name</TCell>
-          <TCell withoutPadding="top">Progress</TCell>
-          <TCell withoutPadding="top" minWidth>
+          <TCell cellType="head">Name</TCell>
+          <TCell cellType="head">Progress</TCell>
+          <TCell cellType="head" minWidth>
             Action
           </TCell>
         </TRow>
