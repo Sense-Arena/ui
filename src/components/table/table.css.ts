@@ -1,4 +1,4 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { vars } from '../../theme/theme.css';
 import { recipe } from '@vanilla-extract/recipes';
 
@@ -8,20 +8,31 @@ const table = style({
   borderCollapse: 'collapse',
 });
 
-const tHead = style({});
-
-const tBody = style({});
-
-const tRow = style({});
-
-const tCell = style({});
+const tCell = style({
+  boxSizing: 'border-box',
+  selectors: {
+    '&:last-child': {
+      paddingRight: 0,
+    },
+    '&:first-child': {
+      paddingLeft: 0,
+    },
+  },
+});
 
 const tCellM = recipe({
-  base: {
-    padding: '0.75rem',
-    boxSizing: 'border-box',
-  },
   variants: {
+    cellType: {
+      head: {
+        padding: '1.5em 0.75em',
+        borderBottom: `1px solid ${vars.colors.grey}`,
+      },
+      body: {
+        padding: '0.75rem',
+        height: 73,
+        borderBottom: `1px dashed ${vars.colors.grey}`,
+      },
+    },
     align: {
       center: {
         textAlign: 'center',
@@ -47,37 +58,13 @@ const tCellM = recipe({
       },
     },
   },
-});
-
-globalStyle(`${tHead} ${tRow}`, {
-  borderBottom: `1px solid ${vars.colors.grey}`,
-});
-
-globalStyle(`${tBody} ${tRow}`, {
-  borderBottom: `1px dashed ${vars.colors.grey}`,
-});
-
-globalStyle(`${tBody} ${tCell}`, {
-  height: 73,
-});
-
-globalStyle(`${tHead} ${tCell}`, {
-  padding: '1.5em 0.75em',
-});
-
-globalStyle(`${tRow} ${tCell}:last-child`, {
-  paddingRight: 0,
-});
-
-globalStyle(`${tRow} ${tCell}:first-child`, {
-  paddingLeft: 0,
+  defaultVariants: {
+    cellType: 'body',
+  },
 });
 
 export const tableStyles = {
   table,
-  tHead,
-  tBody,
-  tRow,
   tCell,
   tCellM,
 };
