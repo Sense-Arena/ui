@@ -24,23 +24,25 @@ export const ddContainerStyle = recipe({
     letterSpacing: 0,
     lineHeight: '22px',
     selectors: {
-      '&:focus': {
-        border: `2px solid ${vars.colors.blackMetal}`,
-      },
       '&:hover': {
         backgroundColor: vars.colors.greyLight2,
       },
     },
   },
   variants: {
+    border: {
+      black: {
+        border: `1px solid ${vars.colors.blackMetal}`,
+      },
+      grey: {
+        border: `1px solid ${vars.colors.grey}`,
+      },
+    },
     disabled: {
       true: {
         opacity: 0.5,
         cursor: 'not-allowed',
         selectors: {
-          '&:focus': {
-            border: `1px solid ${vars.colors.blackMetal}`,
-          },
           '&:hover': {
             backgroundColor: vars.colors.white,
           },
@@ -50,11 +52,6 @@ export const ddContainerStyle = recipe({
     error: {
       true: {
         border: `1px solid ${vars.colors.red}`,
-        selectors: {
-          '&:focus': {
-            border: `1px solid ${vars.colors.red}`,
-          },
-        },
       },
     },
     opened: {

@@ -38,20 +38,24 @@ const Template: ComponentStory<typeof Dropdown> = args => <Dropdown {...args} />
 
 export const Base = Template.bind({});
 Base.args = {
-  selectedOption: { title: '1', value: '1' },
+  selectedOption: '1',
+  selectedOptionLabel: '1',
   onSelect: console.debug,
   options,
+  border: 'grey',
 };
 export const LongValue = Template.bind({});
 LongValue.args = {
-  selectedOption: { title: 'Sense Arena Hockey dsfsdkf ', value: 'kewk' },
+  selectedOption: '1',
+  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
   onSelect: console.debug,
   options,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  selectedOption: { title: 'Sense Arena Hockey dsfsdkf ', value: 'kewk' },
+  selectedOption: '1',
+  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
   onSelect: console.debug,
   options,
   disabled: true,
@@ -59,8 +63,10 @@ Disabled.args = {
 
 export const Error = Template.bind({});
 Error.args = {
-  selectedOption: { title: 'Sense Arena Hockey dsfsdkf ', value: 'kewk' },
+  selectedOption: '1',
+  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
   onSelect: console.debug,
   options,
   error: true,
+  border: 'grey',
 };
