@@ -1,27 +1,35 @@
 import { animated as a, useSpring } from '@react-spring/web';
-import { FC, useCallback, useRef, useState } from 'react';
+import { ReactNode, useCallback, useRef, useState } from 'react';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { useEventListener } from '../../hooks/useEventListener';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
 import { ddContainerStyle, ddIconStyle, ddMenuItemStyle, ddMenuStyle } from './dropdown.css';
 
-type Props = {
+type Props<TOption> = {
   disabled?: boolean;
   error?: boolean;
-  onSelect?: (selected: string) => void;
-  selectedOption: {
-    title: string;
-    value: string;
-  };
+  onSelect?: (selected: TOption) => void;
+  selectedOptionLabel: ReactNode;
+  selectedOption: TOption;
   options: {
     title: string;
-    value: string;
+    value: TOption;
   }[];
   className?: string;
+  border?: 'black' | 'grey';
 };
 
-export const Dropdown: FC<Props> = ({ disabled, onSelect, selectedOption, options, error, className }) => {
+export function Dropdown<TOption>({
+  disabled,
+  onSelect,
+  selectedOptionLabel,
+  options,
+  error,
+  className,
+  selectedOption,
+  border,
+}: Props<TOption>) {
   const [isOpen, setOpen] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -41,9 +49,18 @@ export const Dropdown: FC<Props> = ({ disabled, onSelect, selectedOption, option
   useEventListener('keyup', close, 'Escape');
   useClickOutside(ref, close, mainRef);
 
+  const selectItem = useCallback((optionValue: TOption) => {
+    onSelect?.(optionValue);
+    close();
+  }, []);
+
   return (
-    <div onClick={toggle} className={clsx(ddContainerStyle({ disabled, error, opened: isOpen }), className)} ref={mainRef}>
-      <span>{selectedOption.title}</span>
+    <div
+      onClick={toggle}
+      className={clsx(ddContainerStyle({ disabled, error, opened: isOpen, border }), className)}
+      ref={mainRef}
+    >
+      <span>{selectedOptionLabel}</span>
       {isOpen ? <ArrowUpSline className={ddIconStyle} /> : <ArrowDownSline className={ddIconStyle} />}
       {isOpen ? (
         <a.div
@@ -54,9 +71,9 @@ export const Dropdown: FC<Props> = ({ disabled, onSelect, selectedOption, option
         >
           {options.map(o => (
             <div
-              onClick={() => onSelect?.(o.value)}
-              className={ddMenuItemStyle({ selected: o.value === selectedOption.value })}
-              key={o.value}
+              onClick={() => selectItem(o.value)}
+              className={ddMenuItemStyle({ selected: o.value === selectedOption })}
+              key={String(o.value)}
             >
               {o.title}
             </div>
@@ -65,4 +82,4 @@ export const Dropdown: FC<Props> = ({ disabled, onSelect, selectedOption, option
       ) : null}
     </div>
   );
-};
+}
