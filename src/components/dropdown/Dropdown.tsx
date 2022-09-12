@@ -49,10 +49,13 @@ export function Dropdown<TOption>({
   useEventListener('keyup', close, 'Escape');
   useClickOutside(ref, close, mainRef);
 
-  const selectItem = useCallback((optionValue: TOption) => {
-    onSelect?.(optionValue);
-    close();
-  }, []);
+  const selectItem = useCallback(
+    (optionValue: TOption) => {
+      onSelect?.(optionValue);
+      close();
+    },
+    [onSelect],
+  );
 
   return (
     <div
