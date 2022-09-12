@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, forwardRef, ReactNode } from 'react';
 import { clsx } from '../../utils/clsx';
+import { Spinner } from '../spinner';
 import { btnIconBase, btnIconStyle, btnStyle, btnTxtStyle } from './button.style.css';
 
 export type ButtonProps = {
@@ -10,20 +11,25 @@ export type ButtonProps = {
   mode?: 'rounded' | 'square';
   minWidth?: boolean;
   fullWidth?: boolean;
+  loading?: boolean;
 } & Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'ref'>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, icon, onClick, disabled, className, size, color, mode, fullWidth, minWidth, ...rest }, ref) => {
+  ({ children, icon, onClick, disabled, className, size, color, mode, fullWidth, minWidth, loading, ...rest }, ref) => {
     return (
       <button
-        disabled={disabled}
+        disabled={disabled || loading}
         className={clsx(btnStyle({ size, color, mode, fullWidth, minWidth }), className)}
-        onClick={disabled ? undefined : onClick}
+        onClick={disabled || loading ? undefined : onClick}
         {...rest}
         ref={ref}
       >
         <span className={btnTxtStyle({ size, fullWidth })}>{children}</span>
-        {icon ? <span className={clsx(btnIconStyle({ color, fullWidth }), btnIconBase)}>{icon}</span> : null}
+        {icon || loading ? (
+          <span className={clsx(btnIconStyle({ color, fullWidth }), btnIconBase)}>
+            {loading ? <Spinner size={size === 'small' ? 's' : 'm'} /> : icon}
+          </span>
+        ) : null}
       </button>
     );
   },

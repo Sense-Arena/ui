@@ -50,10 +50,10 @@ PrimarySmall.args = {
   size: 'small',
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
+export const Loading = Template.bind({});
+Loading.args = {
   children: 'Test long description',
-  disabled: true,
+  loading: true,
 };
 
 export const SquareMinWidth = Template.bind({});
