@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { TextField } from '../../components/inputs';
+import { SearchIcon } from '../../icons';
 
 export default {
   title: 'UI/Inputs/TextField',
@@ -18,6 +19,12 @@ Base.args = {
   label: 'First Name',
   name: 'first_name',
   placeholder: 'write',
+};
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  label: 'First Name',
+  name: 'first_name',
+  endAdornment: <SearchIcon />,
 };
 
 export const Filled = Template.bind({});
