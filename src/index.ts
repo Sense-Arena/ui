@@ -1,4 +1,5 @@
 export * from './components/accordion';
+export * from './components/avatar';
 export * from './components/button';
 export * from './components/card';
 export * from './components/dropdown';
@@ -9,6 +10,7 @@ export * from './components/link';
 export * from './components/modal';
 export * from './components/progress';
 export * from './components/show-more';
+export * from './components/skeleton';
 export * from './components/slider';
 export * from './components/spinner';
 export * from './components/table';
