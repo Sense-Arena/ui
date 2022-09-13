@@ -6,8 +6,8 @@ import { btnIconBase, btnIconStyle, btnStyle, btnTxtStyle } from './button.style
 export type ButtonProps = {
   children?: ReactNode;
   icon?: ReactNode;
-  size?: 'standard' | 'big' | 'small';
-  color?: 'primary' | 'secondary' | 'outline' | 'outline_secondary';
+  size?: 's' | 'm' | 'l';
+  color?: 'primary' | 'secondary' | 'secondary_action' | 'outline' | 'outline_secondary';
   mode?: 'rounded' | 'square';
   minWidth?: boolean;
   fullWidth?: boolean;
@@ -24,10 +24,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
         ref={ref}
       >
-        <span className={btnTxtStyle({ size, fullWidth })}>{children}</span>
+        <span className={btnTxtStyle({ size, fullWidth, color })}>{children}</span>
         {icon || loading ? (
           <span className={clsx(btnIconStyle({ color, fullWidth }), btnIconBase)}>
-            {loading ? <Spinner size={size === 'small' ? 's' : 'm'} /> : icon}
+            {loading ? <Spinner size={size} /> : icon}
           </span>
         ) : null}
       </button>

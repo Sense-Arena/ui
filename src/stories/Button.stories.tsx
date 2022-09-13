@@ -29,6 +29,12 @@ Secondary.args = {
   children: 'Button',
   color: 'secondary',
 };
+export const SecondaryAction = Template.bind({});
+SecondaryAction.args = {
+  children: 'Button',
+  color: 'secondary_action',
+  mode: 'square',
+};
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Button',
@@ -42,12 +48,12 @@ OutlineSecondary.args = {
 export const PrimaryBig = Template.bind({});
 PrimaryBig.args = {
   children: 'Button',
-  size: 'big',
+  size: 'l',
 };
 export const PrimarySmall = Template.bind({});
 PrimarySmall.args = {
   children: 'Button',
-  size: 'small',
+  size: 's',
 };
 
 export const Loading = Template.bind({});

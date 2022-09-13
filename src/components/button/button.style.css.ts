@@ -22,15 +22,15 @@ export const btnStyle = recipe({
   },
   variants: {
     size: {
-      small: {
+      s: {
         height: '36px',
         minWidth: '90px',
       },
-      standard: {
+      m: {
         height: '48px',
         minWidth: '148px',
       },
-      big: {
+      l: {
         height: '64px',
         minWidth: '199px',
         '@media': {
@@ -63,6 +63,19 @@ export const btnStyle = recipe({
           },
           '&:active:not(:disabled)': {
             background: `linear-gradient(270deg, ${vars.colors.black} 0%, ${vars.colors.black} 100%)`,
+            transform: 'translateY(2px)',
+          },
+        },
+      },
+      secondary_action: {
+        background: `linear-gradient(270deg, ${vars.colors.greyDark} 0%, ${vars.colors.greyDark} 100%)`,
+        color: vars.colors.blackMetal,
+        selectors: {
+          '&:hover:not(:disabled)': {
+            background: `linear-gradient(270deg, ${vars.colors.grey} 0%, ${vars.colors.grey} 100%)`,
+          },
+          '&:active:not(:disabled)': {
+            background: `linear-gradient(270deg, ${vars.colors.grey} 0%, ${vars.colors.grey} 100%)`,
             transform: 'translateY(2px)',
           },
         },
@@ -120,7 +133,7 @@ export const btnStyle = recipe({
     },
   },
   defaultVariants: {
-    size: 'standard',
+    size: 'm',
     color: 'primary',
     mode: 'rounded',
     fullWidth: false,
@@ -139,15 +152,15 @@ export const btnTxtStyle = recipe({
   },
   variants: {
     size: {
-      small: {
+      s: {
         fontSize: '14px',
         lineHeight: '16px',
       },
-      standard: {
+      m: {
         fontSize: '16px',
         lineHeight: '19px',
       },
-      big: {
+      l: {
         fontSize: '18px',
         lineHeight: '22px',
       },
@@ -157,9 +170,18 @@ export const btnTxtStyle = recipe({
         margin: 'auto 0',
       },
     },
+    color: {
+      primary: {},
+      secondary: {},
+      secondary_action: {
+        textTransform: 'unset',
+      },
+      outline: {},
+      outline_secondary: {},
+    },
   },
   defaultVariants: {
-    size: 'standard',
+    size: 'm',
     fullWidth: false,
   },
 });
@@ -176,6 +198,9 @@ export const btnIconStyle = recipe({
       },
       secondary: {
         color: vars.colors.red,
+      },
+      secondary_action: {
+        color: vars.colors.blackMetal,
       },
       outline: {
         color: vars.colors.blackMetal,
