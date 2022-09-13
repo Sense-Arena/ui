@@ -42,7 +42,7 @@ const containerStyle = recipe({
       false: {
         selectors: {
           '&:hover': {
-            backgroundColor: '#ECEFF9',
+            backgroundColor: vars.colors.greyLight2,
           },
         },
       },

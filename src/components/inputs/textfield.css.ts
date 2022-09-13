@@ -8,7 +8,6 @@ export const containerStyle = recipe({
     height: '60px',
     minWidth: '25ch',
     display: 'inline-flex',
-    flexDirection: 'column',
     position: 'relative',
     padding: '8px 16px',
     // TODO: with prop
@@ -41,7 +40,7 @@ export const containerStyle = recipe({
       false: {
         selectors: {
           '&:hover': {
-            backgroundColor: '#ECEFF9',
+            backgroundColor: vars.colors.greyLight2,
           },
         },
       },
@@ -50,6 +49,16 @@ export const containerStyle = recipe({
   defaultVariants: {
     border: 'grey',
   },
+});
+
+export const fieldWrap = style({
+  display: 'inline-flex',
+  flexDirection: 'column',
+  width: '100%',
+});
+export const fieldEndAdornment = style({
+  flexShrink: 0,
+  alignSelf: 'center',
 });
 
 export const labelStyle = recipe({
