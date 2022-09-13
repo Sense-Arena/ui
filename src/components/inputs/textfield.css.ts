@@ -6,13 +6,11 @@ export const containerStyle = recipe({
   base: {
     width: '100%',
     height: '60px',
-    margin: '8px',
     minWidth: '25ch',
     display: 'inline-flex',
     flexDirection: 'column',
     position: 'relative',
     padding: '8px 16px',
-    border: `1px solid ${vars.colors.blackMetal}`,
     // TODO: with prop
     borderRadius: '10px',
     verticalAlign: 'top',
@@ -22,6 +20,14 @@ export const containerStyle = recipe({
     backgroundColor: vars.colors.white,
   },
   variants: {
+    border: {
+      black: {
+        border: `1px solid ${vars.colors.blackMetal}`,
+      },
+      grey: {
+        border: `1px solid ${vars.colors.grey}`,
+      },
+    },
     error: {
       true: {
         border: `1px solid ${vars.colors.red}`,
@@ -40,6 +46,9 @@ export const containerStyle = recipe({
         },
       },
     },
+  },
+  defaultVariants: {
+    border: 'grey',
   },
 });
 
