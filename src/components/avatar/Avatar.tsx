@@ -12,8 +12,8 @@ type Props = {
 
 export const Avatar = ({ src, bg, size, alt, className }: Props) => {
   return (
-    <div className={avatarStyles.container({ bg, size })}>
-      <img src={src} alt={alt} className={clsx(avatarStyles.img, className)} />
+    <div className={clsx(avatarStyles.container({ bg, size }), className)}>
+      <img src={src} alt={alt} className={avatarStyles.img} />
     </div>
   );
 };
