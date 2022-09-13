@@ -12,6 +12,7 @@ type Props = {
   checked?: boolean;
   radioProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
   onChange?: (checked: boolean) => void;
+  border?: 'black' | 'grey';
 };
 
 export const RadioField: FC<Props> = ({
@@ -22,6 +23,7 @@ export const RadioField: FC<Props> = ({
   checked,
   radioProps = {},
   onChange,
+  border,
 }) => {
   const id = useId();
   const ref = useRef<HTMLInputElement | null>(null);
@@ -33,11 +35,7 @@ export const RadioField: FC<Props> = ({
   return (
     <>
       <div
-        className={clsx(
-          radioStyles.containerStyle({ disabled, error: !!errorText }),
-          radioStyles.containerStyleSub,
-          className,
-        )}
+        className={clsx(radioStyles.containerStyle({ disabled, error: !!errorText, border }), className)}
         onClick={() => {
           onChange?.(true);
 
