@@ -7,7 +7,8 @@ export const ddContainerStyle = recipe({
     height: '48px',
     width: 'fit-content',
     minWidth: '77px',
-    borderRadius: '8px',
+    // TODO: with prop
+    borderRadius: '10px',
     fontFamily: vars.font.family,
     backgroundColor: vars.colors.white,
     userSelect: 'none',
@@ -74,7 +75,8 @@ export const ddMenuStyle = style({
   maxHeight: '180px',
   minHeight: '38px',
   minWidth: '77px',
-  borderRadius: '8px',
+  // TODO: with prop
+  borderRadius: '10px',
   backgroundColor: vars.colors.white,
   overflowX: 'hidden',
   overflowY: 'auto',

@@ -14,7 +14,8 @@ const containerStyle = recipe({
     position: 'relative',
     padding: '8px 16px',
     border: `1px solid ${vars.colors.blackMetal}`,
-    borderRadius: '5px',
+    // TODO: with prop
+    borderRadius: '10px',
     verticalAlign: 'top',
     cursor: 'text',
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
