@@ -7,13 +7,11 @@ const containerStyle = recipe({
     width: '100%',
     minHeight: '160px',
     maxHeight: '160px',
-    margin: '8px',
     minWidth: '25ch',
     display: 'inline-flex',
     flexDirection: 'column',
     position: 'relative',
     padding: '8px 16px',
-    border: `1px solid ${vars.colors.blackMetal}`,
     // TODO: with prop
     borderRadius: '10px',
     verticalAlign: 'top',
@@ -23,6 +21,14 @@ const containerStyle = recipe({
     backgroundColor: vars.colors.white,
   },
   variants: {
+    border: {
+      black: {
+        border: `1px solid ${vars.colors.blackMetal}`,
+      },
+      grey: {
+        border: `1px solid ${vars.colors.grey}`,
+      },
+    },
     error: {
       true: {
         border: `1px solid ${vars.colors.red}`,
@@ -41,6 +47,9 @@ const containerStyle = recipe({
         },
       },
     },
+  },
+  defaultVariants: {
+    border: 'grey',
   },
 });
 

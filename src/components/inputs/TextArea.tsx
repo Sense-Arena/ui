@@ -6,9 +6,20 @@ import { textareaStyles } from './textarea.css';
 type Props = {
   label: string;
   errorText?: string;
+  border?: 'black' | 'grey';
 } & DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
-export const TextArea: FC<Props> = ({ errorText, className, label, onFocus, onBlur, disabled = false, value, ...rest }) => {
+export const TextArea: FC<Props> = ({
+  errorText,
+  className,
+  label,
+  onFocus,
+  onBlur,
+  disabled = false,
+  value,
+  border,
+  ...rest
+}) => {
   const [labelS, setLabelS] = useState<'simple' | 'focused'>(value ? 'focused' : 'simple');
   const id = useId();
 
@@ -25,7 +36,7 @@ export const TextArea: FC<Props> = ({ errorText, className, label, onFocus, onBl
 
   return (
     <>
-      <div className={clsx(textareaStyles.containerStyle({ disabled, error: !!errorText }), className)}>
+      <div className={clsx(textareaStyles.containerStyle({ disabled, error: !!errorText, border }), className)}>
         <label htmlFor={id} className={textareaStyles.labelStyle({ variant: labelS, disabled })}>
           {label}
         </label>

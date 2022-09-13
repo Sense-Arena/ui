@@ -6,9 +6,20 @@ import { containerStyle, errorHintStyle, inputStyle, labelStyle } from './textfi
 type Props = {
   label: string;
   errorText?: string;
+  border?: 'black' | 'grey';
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export const TextField: FC<Props> = ({ errorText, className, label, onFocus, onBlur, disabled = false, value, ...rest }) => {
+export const TextField: FC<Props> = ({
+  errorText,
+  className,
+  label,
+  onFocus,
+  onBlur,
+  disabled = false,
+  value,
+  border,
+  ...rest
+}) => {
   const [labelS, setLabelS] = useState<'simple' | 'focused'>(value ? 'focused' : 'simple');
   const id = useId();
 
@@ -25,7 +36,7 @@ export const TextField: FC<Props> = ({ errorText, className, label, onFocus, onB
 
   return (
     <>
-      <div className={clsx(containerStyle({ disabled, error: !!errorText }), className)}>
+      <div className={clsx(containerStyle({ disabled, error: !!errorText, border }), className)}>
         <label htmlFor={id} className={labelStyle({ variant: labelS, disabled })}>
           {label}
         </label>
