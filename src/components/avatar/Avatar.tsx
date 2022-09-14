@@ -1,11 +1,11 @@
-import { avatarStyles } from './avatar.css';
 import { clsx } from '../../utils';
+import { avatarStyles } from './avatar.css';
 
 type Props = {
   src: string;
   bg?: 'white';
   name?: string;
-  size?: 's' | 'm';
+  size?: 's' | 'm' | 'l';
   alt?: string;
   className?: string;
 };
