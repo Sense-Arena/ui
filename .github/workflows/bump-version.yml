@@ -3,7 +3,7 @@ name: Bump version
 on:
   pull_request:
     types: [labeled]
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   bump_version:
@@ -13,6 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.PAT }}
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
