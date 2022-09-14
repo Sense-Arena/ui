@@ -1,6 +1,6 @@
-import { vars } from '../../theme/theme.css';
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
+import { vars } from '../../theme/theme.css';
 
 const container = recipe({
   base: {
@@ -24,6 +24,10 @@ const container = recipe({
       s: {
         width: '36px',
         height: '36px',
+      },
+      l: {
+        width: '98px',
+        height: '98px',
       },
     },
   },
