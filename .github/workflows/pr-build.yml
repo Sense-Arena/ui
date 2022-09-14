@@ -2,9 +2,12 @@ name: Run tests
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
     branches:
       - main
+  workflow_run:
+    workflows: ['Bump version']
+    types:
+      - completed
 
 jobs:
   test:
