@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
+import { vars } from '../../theme/theme.css';
 
 const modalContainer = style({
   position: 'fixed',
@@ -7,7 +8,7 @@ const modalContainer = style({
   left: 0,
   width: '100%',
   height: '100%',
-  zIndex: 100000,
+  zIndex: vars.zIndex.modal,
 });
 
 const modalContentWrapper = style({
