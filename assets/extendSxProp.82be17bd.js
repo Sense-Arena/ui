@@ -1,2 +1,0 @@
-import{c as u,_ as n,p as a,l as f}from"./styled.866710d5.js";const x=["sx"],P=t=>{const e={systemProps:{},otherProps:{}};return Object.keys(t).forEach(s=>{a[s]?e.systemProps[s]=t[s]:e.otherProps[s]=t[s]}),e};function h(t){const{sx:e}=t,s=u(t,x),{systemProps:o,otherProps:c}=P(s);let r;return Array.isArray(e)?r=[o,...e]:typeof e=="function"?r=(...l)=>{const i=e(...l);return f(i)?n({},o,i):o}:r=n({},o,e),n({},c,{sx:r})}export{h as e};
-//# sourceMappingURL=extendSxProp.82be17bd.js.map
