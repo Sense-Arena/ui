@@ -1,1 +1,1 @@
-export * from './SAModal';
+export * from './Modal';
