@@ -8,17 +8,6 @@ import { DeleteIcon } from '../icons';
 export default {
   title: 'UI/Modal',
   component: Modal,
-  // argTypes: {
-  //   disabled: {
-  //     type: 'boolean',
-  //   },
-  //   fullWidth: {
-  //     type: 'boolean',
-  //   },
-  //   minWidth: {
-  //     type: 'boolean',
-  //   },
-  // },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = args => {
