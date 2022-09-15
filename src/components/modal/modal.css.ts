@@ -11,25 +11,16 @@ const modalContainer = style({
   zIndex: vars.zIndex.modal,
 });
 
-const modalContentWrapper = recipe({
-  base: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    top: 0,
-    left: 0,
-    overflowY: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-  },
-  variants: {
-    paddingHeader: {
-      true: {
-        paddingTop: '96px',
-      },
-    },
-  },
+const modalContentWrapper = style({
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  top: 0,
+  left: 0,
+  overflowY: 'auto',
+  display: 'flex',
+  justifyContent: 'center',
+  backgroundColor: 'rgba(0,0,0,0.5)',
 });
 
 const modalContent = recipe({
