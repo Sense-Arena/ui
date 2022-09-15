@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { TextField } from '../../components/inputs';
+import { IconButton } from '../../components/icon-button';
 import { SearchIcon } from '../../icons';
 
 export default {
@@ -25,6 +26,17 @@ WithIcon.args = {
   label: 'First Name',
   name: 'first_name',
   endAdornment: <SearchIcon />,
+};
+
+export const WithIconButton = Template.bind({});
+WithIconButton.args = {
+  label: 'First Name',
+  name: 'first_name',
+  endAdornment: (
+    <IconButton>
+      <SearchIcon />
+    </IconButton>
+  ),
 };
 
 export const Filled = Template.bind({});
