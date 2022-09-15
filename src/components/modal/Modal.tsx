@@ -34,6 +34,7 @@ export const Modal = ({
 }: PropsModal) => {
   const [mounted, setMounted] = useState(open);
   const [contentTop, setContentTop] = useState(0);
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
     if (mounted) {
@@ -46,12 +47,17 @@ export const Modal = ({
   const contentRef = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        const headerHeight = 120;
+        let headerHeight = 0;
+        const headersCollection = document.getElementsByTagName('header');
+        if (paddingHeader && headersCollection.length) {
+          headerHeight = headersCollection[0].getBoundingClientRect().height;
+          setHeaderHeight(headerHeight);
+        }
         const bodyHeight = document.documentElement.getBoundingClientRect().height;
-        const modalContentHeight = paddingHeader ? bodyHeight - headerHeight : bodyHeight;
+        const modalContentHeight = bodyHeight - headerHeight;
         const contentHeight = node.getBoundingClientRect().height;
         if (modalContentHeight > contentHeight) {
-          setContentTop(bodyHeight / 2 - contentHeight / 2);
+          setContentTop(Math.round(modalContentHeight / 2 - contentHeight / 2));
         } else {
           setContentTop(0);
         }
@@ -97,7 +103,8 @@ export const Modal = ({
     <animated.div style={styleContainer} className={clsx(modalStyles.modalContainer, className)}>
       <div
         onClick={onBGClick}
-        className={modalStyles.modalContentWrapper({ paddingHeader: paddingHeader && contentTop === 0 })}
+        style={{ paddingTop: paddingHeader && contentTop < headerHeight ? headerHeight : 0 }}
+        className={modalStyles.modalContentWrapper}
       >
         <animated.div ref={contentRef} style={styleContent} className={modalStyles.modalContent({ size })}>
           {withCard ? (
