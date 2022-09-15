@@ -16,6 +16,7 @@ type PropsModal = PropsWithChildren<{
   withCard?: boolean;
   size?: 's' | 'm' | 'l';
   handleClose: () => void;
+  paddingHeader?: boolean;
 }>;
 
 export const Modal = ({
@@ -29,6 +30,7 @@ export const Modal = ({
   withCard = true,
   size,
   handleClose,
+  paddingHeader = true,
 }: PropsModal) => {
   const [mounted, setMounted] = useState(open);
   const [contentTop, setContentTop] = useState(0);
@@ -44,9 +46,11 @@ export const Modal = ({
   const contentRef = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
+        const headerHeight = 120;
         const bodyHeight = document.documentElement.getBoundingClientRect().height;
-        const contentHeight = node.clientHeight;
-        if (bodyHeight > contentHeight) {
+        const modalContentHeight = paddingHeader ? bodyHeight - headerHeight : bodyHeight;
+        const contentHeight = node.getBoundingClientRect().height;
+        if (modalContentHeight > contentHeight) {
           setContentTop(bodyHeight / 2 - contentHeight / 2);
         } else {
           setContentTop(0);
@@ -91,7 +95,10 @@ export const Modal = ({
 
   return (
     <animated.div style={styleContainer} className={clsx(modalStyles.modalContainer, className)}>
-      <div onClick={onBGClick} className={modalStyles.modalContentWrapper}>
+      <div
+        onClick={onBGClick}
+        className={modalStyles.modalContentWrapper({ paddingHeader: paddingHeader && contentTop === 0 })}
+      >
         <animated.div ref={contentRef} style={styleContent} className={modalStyles.modalContent({ size })}>
           {withCard ? (
             <Card
