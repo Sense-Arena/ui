@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from 'react';
 import { LS, LSKeys } from '../../utils/local-store';
 import { Button } from '../button';
-import { SAModal } from '../modal';
+import { Modal } from '../modal';
 import { ConsentContext } from './consent-context';
 import { gdprStyles } from './gdpr.css';
 import { ModalContainer } from './ModalContainer';
@@ -46,9 +46,9 @@ export const Banner = () => {
           </Button>
         </div>
       </div>
-      <SAModal open={opened} handleClose={closeModal} handleOpen={openModal}>
+      <Modal open={opened} handleClose={closeModal} withCard={false}>
         <ModalContainer />
-      </SAModal>
+      </Modal>
     </>
   );
 };
