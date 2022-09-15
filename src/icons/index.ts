@@ -13,6 +13,7 @@ export * from './CalendarEventIcon';
 export * from './CheckIcon';
 export * from './CloseIcon';
 export * from './DashboardIcon';
+export * from './DeleteIcon';
 export * from './DiagnosticsIcon';
 export * from './FacebookIcon';
 export * from './GuideLineIcon';
