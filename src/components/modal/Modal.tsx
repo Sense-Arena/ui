@@ -41,15 +41,20 @@ export const Modal = ({
     }
   }, [mounted]);
 
-  const contentRef = useCallback((node: HTMLDivElement) => {
-    if (node) {
-      const bodyHeight = document.documentElement.getBoundingClientRect().height;
-      const contentHeight = node.clientHeight;
-      if (bodyHeight > contentHeight) {
-        setContentTop(bodyHeight / 2 - contentHeight / 2);
+  const contentRef = useCallback(
+    (node: HTMLDivElement) => {
+      if (node) {
+        const bodyHeight = document.documentElement.getBoundingClientRect().height;
+        const contentHeight = node.clientHeight;
+        if (bodyHeight > contentHeight) {
+          setContentTop(bodyHeight / 2 - contentHeight / 2);
+        } else {
+          setContentTop(0);
+        }
       }
-    }
-  }, []);
+    },
+    [children],
+  );
 
   const styleContainer = useSpring({
     opacity: open ? 1 : 0,
