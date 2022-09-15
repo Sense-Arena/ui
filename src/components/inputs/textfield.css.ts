@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../theme/theme.css';
 
@@ -9,7 +9,6 @@ export const containerStyle = recipe({
     minWidth: '25ch',
     display: 'inline-flex',
     position: 'relative',
-    padding: '8px 16px',
     // TODO: with prop
     borderRadius: '10px',
     verticalAlign: 'top',
@@ -45,6 +44,14 @@ export const containerStyle = recipe({
         },
       },
     },
+    withEndAdornment: {
+      true: {
+        padding: '8px 4px 8px 16px',
+      },
+      false: {
+        padding: '8px 16px',
+      },
+    },
   },
   defaultVariants: {
     border: 'grey',
@@ -59,6 +66,11 @@ export const fieldWrap = style({
 export const fieldEndAdornment = style({
   flexShrink: 0,
   alignSelf: 'center',
+});
+
+globalStyle(`${fieldEndAdornment} > svg`, {
+  margin: '0 12px',
+  display: 'block',
 });
 
 export const labelStyle = recipe({

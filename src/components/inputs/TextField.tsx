@@ -38,7 +38,12 @@ export const TextField: FC<Props> = ({
 
   return (
     <>
-      <div className={clsx(containerStyle({ disabled, error: !!errorText, border }), className)}>
+      <div
+        className={clsx(
+          containerStyle({ disabled, error: !!errorText, border, withEndAdornment: !!endAdornment }),
+          className,
+        )}
+      >
         <div className={fieldWrap}>
           <label htmlFor={id} className={labelStyle({ variant: labelS, disabled })}>
             {label}
