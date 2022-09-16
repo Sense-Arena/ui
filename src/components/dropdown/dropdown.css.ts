@@ -13,7 +13,6 @@ export const ddContainerStyle = recipe({
     userSelect: 'none',
     position: 'relative',
     cursor: 'pointer',
-    padding: '14px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -67,12 +66,15 @@ export const ddContainerStyle = recipe({
     size: {
       s: {
         height: '36px',
+        padding: '6px 14px',
       },
       m: {
         height: '48px',
+        padding: '14px',
       },
       l: {
         height: '60px',
+        padding: '18px 14px',
       },
     },
   },
