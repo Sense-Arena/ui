@@ -4,7 +4,6 @@ import { vars } from '../../theme/theme.css';
 
 export const ddContainerStyle = recipe({
   base: {
-    height: '48px',
     width: 'fit-content',
     minWidth: '77px',
     // TODO: with prop
@@ -60,27 +59,63 @@ export const ddContainerStyle = recipe({
         backgroundColor: vars.colors.greyLight2,
       },
     },
+    fullWidth: {
+      true: {
+        width: '100%',
+      },
+    },
+    size: {
+      s: {
+        height: '36px',
+      },
+      m: {
+        height: '48px',
+      },
+      l: {
+        height: '60px',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'm',
   },
 });
 
 export const ddIconStyle = style({
   marginLeft: '18px',
 });
-export const ddMenuStyle = style({
-  position: 'absolute',
-  top: '58px',
-  left: '0',
-  zIndex: vars.zIndex.dropdown,
-  fontFamily: vars.font.family,
-  maxHeight: '180px',
-  minHeight: '38px',
-  minWidth: '77px',
-  // TODO: with prop
-  borderRadius: '10px',
-  backgroundColor: vars.colors.white,
-  overflowX: 'hidden',
-  overflowY: 'auto',
-  boxShadow: `0 2px 20px -5px rgba(0,0,0,0.5)`,
+export const ddMenuStyle = recipe({
+  base: {
+    position: 'absolute',
+    left: '0',
+    zIndex: vars.zIndex.dropdown,
+    fontFamily: vars.font.family,
+    maxHeight: '180px',
+    minHeight: '38px',
+    minWidth: '77px',
+    // TODO: with prop
+    borderRadius: '10px',
+    backgroundColor: vars.colors.white,
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    boxShadow: `0 2px 20px -5px rgba(0,0,0,0.5)`,
+  },
+  variants: {
+    size: {
+      s: {
+        top: '46px',
+      },
+      m: {
+        top: '58px',
+      },
+      l: {
+        top: '70px',
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'm',
+  },
 });
 
 export const ddMenuItemStyle = recipe({
