@@ -19,7 +19,7 @@ type Props<TOption> = {
   className?: string;
   border?: 'black' | 'grey';
   fullWidth?: boolean;
-  size: 's' | 'm' | 'l';
+  size?: 's' | 'm' | 'l';
 };
 
 export function Dropdown<TOption>({
