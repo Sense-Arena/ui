@@ -70,3 +70,34 @@ Error.args = {
   error: true,
   border: 'grey',
 };
+
+export const Small = Template.bind({});
+Small.args = {
+  selectedOption: '1',
+  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+  onSelect: console.debug,
+  options,
+  border: 'grey',
+  size: 's',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  selectedOption: '1',
+  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+  onSelect: console.debug,
+  options,
+  border: 'grey',
+  size: 'l',
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  selectedOption: '1',
+  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+  onSelect: console.debug,
+  options,
+  border: 'grey',
+  size: 'l',
+  fullWidth: true,
+};
