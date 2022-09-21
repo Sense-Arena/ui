@@ -16,6 +16,11 @@ export const containerStyle = recipe({
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
     fontFamily: vars.font.family,
     backgroundColor: vars.colors.white,
+    '@media': {
+      'screen and (max-width: 480px)': {
+        minWidth: '15ch',
+      },
+    },
   },
   variants: {
     border: {
