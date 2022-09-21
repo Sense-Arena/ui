@@ -108,22 +108,26 @@ export const Modal = ({
       >
         <animated.div ref={contentRef} style={styleContent} className={modalStyles.modalContent({ size })}>
           {withCard ? (
-            <Card
-              title={title}
-              action={
-                action === undefined ? (
+            <div className={modalStyles.modalActionContainer}>
+              <div className={modalStyles.modalAction}>
+                {action === undefined ? (
                   <IconButton onClick={handleClose}>
-                    <CloseIcon />
+                    <CloseIcon className={modalStyles.modalActionCloseIcon} />
                   </IconButton>
-                ) : action ? (
-                  action
-                ) : undefined
-              }
-              withPadding={withPadding}
-              className={cardClassName}
-            >
-              {children}
-            </Card>
+                ) : (
+                  action || null
+                )}
+              </div>
+
+              <Card
+                title={title}
+                withPadding={withPadding}
+                className={cardClassName}
+                classNameHeader={modalStyles.cardHeader}
+              >
+                {children}
+              </Card>
+            </div>
           ) : (
             children
           )}

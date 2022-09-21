@@ -52,8 +52,32 @@ const modalContent = recipe({
   },
 });
 
+const modalActionContainer = style({
+  position: 'relative',
+});
+
+const modalAction = style({
+  position: 'absolute',
+  top: 16,
+  right: 16,
+});
+
+const modalActionCloseIcon = style({
+  width: 18,
+  height: 18,
+});
+
+const cardHeader = style({
+  // backgroundColor: '#ff00ff',
+  paddingRight: '5rem !important',
+});
+
 export const modalStyles = {
   modalContainer,
   modalContent,
   modalContentWrapper,
+  modalActionContainer,
+  modalAction,
+  modalActionCloseIcon,
+  cardHeader,
 };
