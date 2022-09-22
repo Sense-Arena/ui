@@ -21,6 +21,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || loading}
         className={clsx(btnStyle({ size, color, mode, fullWidth, minWidth }), className)}
         onClick={disabled || loading ? undefined : onClick}
+        type="button"
         {...rest}
         ref={ref}
       >
