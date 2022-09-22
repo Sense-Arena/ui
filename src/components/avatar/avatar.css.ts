@@ -43,7 +43,16 @@ const img = style({
   borderRadius: '50%',
 });
 
+const loading = style({
+  display: 'flex',
+  width: '100%',
+  height: '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
 export const avatarStyles = {
   container,
   img,
+  loading,
 };
