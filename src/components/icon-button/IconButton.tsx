@@ -16,6 +16,7 @@ export const IconButton = forwardRef<HTMLButtonElement, Props>(
         disabled={disabled}
         className={clsx(iconBtnStyle({ color }), className)}
         onClick={disabled || loading ? undefined : onClick}
+        type="button"
         {...rest}
       >
         {loading ? <Spinner /> : children}
