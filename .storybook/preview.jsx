@@ -1,15 +1,7 @@
 
 
-import React from 'react';
-import { themeClass } from '../src/theme/theme.css';
+import '../src/theme/theme.css';
 
-export const decorators = [
-  (Story) => (
-    <div className={themeClass}>
-      {Story()}
-    </div>
-  ),
-];
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
