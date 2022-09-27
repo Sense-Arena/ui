@@ -88,7 +88,7 @@ globalStyle(`${fieldEndAdornment} > svg`, {
 
 export const labelStyle = recipe({
   base: {
-    color: vars.font.color,
+    color: vars.colors.text,
     letterSpacing: 0,
     height: '24px',
     padding: 0,
