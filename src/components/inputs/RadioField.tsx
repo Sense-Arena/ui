@@ -13,6 +13,7 @@ type Props = {
   radioProps?: DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
   onChange?: (checked: boolean) => void;
   border?: 'black' | 'grey';
+  bRadius?: 8 | 10;
 };
 
 export const RadioField: FC<Props> = ({
@@ -24,6 +25,7 @@ export const RadioField: FC<Props> = ({
   radioProps = {},
   onChange,
   border,
+  bRadius,
 }) => {
   const id = useId();
   const ref = useRef<HTMLInputElement | null>(null);
@@ -33,9 +35,9 @@ export const RadioField: FC<Props> = ({
   };
 
   return (
-    <>
+    <div>
       <div
-        className={clsx(radioStyles.containerStyle({ disabled, error: !!errorText, border }), className)}
+        className={clsx(radioStyles.containerStyle({ disabled, error: !!errorText, border, bRadius }), className)}
         onClick={() => {
           onChange?.(true);
 
@@ -66,6 +68,6 @@ export const RadioField: FC<Props> = ({
           {errorText}
         </Paragraph>
       ) : null}
-    </>
+    </div>
   );
 };
