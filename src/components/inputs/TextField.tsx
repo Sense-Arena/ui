@@ -8,6 +8,7 @@ type Props = {
   errorText?: string;
   border?: 'black' | 'grey';
   endAdornment?: ReactNode;
+  bRadius?: 8 | 10;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export const TextField: FC<Props> = ({
@@ -20,6 +21,7 @@ export const TextField: FC<Props> = ({
   value,
   border,
   endAdornment,
+  bRadius,
   ...rest
 }) => {
   const [labelS, setLabelS] = useState<'simple' | 'focused'>(value ? 'focused' : 'simple');
@@ -37,10 +39,10 @@ export const TextField: FC<Props> = ({
   };
 
   return (
-    <>
+    <div>
       <div
         className={clsx(
-          containerStyle({ disabled, error: !!errorText, border, withEndAdornment: !!endAdornment }),
+          containerStyle({ disabled, error: !!errorText, border, withEndAdornment: !!endAdornment, bRadius }),
           className,
         )}
       >
@@ -65,6 +67,6 @@ export const TextField: FC<Props> = ({
           {errorText}
         </Paragraph>
       ) : null}
-    </>
+    </div>
   );
 };
