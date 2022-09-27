@@ -12,8 +12,6 @@ const containerStyle = recipe({
     flexDirection: 'column',
     position: 'relative',
     padding: '8px 16px',
-    // TODO: with prop
-    borderRadius: '10px',
     verticalAlign: 'top',
     cursor: 'text',
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
@@ -47,9 +45,19 @@ const containerStyle = recipe({
         },
       },
     },
+
+    bRadius: {
+      10: {
+        borderRadius: '10px',
+      },
+      8: {
+        borderRadius: '8px',
+      },
+    },
   },
   defaultVariants: {
     border: 'grey',
+    bRadius: 10,
   },
 });
 

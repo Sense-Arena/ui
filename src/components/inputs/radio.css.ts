@@ -9,8 +9,6 @@ const containerStyle = recipe({
     minWidth: '25ch',
     position: 'relative',
     padding: '8px 16px',
-    // TODO: with prop
-    borderRadius: '10px',
     verticalAlign: 'top',
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
     fontFamily: vars.font.family,
@@ -45,9 +43,19 @@ const containerStyle = recipe({
         },
       },
     },
+
+    bRadius: {
+      10: {
+        borderRadius: '10px',
+      },
+      8: {
+        borderRadius: '8px',
+      },
+    },
   },
   defaultVariants: {
     border: 'grey',
+    bRadius: 10,
   },
 });
 

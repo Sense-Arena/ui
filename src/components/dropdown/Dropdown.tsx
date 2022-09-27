@@ -20,6 +20,7 @@ type Props<TOption> = {
   border?: 'black' | 'grey';
   fullWidth?: boolean;
   size?: 's' | 'm' | 'l';
+  bRadius?: 8 | 10;
 };
 
 export function Dropdown<TOption>({
@@ -33,6 +34,7 @@ export function Dropdown<TOption>({
   border,
   fullWidth,
   size,
+  bRadius,
 }: Props<TOption>) {
   const [isOpen, setOpen] = useState(false);
 
@@ -64,7 +66,7 @@ export function Dropdown<TOption>({
   return (
     <div
       onClick={toggle}
-      className={clsx(ddContainerStyle({ disabled, error, opened: isOpen, border, fullWidth, size }), className)}
+      className={clsx(ddContainerStyle({ disabled, error, opened: isOpen, border, fullWidth, size, bRadius }), className)}
       ref={mainRef}
     >
       <span>{selectedOptionLabel}</span>
@@ -72,7 +74,7 @@ export function Dropdown<TOption>({
       {isOpen ? (
         <a.div
           style={{ ...styles, width: mainRef.current?.getClientRects()[0].width }}
-          className={ddMenuStyle({ size })}
+          className={ddMenuStyle({ size, bRadius })}
           ref={ref}
           onClick={e => e.stopPropagation()}
         >

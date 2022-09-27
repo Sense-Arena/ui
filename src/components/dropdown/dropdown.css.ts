@@ -6,8 +6,6 @@ export const ddContainerStyle = recipe({
   base: {
     width: 'fit-content',
     minWidth: '77px',
-    // TODO: with prop
-    borderRadius: '10px',
     fontFamily: vars.font.family,
     backgroundColor: vars.colors.white,
     userSelect: 'none',
@@ -77,9 +75,18 @@ export const ddContainerStyle = recipe({
         padding: '18px 14px',
       },
     },
+    bRadius: {
+      10: {
+        borderRadius: '10px',
+      },
+      8: {
+        borderRadius: '8px',
+      },
+    },
   },
   defaultVariants: {
     size: 'm',
+    bRadius: 10,
   },
 });
 
@@ -95,8 +102,6 @@ export const ddMenuStyle = recipe({
     maxHeight: '180px',
     minHeight: '38px',
     minWidth: '77px',
-    // TODO: with prop
-    borderRadius: '10px',
     backgroundColor: vars.colors.white,
     overflowX: 'hidden',
     overflowY: 'auto',
@@ -114,9 +119,18 @@ export const ddMenuStyle = recipe({
         top: '70px',
       },
     },
+    bRadius: {
+      10: {
+        borderRadius: '10px',
+      },
+      8: {
+        borderRadius: '8px',
+      },
+    },
   },
   defaultVariants: {
     size: 'm',
+    bRadius: 10,
   },
 });
 
