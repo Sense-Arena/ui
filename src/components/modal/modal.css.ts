@@ -68,7 +68,6 @@ const modalActionCloseIcon = style({
 });
 
 const cardHeader = style({
-  // backgroundColor: '#ff00ff',
   paddingRight: '5rem !important',
 });
 
