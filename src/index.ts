@@ -18,6 +18,6 @@ export * from './components/tabs';
 export * from './components/typography';
 export * from './hooks';
 export * from './icons';
-export { themeClass as uiThemeClass } from './theme/theme.css';
+export * from './theme/constants';
 export * from './theme/utils';
 export * from './utils';

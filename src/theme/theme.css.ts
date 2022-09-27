@@ -1,6 +1,36 @@
-import { createTheme, globalStyle, style } from '@vanilla-extract/css';
+import { createGlobalTheme, createGlobalThemeContract, globalStyle, style } from '@vanilla-extract/css';
 
-export const [themeClass, vars] = createTheme({
+export const vars = createGlobalThemeContract(
+  {
+    colors: {
+      red: 'red',
+      redDarken: 'red-darken',
+      white: 'white',
+      black: 'black',
+      grey: 'grey',
+      greyLight: 'grey-light',
+      greyDark: 'grey-dark',
+      blackMetal: 'black-metal',
+      text: 'text',
+      ctaDark: 'cta-dark',
+      greyLight2: 'grey-light-2',
+    },
+    font: {
+      family: 'font',
+    },
+    zIndex: {
+      menu: 'menu',
+      menuSide: 'menu-side',
+      playerOverlay: 'player-overlay',
+      modal: 'modal',
+      gdpr: 'gdpr',
+      dropdown: 'dropdown',
+    },
+  },
+  value => `sa-${value}`,
+);
+
+createGlobalTheme('body', vars, {
   colors: {
     red: '#E4022D',
     redDarken: '#D30028',
@@ -27,7 +57,7 @@ export const [themeClass, vars] = createTheme({
   },
 });
 
-globalStyle(`${themeClass}`, {
+globalStyle('body', {
   fontFamily: vars.font.family,
   fontWeight: 400,
   fontStyle: 'normal',

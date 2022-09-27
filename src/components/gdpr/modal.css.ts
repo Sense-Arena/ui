@@ -1,20 +1,18 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { themeClass, vars } from '../../theme/theme.css';
+import { vars } from '../../theme/theme.css';
 import { hex2rgba } from '../../theme/utils';
 
-export const modalContainer = style([
-  themeClass,
-  {
-    fontFamily: vars.font.family,
-    borderRadius: '16px',
-    backgroundColor: vars.colors.white,
-    border: '1px solid rgba(255, 255, 255, 0.3)',
-    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-    overflowY: 'auto',
-    maxHeight: '70vh',
-    position: 'relative',
-  },
-]);
+export const modalContainer = style({
+  fontFamily: vars.font.family,
+  borderRadius: '16px',
+  backgroundColor: vars.colors.white,
+  border: '1px solid rgba(255, 255, 255, 0.3)',
+  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+  overflowY: 'auto',
+  maxHeight: '70vh',
+  position: 'relative',
+});
+
 export const modalHead = style({
   fontSize: '24px',
   lineHeight: '28px',
