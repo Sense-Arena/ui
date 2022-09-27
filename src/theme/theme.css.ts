@@ -4,6 +4,9 @@ export const vars = createGlobalThemeContract(
   {
     colors: {
       red: 'red',
+      redShade: 'red-shade',
+      green: 'green',
+      greenShade: 'green-shade',
       redDarken: 'red-darken',
       white: 'white',
       black: 'black',
@@ -11,9 +14,11 @@ export const vars = createGlobalThemeContract(
       greyLight: 'grey-light',
       greyDark: 'grey-dark',
       blackMetal: 'black-metal',
+      blackMetalShade: 'black-metal-shade',
       text: 'text',
       ctaDark: 'cta-dark',
       greyLight2: 'grey-light-2',
+      logoBlack: 'logo-black',
     },
     font: {
       family: 'font',
@@ -33,16 +38,21 @@ export const vars = createGlobalThemeContract(
 createGlobalTheme('body', vars, {
   colors: {
     red: '#E4022D',
+    redShade: 'rgba(228,2,45,0.15)',
     redDarken: '#D30028',
+    green: '#1A994A',
+    greenShade: 'rgba(26,153,74,0.15)',
     white: '#ffffff',
     black: '#000000',
     grey: '#D7D9DF',
-    greyLight: '#F6F8FD',
     greyDark: '#E3E6EE',
+    greyLight: '#F6F8FD',
+    greyLight2: '#ECEFF9',
     blackMetal: '#242424',
+    blackMetalShade: 'rgba(36,36,36,0.15)',
     text: '#1C1C1C',
     ctaDark: '#292929',
-    greyLight2: '#ECEFF9',
+    logoBlack: '#1c1d1c',
   },
   font: {
     family: 'Rubik, sans-serif',
@@ -105,7 +115,14 @@ export const linkInsertion = style({
   fontSize: 'inherit !important',
   lineHeight: 'inherit  !important',
   color: 'inherit  !important',
+  textDecoration: 'inherit',
 });
 globalStyle(`${linkInsertion} > span`, {
   textTransform: 'unset',
+});
+
+export const textNoWrap = style({
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
 });
