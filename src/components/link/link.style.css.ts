@@ -18,7 +18,7 @@ export const linkStyle = recipe({
   variants: {
     variant: {
       primary: {
-        color: vars.colors.linkRed,
+        color: vars.colors.red,
         fontSize: '24px',
         letterSpacing: '-0.5px',
         lineHeight: '28px',
@@ -31,7 +31,7 @@ export const linkStyle = recipe({
         },
       },
       secondary: {
-        color: vars.font.color,
+        color: vars.colors.text,
         fontSize: '18px',
         letterSpacing: 0,
         lineHeight: '24px',
