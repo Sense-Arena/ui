@@ -12,7 +12,7 @@ const cookieContainer = style([
     backgroundColor: vars.colors.white,
     borderRadius: '16px',
     boxShadow: '0 4px 20px 0 rgb(0 0 0 / 40%)',
-    color: vars.font.color,
+    color: vars.colors.text,
     padding: '24px 16px 16px',
     display: 'grid',
     gridTemplateColumns: '1fr 0.2fr',

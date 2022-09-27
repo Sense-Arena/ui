@@ -61,7 +61,7 @@ const containerStyle = recipe({
 
 const labelStyle = recipe({
   base: {
-    color: vars.font.color,
+    color: vars.colors.text,
     letterSpacing: 0,
     padding: 0,
     display: 'block',

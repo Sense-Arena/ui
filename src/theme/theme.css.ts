@@ -2,7 +2,6 @@ import { createTheme, globalStyle, style } from '@vanilla-extract/css';
 
 export const [themeClass, vars] = createTheme({
   colors: {
-    linkRed: '#E4032D',
     red: '#E4022D',
     redDarken: '#D30028',
     white: '#ffffff',
@@ -11,13 +10,12 @@ export const [themeClass, vars] = createTheme({
     greyLight: '#F6F8FD',
     greyDark: '#E3E6EE',
     blackMetal: '#242424',
-    cBlack: '#1C1C1C',
+    text: '#1C1C1C',
     ctaDark: '#292929',
     greyLight2: '#ECEFF9',
   },
   font: {
     family: 'Rubik, sans-serif',
-    color: '#1C1C1C',
   },
   zIndex: {
     menu: '11000',
@@ -36,7 +34,7 @@ globalStyle(`${themeClass}`, {
   fontStretch: 'normal',
   lineHeight: 'initial',
   fontSize: '16px',
-  color: vars.font.color,
+  color: vars.colors.text,
 });
 globalStyle(`*`, {
   boxSizing: 'border-box',
