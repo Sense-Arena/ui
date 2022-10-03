@@ -15,6 +15,9 @@ export default defineConfig({
       outputDir: path.resolve(__dirname, 'dist/types'),
       exclude: ['**/stories/**'],
       entryRoot: path.resolve(__dirname, 'src/index.ts'),
+      afterDiagnostic: console.debug,
+      skipDiagnostics: false,
+      copyDtsFiles: true,
     }),
   ],
   build: {
