@@ -80,8 +80,16 @@ export const fieldEndAdornment = style({
   alignSelf: 'center',
 });
 
-globalStyle(`${fieldEndAdornment} > svg`, {
-  margin: '0 12px',
+export const fieldEndIcon = style({
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  right: 16,
+  display: 'block',
+  pointerEvents: 'none',
+});
+
+globalStyle(`${fieldEndIcon} > svg`, {
   display: 'block',
 });
 
@@ -161,6 +169,11 @@ export const inputStyle = recipe({
             caretColor: vars.colors.red,
           },
         },
+      },
+    },
+    withIcon: {
+      true: {
+        paddingRight: 52,
       },
     },
   },
