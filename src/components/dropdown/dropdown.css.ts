@@ -6,6 +6,7 @@ export const ddContainerStyle = recipe({
   base: {
     width: 'fit-content',
     minWidth: '77px',
+    maxWidth: '100%',
     fontFamily: vars.font.family,
     backgroundColor: vars.colors.white,
     userSelect: 'none',
@@ -90,8 +91,16 @@ export const ddContainerStyle = recipe({
   },
 });
 
+export const ddText = style({
+  whiteSpace: 'nowrap',
+  maxWidth: '100%',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+});
+
 export const ddIconStyle = style({
   marginLeft: '18px',
+  display: 'block',
 });
 export const ddMenuStyle = recipe({
   base: {

@@ -49,10 +49,10 @@ export const containerStyle = recipe({
     },
     withEndAdornment: {
       true: {
-        padding: '8px 4px 8px 16px',
+        padding: '0 4px 0 0',
       },
       false: {
-        padding: '8px 16px',
+        padding: '0',
       },
     },
 
@@ -72,9 +72,8 @@ export const containerStyle = recipe({
 });
 
 export const fieldWrap = style({
-  display: 'inline-flex',
-  flexDirection: 'column',
   width: '100%',
+  position: 'relative',
 });
 export const fieldEndAdornment = style({
   flexShrink: 0,
@@ -92,24 +91,26 @@ export const labelStyle = recipe({
     letterSpacing: 0,
     height: '24px',
     padding: 0,
+    paddingLeft: 16,
     display: 'block',
     cursor: 'text',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
     maxWidth: 'calc(100% - 32px)',
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
+    pointerEvents: 'none',
   },
   variants: {
     variant: {
       simple: {
         fontSize: '18px',
         lineHeight: '24px',
-        transform: 'translateY(10px)',
+        transform: 'translateY(16px)',
       },
       focused: {
         fontSize: '14px',
         lineHeight: '20px',
-        transform: 'translateY(0px)',
+        transform: 'translateY(8px)',
       },
     },
     disabled: {
@@ -122,19 +123,22 @@ export const labelStyle = recipe({
 
 export const inputStyle = recipe({
   base: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    padding: '24px 16px 4px',
     fontSize: '18px',
     lineHeight: '24px',
     letterSpacing: 0,
     color: 'currentcolor',
     border: 0,
-    boxSizing: 'content-box',
     background: 'none',
     margin: 0,
     WebkitTapHighlightColor: 'transparent',
     display: 'block',
     minWidth: 0,
-    width: '100%',
-    padding: 0,
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
   },
   variants: {
