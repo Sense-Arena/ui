@@ -4,6 +4,7 @@ export * from './useCopyToClipBoard';
 export * from './useDeviceDetect';
 export * from './useEventListener';
 export * from './useInterval';
+export * from './useMediaQuery';
 export * from './useMQuery';
 export * from './useScrollToElement';
 export * from './useTimeout';
