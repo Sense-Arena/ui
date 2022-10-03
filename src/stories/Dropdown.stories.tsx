@@ -47,7 +47,8 @@ Base.args = {
 export const LongValue = Template.bind({});
 LongValue.args = {
   selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+  selectedOptionLabel:
+    'Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey',
   onSelect: console.debug,
   options,
 };

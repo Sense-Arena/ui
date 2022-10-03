@@ -4,7 +4,7 @@ import { useClickOutside } from '../../hooks/useClickOutside';
 import { useEventListener } from '../../hooks/useEventListener';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
-import { ddContainerStyle, ddIconStyle, ddMenuItemStyle, ddMenuStyle } from './dropdown.css';
+import { ddContainerStyle, ddIconStyle, ddMenuItemStyle, ddMenuStyle, ddText } from './dropdown.css';
 
 type Props<TOption> = {
   disabled?: boolean;
@@ -69,8 +69,8 @@ export function Dropdown<TOption>({
       className={clsx(ddContainerStyle({ disabled, error, opened: isOpen, border, fullWidth, size, bRadius }), className)}
       ref={mainRef}
     >
-      <span>{selectedOptionLabel}</span>
-      {isOpen ? <ArrowUpSline className={ddIconStyle} /> : <ArrowDownSline className={ddIconStyle} />}
+      <span className={ddText}>{selectedOptionLabel}</span>
+      <div>{isOpen ? <ArrowUpSline className={ddIconStyle} /> : <ArrowDownSline className={ddIconStyle} />}</div>
       {isOpen ? (
         <a.div
           style={{ ...styles, width: mainRef.current?.getClientRects()[0].width }}
