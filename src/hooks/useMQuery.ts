@@ -1,13 +1,16 @@
-import { useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from './useMediaQuery';
 
+/**
+ * Makes additional update on mount
+ */
 export const useMQuery = (queryInput: string) => {
-  const lessThan1100px = useMediaQuery(queryInput);
-  const [lessThanV, setLessThan1100px] = useState(false);
+  const mqResult = useMediaQuery(queryInput);
+  const [mqValue, setMQValue] = useState(false);
 
   useEffect(() => {
-    setLessThan1100px(lessThan1100px);
-  }, [lessThan1100px]);
+    setMQValue(mqResult);
+  }, [mqResult]);
 
-  return lessThanV;
+  return mqValue;
 };
