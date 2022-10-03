@@ -31,9 +31,6 @@ export default defineConfig({
       external: [...Object.keys(peerDependencies)],
       output: {
         globals: {
-          '@emotion/react': 'EmoReact',
-          '@emotion/styled': 'Emo',
-          '@mui/material': 'MUI',
           '@react-spring/web': 'SpringWeb',
           '@vanilla-extract/css': 'VanillaCss',
           '@vanilla-extract/recipes': 'VanillaRecipes',
