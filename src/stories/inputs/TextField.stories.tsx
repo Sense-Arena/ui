@@ -25,7 +25,7 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   label: 'First Name',
   name: 'first_name',
-  endAdornment: <SearchIcon />,
+  endIcon: <SearchIcon />,
 };
 
 export const WithIconButton = Template.bind({});
