@@ -1,8 +1,8 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import { cardStyles } from './card.css';
-import { Divider } from '@mui/material';
-import { Heading } from '../typography';
 import { clsx } from '../../utils';
+import { Divider } from '../divider/Divider';
+import { Heading } from '../typography';
+import { cardStyles } from './card.css';
 
 type Props = PropsWithChildren<{
   title?: ReactNode;
