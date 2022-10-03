@@ -3,12 +3,10 @@ import { disableSelectStyle, linkInsertion, redTitle, subtitleSection, textNoWra
 /**
  * production only
  */
-// @ts-ignore
 export const themeVars = vars;
 /**
  * production only
  */
-// @ts-ignore
 export const themeStyles = {
   disableSelectStyle,
   linkInsertion,
