@@ -1,6 +1,6 @@
-import { Radio } from '@mui/material';
-import { ChangeEvent, DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useId, useRef } from 'react';
+import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useId, useRef } from 'react';
 import { clsx } from '../../utils/clsx';
+import { RadioButton } from '../radio-button/RadioButton';
 import { Paragraph } from '../typography';
 import { radioStyles } from './radio.css';
 
@@ -30,7 +30,7 @@ export const RadioField: FC<Props> = ({
   const id = useId();
   const ref = useRef<HTMLInputElement | null>(null);
 
-  const onChangeHandler = (_: ChangeEvent<HTMLInputElement>, checked: boolean) => {
+  const onChangeHandler = (checked: boolean) => {
     onChange?.(!checked);
   };
 
@@ -46,19 +46,7 @@ export const RadioField: FC<Props> = ({
           }
         }}
       >
-        <Radio
-          inputRef={ref}
-          disabled={disabled}
-          onChange={onChangeHandler}
-          checked={checked}
-          id={id}
-          inputProps={radioProps}
-          sx={{
-            '&.Mui-checked': {
-              color: '#E4022D',
-            },
-          }}
-        />
+        <RadioButton id={id} checked={!!checked} onChangeHandler={onChangeHandler} disabled={disabled} ref={ref} />
         <label htmlFor={id} className={radioStyles.labelStyle({ disabled })}>
           {label}
         </label>
