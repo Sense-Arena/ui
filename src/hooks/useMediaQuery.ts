@@ -26,7 +26,7 @@ const useMediaQueryNew = (query: string, defaultMatches: boolean, matchMedia: ty
       },
     ];
   }, [getDefaultSnapshot, matchMedia, query]);
-  const match = useSyncExternalStore(subscribe, getSnapshot);
+  const match = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
 
   return match;
 };
