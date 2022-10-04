@@ -1,4 +1,4 @@
-import { disableSelectStyle, linkInsertion, redTitle, subtitleSection, textNoWrap, vars } from './theme.css';
+import { disableSelectStyle, linkInsertion, redTitle, textNoWrap, vars } from './vars.css';
 
 /**
  * production only
@@ -11,6 +11,5 @@ export const themeStyles = {
   disableSelectStyle,
   linkInsertion,
   redTitle,
-  subtitleSection,
   textNoWrap,
 };

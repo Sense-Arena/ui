@@ -1,5 +1,5 @@
 import { recipe } from '@vanilla-extract/recipes';
-import { vars } from '../../theme/theme.css';
+import { vars } from '../../theme/vars.css';
 
 const divider = recipe({
   base: {

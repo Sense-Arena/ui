@@ -1,39 +1,5 @@
-import { createGlobalTheme, createGlobalThemeContract, globalStyle, style } from '@vanilla-extract/css';
-
-export const vars = createGlobalThemeContract(
-  {
-    colors: {
-      red: 'red',
-      redShade: 'red-shade',
-      green: 'green',
-      greenShade: 'green-shade',
-      redDarken: 'red-darken',
-      white: 'white',
-      black: 'black',
-      grey: 'grey',
-      greyLight: 'grey-light',
-      greyDark: 'grey-dark',
-      blackMetal: 'black-metal',
-      blackMetalShade: 'black-metal-shade',
-      text: 'text',
-      ctaDark: 'cta-dark',
-      greyLight2: 'grey-light-2',
-      logoBlack: 'logo-black',
-    },
-    font: {
-      family: 'font',
-    },
-    zIndex: {
-      menu: 'menu',
-      menuSide: 'menu-side',
-      playerOverlay: 'player-overlay',
-      modal: 'modal',
-      gdpr: 'gdpr',
-      dropdown: 'dropdown',
-    },
-  },
-  value => `sa-${value}`,
-);
+import { createGlobalTheme, globalStyle } from '@vanilla-extract/css';
+import { linkInsertion, vars } from './vars.css';
 
 createGlobalTheme('body', vars, {
   colors: {
@@ -87,42 +53,6 @@ globalStyle(`#__next`, {
   height: '100%',
 });
 
-export const disableSelectStyle = style({
-  userSelect: 'none',
-});
-
-export const redTitle = style({
-  color: vars.colors.red,
-});
-
-export const subtitleSection = style({
-  maxWidth: '773px',
-  margin: '1.5rem 0 2rem',
-  '@media': {
-    'screen and (max-width: 1170px)': {
-      maxWidth: '520px',
-      fontSize: '18px',
-      lineHeight: '24px',
-    },
-    'screen and (max-width: 670px)': {
-      margin: '1rem 0 1.5rem',
-      maxWidth: '80%',
-    },
-  },
-});
-
-export const linkInsertion = style({
-  fontSize: 'inherit !important',
-  lineHeight: 'inherit  !important',
-  color: 'inherit  !important',
-  textDecoration: 'inherit',
-});
 globalStyle(`${linkInsertion} > span`, {
   textTransform: 'unset',
-});
-
-export const textNoWrap = style({
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
 });

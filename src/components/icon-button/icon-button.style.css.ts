@@ -1,5 +1,5 @@
-import { vars } from '../../theme/theme.css';
 import { recipe } from '@vanilla-extract/recipes';
+import { vars } from '../../theme/vars.css';
 
 export const iconBtnStyle = recipe({
   base: {

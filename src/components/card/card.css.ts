@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../../theme/theme.css';
 import { recipe } from '@vanilla-extract/recipes';
+import { vars } from '../../theme/vars.css';
 
 const section = style({
   borderRadius: '20px',

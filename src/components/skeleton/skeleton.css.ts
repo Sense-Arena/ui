@@ -1,5 +1,5 @@
-import { vars } from '../../theme/theme.css';
 import { keyframes, style } from '@vanilla-extract/css';
+import { vars } from '../../theme/vars.css';
 
 const translate = keyframes({
   '100%': { transform: 'translateX(100%)' },
