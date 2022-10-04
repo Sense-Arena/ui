@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { vars } from '../../theme/theme.css';
+import { vars } from '../../theme/vars.css';
 
 const accordionContainer = style({
   width: '100%',
