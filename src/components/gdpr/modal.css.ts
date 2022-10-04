@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '../../theme/theme.css';
 import { hex2rgba } from '../../theme/utils';
+import { vars } from '../../theme/vars.css';
 
 export const modalContainer = style({
   fontFamily: vars.font.family,
