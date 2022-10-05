@@ -53,7 +53,7 @@ export const Modal = ({
           headerHeight = headersCollection[0].getBoundingClientRect().height;
           setHeaderHeight(headerHeight);
         }
-        const bodyHeight = document.documentElement.getBoundingClientRect().height;
+        const bodyHeight = window.innerHeight;
         const modalContentHeight = bodyHeight - headerHeight;
         const contentHeight = node.getBoundingClientRect().height;
         if (modalContentHeight > contentHeight) {
