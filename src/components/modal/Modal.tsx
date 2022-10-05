@@ -1,11 +1,11 @@
-import { PropsWithChildren, ReactNode, MouseEvent, useCallback, useEffect, useState } from 'react';
-import { modalStyles } from './modal.css';
-import { Card } from '../card';
+import { animated, useSpring } from '@react-spring/web';
+import { MouseEvent, PropsWithChildren, ReactNode, useCallback, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { CloseIcon } from '../../icons';
 import { clsx } from '../../utils';
+import { Card } from '../card';
 import { IconButton } from '../icon-button';
-import { animated, useSpring } from '@react-spring/web';
-import { createPortal } from 'react-dom';
+import { modalStyles } from './modal.css';
 
 type PropsModal = PropsWithChildren<{
   open: boolean;
@@ -100,7 +100,7 @@ export const Modal = ({
     }
   };
 
-  const portalNode = document.getElementById(portalNodeId) || document.body;
+  const portalNode = document?.getElementById(portalNodeId) ?? document?.body ?? null;
 
   if (!mounted || !portalNode) return null;
 
