@@ -100,7 +100,7 @@ export const Modal = ({
     }
   };
 
-  const portalNode = window?.document.getElementById(portalNodeId) ?? window?.document.body ?? null;
+  const portalNode = typeof window === 'undefined' ? null : document.getElementById(portalNodeId) || document.body;
 
   if (!mounted || !portalNode) return null;
 
