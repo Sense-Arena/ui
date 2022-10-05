@@ -5,6 +5,7 @@ import { CloseIcon } from '../../icons';
 import { clsx } from '../../utils';
 import { IconButton } from '../icon-button';
 import { animated, useSpring } from '@react-spring/web';
+import { createPortal } from 'react-dom';
 
 type PropsModal = PropsWithChildren<{
   open: boolean;
@@ -17,6 +18,7 @@ type PropsModal = PropsWithChildren<{
   size?: 's' | 'm' | 'l';
   handleClose: () => void;
   paddingHeader?: boolean;
+  portalNodeId?: string;
 }>;
 
 export const Modal = ({
@@ -31,6 +33,7 @@ export const Modal = ({
   size,
   handleClose,
   paddingHeader = true,
+  portalNodeId = 'root',
 }: PropsModal) => {
   const [mounted, setMounted] = useState(open);
   const [contentTop, setContentTop] = useState(0);
@@ -97,9 +100,11 @@ export const Modal = ({
     }
   };
 
-  if (!mounted) return null;
+  const portalNode = document.getElementById(portalNodeId) || document.body;
 
-  return (
+  if (!mounted || !portalNode) return null;
+
+  return createPortal(
     <animated.div style={styleContainer} className={clsx(modalStyles.modalContainer, className)}>
       <div
         onClick={onBGClick}
@@ -133,6 +138,7 @@ export const Modal = ({
           )}
         </animated.div>
       </div>
-    </animated.div>
+    </animated.div>,
+    portalNode,
   );
 };
