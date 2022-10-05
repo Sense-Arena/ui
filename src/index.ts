@@ -17,5 +17,6 @@ export * from './components/typography';
 export * from './hooks';
 export * from './icons';
 export * from './theme/constants';
+export * from './theme/theme.css';
 export * from './theme/utils';
 export * from './utils';
