@@ -103,7 +103,7 @@ export const Modal = ({
     <animated.div style={styleContainer} className={clsx(modalStyles.modalContainer, className)}>
       <div
         onClick={onBGClick}
-        style={{ paddingTop: paddingHeader && contentTop < headerHeight ? headerHeight : 0 }}
+        style={{ paddingTop: paddingHeader ? headerHeight : 0 }}
         className={modalStyles.modalContentWrapper}
       >
         <animated.div ref={contentRef} style={styleContent} className={modalStyles.modalContent({ size })}>
