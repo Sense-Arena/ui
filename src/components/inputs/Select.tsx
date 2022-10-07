@@ -60,8 +60,10 @@ export function Select<T>({
 
   return (
     <>
-      <select className={selectStyles.select} {...rest} value={selectedOption}>
-        <option value={selectedOption}>{selectedOptionLabel}</option>
+      <select className={selectStyles.select} {...rest}>
+        <option selected value={selectedOption}>
+          {selectedOptionLabel}
+        </option>
       </select>
       <div
         onClick={toggle}
