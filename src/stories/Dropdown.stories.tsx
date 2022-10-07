@@ -102,14 +102,3 @@ FullWidth.args = {
   size: 'l',
   fullWidth: true,
 };
-
-export const WithLabelOnlySizeL = Template.bind({});
-WithLabelOnlySizeL.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
-  options,
-  border: 'grey',
-  size: 'l',
-  label: 'Title',
-};
