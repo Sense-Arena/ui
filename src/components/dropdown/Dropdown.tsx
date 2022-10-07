@@ -4,7 +4,7 @@ import { useClickOutside } from '../../hooks/useClickOutside';
 import { useEventListener } from '../../hooks/useEventListener';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
-import { ddContainerStyle, ddIconStyle, ddMenuItemStyle, ddMenuStyle, ddText } from './dropdown.css';
+import { ddContainerStyle, ddIconStyle, ddLabel, ddMenuItemStyle, ddMenuStyle, ddText } from './dropdown.css';
 
 type Props<TOption> = {
   disabled?: boolean;
@@ -21,6 +21,7 @@ type Props<TOption> = {
   fullWidth?: boolean;
   size?: 's' | 'm' | 'l';
   bRadius?: 8 | 10;
+  label?: string;
 };
 
 export function Dropdown<TOption>({
@@ -35,6 +36,7 @@ export function Dropdown<TOption>({
   fullWidth,
   size,
   bRadius,
+  label,
 }: Props<TOption>) {
   const [isOpen, setOpen] = useState(false);
 
@@ -63,13 +65,16 @@ export function Dropdown<TOption>({
     [onSelect],
   );
 
+  const withLabel = label && size === 'l';
+
   return (
     <div
       onClick={toggle}
       className={clsx(ddContainerStyle({ disabled, error, opened: isOpen, border, fullWidth, size, bRadius }), className)}
       ref={mainRef}
     >
-      <span className={ddText}>{selectedOptionLabel}</span>
+      {withLabel ? <span className={ddLabel}>{label}</span> : null}
+      <span className={ddText({ withLabel: !!withLabel })}>{selectedOptionLabel}</span>
       <div>{isOpen ? <ArrowUpSline className={ddIconStyle} /> : <ArrowDownSline className={ddIconStyle} />}</div>
       {isOpen ? (
         <a.div
