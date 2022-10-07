@@ -6,15 +6,15 @@ import { clsx } from '../../utils/clsx';
 import { selectStyles } from './select.css';
 import { DropDownMenu } from '../dropdown-menu';
 
-type Props = {
+type Props<TOption> = {
   disabled?: boolean;
   error?: boolean;
-  onSelect?: (selected: string) => void;
+  onSelect?: (selected: TOption) => void;
   selectedOptionLabel: string;
-  selectedOption: string;
+  selectedOption: TOption;
   options: {
     title: string;
-    value: string;
+    value: TOption;
   }[];
   className?: string;
   border?: 'black' | 'grey';
@@ -23,7 +23,7 @@ type Props = {
   label?: string;
 } & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
 
-export function Select<T>({
+export function Select<TOption>({
   disabled,
   onSelect,
   selectedOptionLabel,
@@ -36,7 +36,7 @@ export function Select<T>({
   bRadius,
   label,
   ...rest
-}: Props) {
+}: Props<TOption>) {
   const [isOpen, setOpen] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -51,17 +51,21 @@ export function Select<T>({
   useClickOutside(ref, close, mainRef);
 
   const selectItem = useCallback(
-    (optionValue: string) => {
+    (optionValue: TOption) => {
       onSelect?.(optionValue);
       close();
     },
     [onSelect],
   );
 
+  const valueForSelect =
+    typeof selectedOption === 'number' || typeof selectedOption === 'string' ? selectedOption : String(selectedOption);
+
   return (
     <>
-      <select className={selectStyles.select} {...rest}>
-        <option selected value={selectedOption}>
+      Y
+      <select value={valueForSelect} className={selectStyles.select} {...rest}>
+        <option selected value={valueForSelect}>
           {selectedOptionLabel}
         </option>
       </select>
