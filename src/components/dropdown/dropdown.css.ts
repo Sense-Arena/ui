@@ -17,10 +17,7 @@ export const ddContainerStyle = recipe({
     alignItems: 'center',
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
     border: `1px solid ${vars.colors.blackMetal}`,
-    fontSize: '18px',
-    fontWeight: 500,
     letterSpacing: 0,
-    lineHeight: '22px',
     selectors: {
       '&:hover': {
         backgroundColor: vars.colors.greyLight2,
@@ -65,15 +62,15 @@ export const ddContainerStyle = recipe({
     size: {
       s: {
         height: '36px',
-        padding: '6px 14px',
+        padding: '0 14px',
       },
       m: {
         height: '48px',
-        padding: '14px',
+        padding: '0 14px',
       },
       l: {
         height: '60px',
-        padding: '18px 14px',
+        padding: '0 14px',
       },
     },
     bRadius: {
@@ -91,11 +88,35 @@ export const ddContainerStyle = recipe({
   },
 });
 
-export const ddText = style({
-  whiteSpace: 'nowrap',
-  maxWidth: '100%',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
+export const ddText = recipe({
+  base: {
+    maxWidth: '100%',
+    display: 'block',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    lineHeight: '22px',
+    fontSize: '18px',
+  },
+  variants: {
+    withLabel: {
+      false: {
+        fontWeight: 500,
+      },
+      true: {
+        paddingTop: 20,
+      },
+    },
+  },
+});
+
+export const ddLabel = style({
+  position: 'absolute',
+  top: 8,
+  left: 16,
+  color: vars.colors.text,
+  fontSize: '14px',
+  lineHeight: '20px',
 });
 
 export const ddIconStyle = style({
