@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../theme/vars.css';
 
-export const ddContainerStyle = recipe({
+const container = recipe({
   base: {
     width: 'fit-content',
     minWidth: '77px',
@@ -16,11 +16,9 @@ export const ddContainerStyle = recipe({
     justifyContent: 'space-between',
     alignItems: 'center',
     transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
-    border: `1px solid ${vars.colors.blackMetal}`,
-    fontSize: '18px',
-    fontWeight: 500,
     letterSpacing: 0,
-    lineHeight: '22px',
+    height: '60px',
+    padding: '0 16px',
     selectors: {
       '&:hover': {
         backgroundColor: vars.colors.greyLight2,
@@ -62,20 +60,6 @@ export const ddContainerStyle = recipe({
         width: '100%',
       },
     },
-    size: {
-      s: {
-        height: '36px',
-        padding: '6px 14px',
-      },
-      m: {
-        height: '48px',
-        padding: '14px',
-      },
-      l: {
-        height: '60px',
-        padding: '18px 14px',
-      },
-    },
     bRadius: {
       10: {
         borderRadius: '10px',
@@ -86,19 +70,52 @@ export const ddContainerStyle = recipe({
     },
   },
   defaultVariants: {
-    size: 'm',
     bRadius: 10,
+    border: 'grey',
   },
 });
 
-export const ddText = style({
-  whiteSpace: 'nowrap',
-  maxWidth: '100%',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
+const text = recipe({
+  base: {
+    maxWidth: '100%',
+    display: 'block',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    lineHeight: '22px',
+    fontSize: '18px',
+  },
+  variants: {
+    withLabel: {
+      true: {
+        paddingTop: 20,
+      },
+    },
+  },
 });
 
-export const ddIconStyle = style({
+const label = style({
+  position: 'absolute',
+  top: 8,
+  left: 16,
+  color: vars.colors.text,
+  fontSize: '14px',
+  lineHeight: '20px',
+});
+
+const iconStyle = style({
   marginLeft: '18px',
   display: 'block',
 });
+
+const select = style({
+  display: 'none',
+});
+
+export const selectStyles = {
+  iconStyle,
+  label,
+  text,
+  container,
+  select,
+};

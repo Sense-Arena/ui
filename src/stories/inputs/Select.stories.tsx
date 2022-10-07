@@ -1,15 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Dropdown } from '../components/dropdown';
+import { Select } from '../../components/inputs';
 
 export default {
-  title: 'UI/Dropdown',
-  component: Dropdown,
+  title: 'UI/Inputs/Select',
+  component: Select,
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof Dropdown>;
+} as ComponentMeta<typeof Select>;
 
 const options = [
   {
@@ -34,7 +34,7 @@ const options = [
   },
 ];
 
-const Template: ComponentStory<typeof Dropdown> = args => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Select> = args => <Select {...args} />;
 
 export const Base = Template.bind({});
 Base.args = {
@@ -43,6 +43,7 @@ Base.args = {
   onSelect: console.debug,
   options,
   border: 'grey',
+  label: 'Title',
 };
 export const LongValue = Template.bind({});
 LongValue.args = {
@@ -50,6 +51,7 @@ LongValue.args = {
   selectedOptionLabel:
     'Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey',
   onSelect: console.debug,
+  label: 'Title',
   options,
 };
 
@@ -58,6 +60,7 @@ Disabled.args = {
   selectedOption: '1',
   selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
   onSelect: console.debug,
+  label: 'Title',
   options,
   disabled: true,
 };
@@ -67,6 +70,7 @@ Error.args = {
   selectedOption: '1',
   selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
   onSelect: console.debug,
+  label: 'Title',
   options,
   error: true,
   border: 'grey',
@@ -79,7 +83,6 @@ Small.args = {
   onSelect: console.debug,
   options,
   border: 'grey',
-  size: 's',
 };
 
 export const Large = Template.bind({});
@@ -89,7 +92,6 @@ Large.args = {
   onSelect: console.debug,
   options,
   border: 'grey',
-  size: 'l',
 };
 
 export const FullWidth = Template.bind({});
@@ -99,6 +101,6 @@ FullWidth.args = {
   onSelect: console.debug,
   options,
   border: 'grey',
-  size: 'l',
   fullWidth: true,
+  name: 'select',
 };
