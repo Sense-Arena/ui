@@ -63,7 +63,6 @@ export function Select<TOption>({
 
   return (
     <>
-      Y
       <select value={valueForSelect} className={selectStyles.select} {...rest}>
         <option selected value={valueForSelect}>
           {selectedOptionLabel}
