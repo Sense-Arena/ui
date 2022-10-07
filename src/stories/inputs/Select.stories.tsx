@@ -34,7 +34,7 @@ const options = [
   },
 ];
 
-const Template: ComponentStory<typeof Select> = args => <Select {...args} />;
+const Template: ComponentStory<typeof Select<string>> = args => <Select<string> {...args} />;
 
 export const Base = Template.bind({});
 Base.args = {

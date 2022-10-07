@@ -63,10 +63,8 @@ export function Select<TOption>({
 
   return (
     <>
-      <select value={valueForSelect} className={selectStyles.select} {...rest}>
-        <option selected value={valueForSelect}>
-          {selectedOptionLabel}
-        </option>
+      <select disabled value={valueForSelect} className={selectStyles.select} {...rest}>
+        <option value={valueForSelect}>{selectedOptionLabel}</option>
       </select>
       <div
         onClick={toggle}
