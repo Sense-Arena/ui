@@ -5,10 +5,11 @@ import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
 import { selectStyles } from './select.css';
 import { DropDownMenu } from '../dropdown-menu';
+import { Paragraph } from '../typography';
 
 type Props<TOption> = {
   disabled?: boolean;
-  error?: boolean;
+  errorText?: string;
   onChangeSelect?: (selected: TOption, name?: string) => void;
   selectedOptionLabel: string;
   selectedOption: TOption;
@@ -28,7 +29,7 @@ export function Select<TOption>({
   onChangeSelect,
   selectedOptionLabel,
   options,
-  error,
+  errorText,
   className,
   selectedOption,
   border,
@@ -68,7 +69,10 @@ export function Select<TOption>({
       </select>
       <div
         onClick={toggle}
-        className={clsx(selectStyles.container({ disabled, error, opened: isOpen, border, fullWidth, bRadius }), className)}
+        className={clsx(
+          selectStyles.container({ disabled, error: !!errorText, opened: isOpen, border, fullWidth, bRadius }),
+          className,
+        )}
         ref={mainRef}
       >
         {label ? <span className={selectStyles.label}>{label}</span> : null}
@@ -91,6 +95,11 @@ export function Select<TOption>({
           bRadius={bRadius}
         />
       </div>
+      {errorText ? (
+        <Paragraph variant="note" className={selectStyles.errorHintStyle}>
+          {errorText}
+        </Paragraph>
+      ) : null}
     </>
   );
 }
