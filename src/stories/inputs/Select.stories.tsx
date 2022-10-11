@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Select } from '../../components/inputs';
+import { useState } from 'react';
 
 export default {
   title: 'UI/Inputs/Select',
@@ -34,13 +35,32 @@ const options = [
   },
 ];
 
-const Template: ComponentStory<typeof Select<string>> = args => <Select<string> {...args} />;
+const Template: ComponentStory<typeof Select> = args => <Select {...args} />;
+
+const ControlledTemplate: ComponentStory<typeof Select> = () => {
+  const [value, setValue] = useState(options[0].value);
+  return (
+    <Select
+      border="grey"
+      fullWidth
+      name="controlled"
+      selectedOption={value}
+      selectedOptionLabel={options.find(item => item.value === value)?.title ?? 'Select option'}
+      options={options}
+      onChangeSelect={(value, name) => {
+        setValue(value);
+        console.log(value);
+        console.log(name);
+      }}
+    />
+  );
+};
 
 export const Base = Template.bind({});
 Base.args = {
   selectedOption: '1',
   selectedOptionLabel: '1',
-  onSelect: console.debug,
+  onChangeSelect: console.debug,
   options,
   border: 'grey',
   label: 'Title',
@@ -50,7 +70,7 @@ LongValue.args = {
   selectedOption: '1',
   selectedOptionLabel:
     'Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey',
-  onSelect: console.debug,
+  onChangeSelect: console.debug,
   label: 'Title',
   options,
 };
@@ -59,7 +79,7 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   selectedOption: '1',
   selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
+  onChangeSelect: console.debug,
   label: 'Title',
   options,
   disabled: true,
@@ -69,7 +89,7 @@ export const Error = Template.bind({});
 Error.args = {
   selectedOption: '1',
   selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
+  onChangeSelect: console.debug,
   label: 'Title',
   options,
   error: true,
@@ -80,7 +100,7 @@ export const Small = Template.bind({});
 Small.args = {
   selectedOption: '1',
   selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
+  onChangeSelect: console.debug,
   options,
   border: 'grey',
 };
@@ -89,7 +109,7 @@ export const Large = Template.bind({});
 Large.args = {
   selectedOption: '1',
   selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
+  onChangeSelect: console.debug,
   options,
   border: 'grey',
 };
@@ -98,9 +118,11 @@ export const FullWidth = Template.bind({});
 FullWidth.args = {
   selectedOption: '1',
   selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
+  onChangeSelect: console.debug,
   options,
   border: 'grey',
   fullWidth: true,
   name: 'select',
 };
+
+export const Controlled = ControlledTemplate.bind({});
