@@ -81,6 +81,7 @@ export function Select<TOption>({
           )}
         </div>
         <DropDownMenu
+          menuRef={ref}
           isOpen={isOpen}
           mainRef={mainRef}
           selectedOption={selectedOption}

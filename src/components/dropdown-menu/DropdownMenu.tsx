@@ -1,14 +1,11 @@
 import { animated as a, useSpring } from '@react-spring/web';
-import { ReactNode, RefObject, useCallback, useRef, useState } from 'react';
-import { useClickOutside } from '../../hooks/useClickOutside';
-import { useEventListener } from '../../hooks/useEventListener';
-import { ArrowDownSline, ArrowUpSline } from '../../icons';
-import { clsx } from '../../utils/clsx';
+import { RefObject } from 'react';
 import { ddMenuItemStyle, ddMenuStyle } from './dropdown-menu.css';
 
 type Props<TOption> = {
   isOpen: boolean;
   mainRef: RefObject<HTMLDivElement>;
+  menuRef: RefObject<HTMLDivElement>;
   selectedOption: TOption;
   selectItem: (value: TOption) => void;
   options: {
@@ -27,8 +24,8 @@ export function DropDownMenu<TOption>({
   selectItem,
   size,
   bRadius,
+  menuRef,
 }: Props<TOption>) {
-  const ref = useRef<HTMLDivElement>(null);
   const styles = useSpring({
     opacity: isOpen ? 1 : 0,
     config: {
@@ -42,7 +39,7 @@ export function DropDownMenu<TOption>({
     <a.div
       style={{ ...styles, width: mainRef.current?.getClientRects()[0].width }}
       className={ddMenuStyle({ size, bRadius })}
-      ref={ref}
+      ref={menuRef}
       onClick={e => e.stopPropagation()}
     >
       {options.map(o => (

@@ -66,6 +66,7 @@ export function Dropdown<TOption>({
       <span className={ddText}>{selectedOptionLabel}</span>
       <div>{isOpen ? <ArrowUpSline className={ddIconStyle} /> : <ArrowDownSline className={ddIconStyle} />}</div>
       <DropDownMenu
+        menuRef={ref}
         isOpen={isOpen}
         mainRef={mainRef}
         selectedOption={selectedOption}
