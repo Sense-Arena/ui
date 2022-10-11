@@ -58,11 +58,8 @@ export function Select<TOption>({
     [onChangeSelect],
   );
 
-  const formatSelectValue = (value: TOption) => {
-    return typeof value === 'number' || typeof value === 'string' ? value : String(value);
-  };
-
-  const valueForSelect = formatSelectValue(selectedOption);
+  const valueForSelect =
+    typeof selectedOption === 'number' || typeof selectedOption === 'string' ? selectedOption : String(selectedOption);
 
   return (
     <>
