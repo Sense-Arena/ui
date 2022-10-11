@@ -63,7 +63,7 @@ export function Select<TOption>({
     typeof selectedOption === 'number' || typeof selectedOption === 'string' ? selectedOption : String(selectedOption);
 
   return (
-    <>
+    <div>
       <select disabled value={valueForSelect} className={selectStyles.select} {...rest}>
         <option value={valueForSelect}>{selectedOptionLabel}</option>
       </select>
@@ -100,6 +100,6 @@ export function Select<TOption>({
           {errorText}
         </Paragraph>
       ) : null}
-    </>
+    </div>
   );
 }
