@@ -9,7 +9,7 @@ import { DropDownMenu } from '../dropdown-menu';
 type Props<TOption> = {
   disabled?: boolean;
   error?: boolean;
-  onSelect?: (selected: TOption) => void;
+  onChangeSelect?: (selected: TOption, name?: string) => void;
   selectedOptionLabel: string;
   selectedOption: TOption;
   options: {
@@ -25,7 +25,7 @@ type Props<TOption> = {
 
 export function Select<TOption>({
   disabled,
-  onSelect,
+  onChangeSelect,
   selectedOptionLabel,
   options,
   error,
@@ -52,14 +52,17 @@ export function Select<TOption>({
 
   const selectItem = useCallback(
     (optionValue: TOption) => {
-      onSelect?.(optionValue);
+      onChangeSelect?.(optionValue, rest.name);
       close();
     },
-    [onSelect],
+    [onChangeSelect],
   );
 
-  const valueForSelect =
-    typeof selectedOption === 'number' || typeof selectedOption === 'string' ? selectedOption : String(selectedOption);
+  const formatSelectValue = (value: TOption) => {
+    return typeof value === 'number' || typeof value === 'string' ? value : String(value);
+  };
+
+  const valueForSelect = formatSelectValue(selectedOption);
 
   return (
     <>
