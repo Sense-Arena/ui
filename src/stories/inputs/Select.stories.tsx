@@ -92,7 +92,7 @@ Error.args = {
   onChangeSelect: console.debug,
   label: 'Title',
   options,
-  error: true,
+  errorText: 'Error message text',
   border: 'grey',
 };
 
