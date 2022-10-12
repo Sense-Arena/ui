@@ -178,7 +178,3 @@ export const inputStyle = recipe({
     },
   },
 });
-
-export const errorHintStyle = style({
-  margin: '0 0 8px 14px !important',
-});

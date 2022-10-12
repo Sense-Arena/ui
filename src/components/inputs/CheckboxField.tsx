@@ -1,12 +1,12 @@
 import { DetailedHTMLProps, FC, InputHTMLAttributes, MouseEvent, ReactNode, useCallback, useId, useRef } from 'react';
 import { clsx } from '../../utils/clsx';
 import { CheckboxButton } from '../checkbox-button/CheckboxButton';
-import { Paragraph } from '../typography';
 import { checkStyles } from './check.css';
+import { FieldError } from './FieldError';
 
 type Props = {
   label: ReactNode;
-  errorText?: string;
+  errorText?: ReactNode;
   className?: string;
   disabled?: boolean;
   checked?: boolean;
@@ -78,11 +78,7 @@ export const CheckboxField: FC<Props> = ({
           {label}
         </label>
       </div>
-      {errorText && variant === 'field' ? (
-        <Paragraph variant="note" className={checkStyles.errorHintStyle}>
-          {errorText}
-        </Paragraph>
-      ) : null}
+      <FieldError errorText={errorText} />
     </div>
   );
 };

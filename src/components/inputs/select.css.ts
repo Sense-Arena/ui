@@ -112,15 +112,10 @@ const select = style({
   display: 'none',
 });
 
-const errorHintStyle = style({
-  margin: '0 0 8px 14px !important',
-});
-
 export const selectStyles = {
   iconStyle,
   label,
   text,
   container,
   select,
-  errorHintStyle,
 };
