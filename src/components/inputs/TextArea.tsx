@@ -1,11 +1,11 @@
-import { DetailedHTMLProps, FC, FocusEventHandler, TextareaHTMLAttributes, useId, useState } from 'react';
+import { DetailedHTMLProps, FC, FocusEventHandler, ReactNode, TextareaHTMLAttributes, useId, useState } from 'react';
 import { clsx } from '../../utils/clsx';
-import { Paragraph } from '../typography';
+import { FieldError } from './FieldError';
 import { textareaStyles } from './textarea.css';
 
 type Props = {
   label: string;
-  errorText?: string;
+  errorText?: ReactNode;
   border?: 'black' | 'grey';
   bRadius?: 8 | 10;
   containerClassName?: string;
@@ -59,11 +59,7 @@ export const TextArea: FC<Props> = ({
           id={id}
         />
       </div>
-      {errorText ? (
-        <Paragraph variant="note" className={textareaStyles.errorHintStyle}>
-          {errorText}
-        </Paragraph>
-      ) : null}
+      <FieldError errorText={errorText} />
     </div>
   );
 };
