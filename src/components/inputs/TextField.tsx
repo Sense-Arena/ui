@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, FocusEventHandler, InputHTMLAttributes, ReactNode, useId, useState } from 'react';
+import { DetailedHTMLProps, FC, FocusEventHandler, InputHTMLAttributes, ReactNode, RefObject, useId, useState } from 'react';
 import { clsx } from '../../utils/clsx';
 import { FieldError } from './FieldError';
 import { containerStyle, fieldEndAdornment, fieldEndIcon, fieldWrap, inputStyle, labelStyle } from './textfield.css';
@@ -11,6 +11,7 @@ type Props = {
   endIcon?: ReactNode;
   bRadius?: 8 | 10;
   containerClassName?: string;
+  inputRef?: RefObject<HTMLInputElement>;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export const TextField: FC<Props> = ({
@@ -26,6 +27,7 @@ export const TextField: FC<Props> = ({
   endIcon,
   bRadius,
   containerClassName,
+  inputRef,
   ...rest
 }) => {
   const [labelS, setLabelS] = useState<'simple' | 'focused'>(value ? 'focused' : 'simple');
@@ -60,6 +62,7 @@ export const TextField: FC<Props> = ({
             onBlur={handleBlur}
             disabled={disabled}
             value={value}
+            ref={inputRef}
             {...rest}
             id={id}
           />
