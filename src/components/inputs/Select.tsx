@@ -3,9 +3,9 @@ import { useClickOutside } from '../../hooks/useClickOutside';
 import { useEventListener } from '../../hooks/useEventListener';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
-import { selectStyles } from './select.css';
 import { DropDownMenu } from '../dropdown-menu';
 import { Paragraph } from '../typography';
+import { selectStyles } from './select.css';
 
 type Props<TOption> = {
   disabled?: boolean;
@@ -22,12 +22,14 @@ type Props<TOption> = {
   fullWidth?: boolean;
   bRadius?: 8 | 10;
   label?: string;
+  containerClassName?: string;
 } & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
 
 export function Select<TOption>({
   disabled,
   onChangeSelect,
   selectedOptionLabel,
+  containerClassName,
   options,
   errorText,
   className,
@@ -63,7 +65,7 @@ export function Select<TOption>({
     typeof selectedOption === 'number' || typeof selectedOption === 'string' ? selectedOption : String(selectedOption);
 
   return (
-    <div>
+    <div className={className}>
       <select disabled value={valueForSelect} className={selectStyles.select} {...rest}>
         <option value={valueForSelect}>{selectedOptionLabel}</option>
       </select>
@@ -71,7 +73,7 @@ export function Select<TOption>({
         onClick={toggle}
         className={clsx(
           selectStyles.container({ disabled, error: !!errorText, opened: isOpen, border, fullWidth, bRadius }),
-          className,
+          containerClassName,
         )}
         ref={mainRef}
       >

@@ -8,6 +8,7 @@ type Props = {
   errorText?: string;
   border?: 'black' | 'grey';
   bRadius?: 8 | 10;
+  containerClassName?: string;
 } & DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
 export const TextArea: FC<Props> = ({
@@ -20,6 +21,7 @@ export const TextArea: FC<Props> = ({
   value,
   border,
   bRadius,
+  containerClassName,
   ...rest
 }) => {
   const [labelS, setLabelS] = useState<'simple' | 'focused'>(value ? 'focused' : 'simple');
@@ -37,8 +39,13 @@ export const TextArea: FC<Props> = ({
   };
 
   return (
-    <div>
-      <div className={clsx(textareaStyles.containerStyle({ disabled, error: !!errorText, border, bRadius }), className)}>
+    <div className={className}>
+      <div
+        className={clsx(
+          textareaStyles.containerStyle({ disabled, error: !!errorText, border, bRadius }),
+          containerClassName,
+        )}
+      >
         <label htmlFor={id} className={textareaStyles.labelStyle({ variant: labelS, disabled })}>
           {label}
         </label>
