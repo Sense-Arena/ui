@@ -3,6 +3,7 @@ import { alertStyles } from './alert.css';
 
 type Props = PropsWithChildren<{
   severity: 'error' | 'warning' | 'info' | 'success';
+  bRadius?: 8 | 10;
 }>;
 
 const icon: Record<Props['severity'], ReactNode> = {
@@ -18,9 +19,9 @@ const icon: Record<Props['severity'], ReactNode> = {
   ),
 };
 
-export const Alert = ({ severity, children }: Props) => {
+export const Alert = ({ severity, children, bRadius }: Props) => {
   return (
-    <div className={alertStyles.alertContainer({ severity })}>
+    <div className={alertStyles.alertContainer({ severity, bRadius })}>
       <div className={alertStyles.iconWrap}>
         <svg focusable="false" viewBox="0 0 24 24" className={alertStyles.svg}>
           {icon[severity]}

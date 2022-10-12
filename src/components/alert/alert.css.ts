@@ -5,10 +5,8 @@ import { vars } from '../../theme/vars.css';
 const alertContainer = recipe({
   base: {
     transition: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-    borderRadius: '.5rem',
     boxShadow: 'none',
     backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0))',
-
     display: 'flex',
     padding: '6px 16px',
     color: vars.colors.white,
@@ -28,6 +26,17 @@ const alertContainer = recipe({
         backgroundColor: vars.colors.green,
       },
     },
+    bRadius: {
+      10: {
+        borderRadius: '10px',
+      },
+      8: {
+        borderRadius: '8px',
+      },
+    },
+  },
+  defaultVariants: {
+    bRadius: 10,
   },
 });
 
