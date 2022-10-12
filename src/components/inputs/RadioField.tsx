@@ -14,6 +14,7 @@ type Props = {
   onChange?: (checked: boolean) => void;
   border?: 'black' | 'grey';
   bRadius?: 8 | 10;
+  containerClassName?: string;
 };
 
 export const RadioField: FC<Props> = ({
@@ -26,6 +27,7 @@ export const RadioField: FC<Props> = ({
   onChange,
   border,
   bRadius,
+  containerClassName,
 }) => {
   const id = useId();
   const ref = useRef<HTMLInputElement | null>(null);
@@ -35,9 +37,9 @@ export const RadioField: FC<Props> = ({
   };
 
   return (
-    <div>
+    <div className={className}>
       <div
-        className={clsx(radioStyles.containerStyle({ disabled, error: !!errorText, border, bRadius }), className)}
+        className={clsx(radioStyles.containerStyle({ disabled, error: !!errorText, border, bRadius }), containerClassName)}
         onClick={() => {
           onChange?.(true);
 
@@ -46,7 +48,14 @@ export const RadioField: FC<Props> = ({
           }
         }}
       >
-        <RadioButton id={id} checked={!!checked} onChangeHandler={onChangeHandler} disabled={disabled} ref={ref} />
+        <RadioButton
+          id={id}
+          checked={!!checked}
+          onChangeHandler={onChangeHandler}
+          disabled={disabled}
+          {...radioProps}
+          ref={ref}
+        />
         <label htmlFor={id} className={radioStyles.labelStyle({ disabled })}>
           {label}
         </label>
