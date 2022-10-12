@@ -1,22 +1,36 @@
-import { style } from '@vanilla-extract/css';
+import { ComplexStyleRule, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../theme/vars.css';
 
-const containerStyle = recipe({
-  base: {
-    width: '100%',
-    height: '62px',
-    minWidth: '25ch',
-    position: 'relative',
-    padding: '8px 16px',
-    verticalAlign: 'top',
-    transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
-    fontFamily: vars.font.family,
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    userSelect: 'none',
+const baseContainer: ComplexStyleRule = {
+  width: '100%',
+  height: '62px',
+  minWidth: '25ch',
+  position: 'relative',
+  padding: '8px 16px',
+  verticalAlign: 'top',
+  transition: 'all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms',
+  fontFamily: vars.font.family,
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  userSelect: 'none',
+};
+
+const containerRow = recipe({
+  base: { ...baseContainer, height: '40px', padding: 0 },
+  variants: {
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+        opacity: 0.5,
+      },
+    },
   },
+});
+
+const containerStyle = recipe({
+  base: baseContainer,
   variants: {
     border: {
       black: {
@@ -85,8 +99,9 @@ const errorHintStyle = style({
   margin: '0 0 8px 14px !important',
 });
 
-export const radioStyles = {
+export const checkStyles = {
   containerStyle,
+  containerRow,
   labelStyle,
   errorHintStyle,
 };
