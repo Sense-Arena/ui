@@ -1,15 +1,15 @@
-import { DetailedHTMLProps, SelectHTMLAttributes, useCallback, useRef, useState } from 'react';
+import { DetailedHTMLProps, ReactNode, SelectHTMLAttributes, useCallback, useRef, useState } from 'react';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { useEventListener } from '../../hooks/useEventListener';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
 import { DropDownMenu } from '../dropdown-menu';
-import { Paragraph } from '../typography';
+import { FieldError } from './FieldError';
 import { selectStyles } from './select.css';
 
 type Props<TOption> = {
   disabled?: boolean;
-  errorText?: string;
+  errorText?: ReactNode;
   onChangeSelect?: (selected: TOption, name?: string) => void;
   selectedOptionLabel: string;
   selectedOption: TOption;
@@ -97,11 +97,7 @@ export function Select<TOption>({
           bRadius={bRadius}
         />
       </div>
-      {errorText ? (
-        <Paragraph variant="note" className={selectStyles.errorHintStyle}>
-          {errorText}
-        </Paragraph>
-      ) : null}
+      <FieldError errorText={errorText} />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../theme/vars.css';
 
@@ -141,13 +140,8 @@ const inputStyle = recipe({
   },
 });
 
-const errorHintStyle = style({
-  margin: '0 0 8px 14px !important',
-});
-
 export const textareaStyles = {
   containerStyle,
   labelStyle,
   inputStyle,
-  errorHintStyle,
 };

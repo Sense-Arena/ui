@@ -1,12 +1,12 @@
 import { DetailedHTMLProps, FC, InputHTMLAttributes, ReactNode, useCallback, useId, useRef } from 'react';
 import { clsx } from '../../utils/clsx';
 import { RadioButton } from '../radio-button/RadioButton';
-import { Paragraph } from '../typography';
+import { FieldError } from './FieldError';
 import { radioStyles } from './radio.css';
 
 type Props = {
   label: ReactNode;
-  errorText?: string;
+  errorText?: ReactNode;
   className?: string;
   disabled?: boolean;
   checked?: boolean;
@@ -65,11 +65,7 @@ export const RadioField: FC<Props> = ({
           {label}
         </label>
       </div>
-      {errorText ? (
-        <Paragraph variant="note" className={radioStyles.errorHintStyle}>
-          {errorText}
-        </Paragraph>
-      ) : null}
+      <FieldError errorText={errorText} />
     </div>
   );
 };

@@ -1,19 +1,11 @@
 import { DetailedHTMLProps, FC, FocusEventHandler, InputHTMLAttributes, ReactNode, useId, useState } from 'react';
 import { clsx } from '../../utils/clsx';
-import { Paragraph } from '../typography';
-import {
-  containerStyle,
-  errorHintStyle,
-  fieldEndAdornment,
-  fieldEndIcon,
-  fieldWrap,
-  inputStyle,
-  labelStyle,
-} from './textfield.css';
+import { FieldError } from './FieldError';
+import { containerStyle, fieldEndAdornment, fieldEndIcon, fieldWrap, inputStyle, labelStyle } from './textfield.css';
 
 type Props = {
   label: string;
-  errorText?: string;
+  errorText?: ReactNode;
   border?: 'black' | 'grey';
   endAdornment?: ReactNode;
   endIcon?: ReactNode;
@@ -75,11 +67,7 @@ export const TextField: FC<Props> = ({
         {endAdornment ? <div className={fieldEndAdornment}>{endAdornment}</div> : null}
         {endIcon ? <div className={fieldEndIcon}>{endIcon}</div> : null}
       </div>
-      {errorText ? (
-        <Paragraph variant="note" className={errorHintStyle}>
-          {errorText}
-        </Paragraph>
-      ) : null}
+      <FieldError errorText={errorText} />
     </div>
   );
 };
