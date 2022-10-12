@@ -19,6 +19,8 @@ export const vars = createGlobalThemeContract(
       ctaDark: 'cta-dark',
       greyLight2: 'grey-light-2',
       logoBlack: 'logo-black',
+      blueCola: 'blue-cola',
+      orange: 'orange',
     },
     font: {
       family: 'font',
@@ -53,6 +55,8 @@ createGlobalTheme('body', vars, {
     text: '#1C1C1C',
     ctaDark: '#292929',
     logoBlack: '#1c1d1c',
+    blueCola: '#0288d1',
+    orange: '#f57c00',
   },
   font: {
     family: 'Rubik, sans-serif',
