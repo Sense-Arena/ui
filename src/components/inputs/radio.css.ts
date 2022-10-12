@@ -15,6 +15,7 @@ const containerStyle = recipe({
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
+    userSelect: 'none',
   },
   variants: {
     border: {
