@@ -97,6 +97,7 @@ const labelStyle = recipe({
 
 const inputStyle = recipe({
   base: {
+    fontFamily: vars.font.family,
     resize: 'none',
     fontSize: '18px',
     lineHeight: '24px',
