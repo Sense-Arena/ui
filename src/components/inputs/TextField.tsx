@@ -57,7 +57,7 @@ export const TextField: FC<Props> = ({
             {label}
           </label>
           <input
-            className={inputStyle({ disabled, variant: labelS, withIcon: !!endIcon })}
+            className={inputStyle({ disabled, variant: labelS, withIcon: !!endIcon, bRadius })}
             onFocus={handleFocus}
             onBlur={handleBlur}
             disabled={disabled}

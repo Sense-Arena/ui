@@ -95,6 +95,8 @@ globalStyle(`${fieldEndIcon} > svg`, {
 
 export const labelStyle = recipe({
   base: {
+    position: 'relative',
+    zIndex: 1,
     color: vars.colors.text,
     letterSpacing: 0,
     height: '24px',
@@ -176,5 +178,16 @@ export const inputStyle = recipe({
         paddingRight: 52,
       },
     },
+    bRadius: {
+      10: {
+        borderRadius: '10px',
+      },
+      8: {
+        borderRadius: '8px',
+      },
+    },
+  },
+  defaultVariants: {
+    bRadius: 10,
   },
 });
