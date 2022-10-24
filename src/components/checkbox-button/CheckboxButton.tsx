@@ -9,7 +9,6 @@ type Props = {
 export const CheckboxButton = forwardRef<HTMLInputElement, Props>(({ checked, onChangeHandler, disabled, ...rest }, ref) => {
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      console.debug('e.target.checked', e.target.checked, checked);
       onChangeHandler(e.target.checked);
     },
     [onChangeHandler],
