@@ -61,7 +61,23 @@ const tCell = recipe({
   },
 });
 
+const withHover = recipe({
+  variants: {
+    hover: {
+      true: {
+        cursor: 'pointer',
+        selectors: {
+          '&:hover': {
+            backgroundColor: vars.colors.greyLight,
+          },
+        },
+      },
+    },
+  },
+});
+
 export const tableStyles = {
   table,
   tCell,
+  withHover,
 };
