@@ -14,6 +14,10 @@ declare global {
 }
 
 export const sendExponeaEvent = (eventName: string, eventData: { [key: string]: any }, email?: string) => {
+  if (!window.exponea) {
+    console.debug('[SA]: skip event, BR not inited', eventName);
+    return;
+  }
   withIdentify(() => {
     window.exponea.track(eventName, eventData);
   }, email);
