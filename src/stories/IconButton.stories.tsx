@@ -32,3 +32,16 @@ export const Loading = Template.bind({});
 Loading.args = {
   loading: true,
 };
+
+export const SmallSize = Template.bind({});
+SmallSize.args = {
+  color: 'secondary',
+  size: 's',
+};
+
+export const SmallSizeLoading = Template.bind({});
+SmallSizeLoading.args = {
+  color: 'secondary',
+  size: 's',
+  loading: true,
+};
