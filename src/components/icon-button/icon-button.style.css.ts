@@ -3,10 +3,6 @@ import { vars } from '../../theme/vars.css';
 
 export const iconBtnStyle = recipe({
   base: {
-    height: '48px',
-    width: '48px',
-    minHeight: '48px',
-    minWidth: '48px',
     outline: 'none',
     padding: '0',
     display: 'flex',
@@ -14,8 +10,6 @@ export const iconBtnStyle = recipe({
     alignItems: 'center',
     cursor: 'pointer',
     transition: 'all .2s ease-in-out',
-    borderRadius: '10px',
-    fontSize: '24px',
     fontFamily: vars.font.family,
     color: vars.colors.black,
     backgroundColor: 'transparent',
@@ -54,8 +48,27 @@ export const iconBtnStyle = recipe({
         },
       },
     },
+    size: {
+      m: {
+        height: '48px',
+        width: '48px',
+        minHeight: '48px',
+        minWidth: '48px',
+        fontSize: '24px',
+        borderRadius: '10px',
+      },
+      s: {
+        height: '36px',
+        width: '36px',
+        minHeight: '36px',
+        minWidth: '36px',
+        fontSize: '16px',
+        borderRadius: '8px',
+      },
+    },
   },
   defaultVariants: {
     color: 'primary',
+    size: 'm',
   },
 });
