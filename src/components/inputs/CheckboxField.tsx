@@ -16,6 +16,7 @@ type Props = {
   bRadius?: 8 | 10;
   containerClassName?: string;
   variant?: 'field' | 'row';
+  dataSAId?: string;
 };
 
 export const CheckboxField: FC<Props> = ({
@@ -30,6 +31,7 @@ export const CheckboxField: FC<Props> = ({
   bRadius,
   containerClassName,
   variant = 'field',
+  dataSAId,
 }) => {
   const id = useId();
   const ref = useRef<HTMLInputElement | null>(null);
@@ -65,6 +67,7 @@ export const CheckboxField: FC<Props> = ({
           containerClassName,
         )}
         onClick={onClickHandler}
+        data-sa-id={dataSAId}
       >
         <CheckboxButton
           id={id}
