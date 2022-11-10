@@ -12,10 +12,14 @@ export type ButtonProps = {
   minWidth?: boolean;
   fullWidth?: boolean;
   loading?: boolean;
+  dataSAId?: string;
 } & Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'ref'>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, icon, onClick, disabled, className, size, color, mode, fullWidth, minWidth, loading, ...rest }, ref) => {
+  (
+    { children, icon, onClick, disabled, className, size, color, mode, fullWidth, minWidth, loading, dataSAId, ...rest },
+    ref,
+  ) => {
     return (
       <button
         disabled={disabled || loading}
@@ -24,6 +28,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         type="button"
         {...rest}
         ref={ref}
+        data-sa-id={dataSAId}
       >
         <span className={btnTxtStyle({ size, fullWidth, color })}>{children}</span>
         {icon || loading ? (
