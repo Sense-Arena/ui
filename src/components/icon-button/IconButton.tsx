@@ -7,10 +7,11 @@ type Props = {
   color?: 'primary' | 'secondary';
   loading?: boolean;
   size?: 's' | 'm';
+  dataSAId?: string;
 } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
 export const IconButton = forwardRef<HTMLButtonElement, Props>(
-  ({ children, onClick, disabled, className, color, loading, size, ...rest }, ref) => {
+  ({ children, onClick, disabled, className, color, loading, size, dataSAId, ...rest }, ref) => {
     return (
       <button
         ref={ref}
@@ -19,6 +20,7 @@ export const IconButton = forwardRef<HTMLButtonElement, Props>(
         onClick={disabled || loading ? undefined : onClick}
         type="button"
         {...rest}
+        data-sa-id={dataSAId}
       >
         {loading ? <Spinner /> : children}
       </button>
