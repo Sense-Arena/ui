@@ -12,6 +12,7 @@ type Props = {
   bRadius?: 8 | 10;
   containerClassName?: string;
   inputRef?: RefObject<HTMLInputElement>;
+  dataSAId?: string;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export const TextField: FC<Props> = ({
@@ -28,6 +29,7 @@ export const TextField: FC<Props> = ({
   bRadius,
   containerClassName,
   inputRef,
+  dataSAId,
   ...rest
 }) => {
   const [labelS, setLabelS] = useState<'simple' | 'focused'>(value ? 'focused' : 'simple');
@@ -51,6 +53,7 @@ export const TextField: FC<Props> = ({
           containerStyle({ disabled, error: !!errorText, border, withEndAdornment: !!endAdornment, bRadius }),
           containerClassName,
         )}
+        data-sa-id={dataSAId}
       >
         <div className={fieldWrap}>
           <label htmlFor={id} className={labelStyle({ variant: labelS, disabled })}>

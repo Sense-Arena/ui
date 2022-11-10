@@ -15,6 +15,7 @@ type Props = {
   border?: 'black' | 'grey';
   bRadius?: 8 | 10;
   containerClassName?: string;
+  dataSAId?: string;
 };
 
 export const RadioField: FC<Props> = ({
@@ -28,6 +29,7 @@ export const RadioField: FC<Props> = ({
   border,
   bRadius,
   containerClassName,
+  dataSAId,
 }) => {
   const id = useId();
   const ref = useRef<HTMLInputElement | null>(null);
@@ -52,6 +54,7 @@ export const RadioField: FC<Props> = ({
       <div
         className={clsx(radioStyles.containerStyle({ disabled, error: !!errorText, border, bRadius }), containerClassName)}
         onClick={onClickHandler}
+        data-sa-id={dataSAId}
       >
         <RadioButton
           id={id}
