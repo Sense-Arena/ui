@@ -9,6 +9,7 @@ type Props = {
   border?: 'black' | 'grey';
   bRadius?: 8 | 10;
   containerClassName?: string;
+  dataSAId?: string;
 } & DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
 export const TextArea: FC<Props> = ({
@@ -22,6 +23,7 @@ export const TextArea: FC<Props> = ({
   border,
   bRadius,
   containerClassName,
+  dataSAId,
   ...rest
 }) => {
   const [labelS, setLabelS] = useState<'simple' | 'focused'>(value ? 'focused' : 'simple');
@@ -45,6 +47,7 @@ export const TextArea: FC<Props> = ({
           textareaStyles.containerStyle({ disabled, error: !!errorText, border, bRadius }),
           containerClassName,
         )}
+        data-sa-id={dataSAId}
       >
         <label htmlFor={id} className={textareaStyles.labelStyle({ variant: labelS, disabled })}>
           {label}
