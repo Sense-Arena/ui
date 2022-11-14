@@ -1,6 +1,6 @@
 import { animated, config, useTransition } from '@react-spring/web';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
-import { Button } from '../button';
+import { Button, ButtonProps } from '../button';
 import { smButtonWrap } from './show-more.style.css';
 
 type Props = {
@@ -10,9 +10,10 @@ type Props = {
   }[];
   visible: number;
   className?: string;
+  btnProps?: ButtonProps;
 };
 
-export const ShowMore = ({ items, visible, className }: Props) => {
+export const ShowMore = ({ items, visible, className, btnProps = {} }: Props) => {
   const [visibleItems, setVisible] = useState(items.slice(0, visible));
 
   useEffect(() => {
@@ -45,7 +46,7 @@ export const ShowMore = ({ items, visible, className }: Props) => {
       </div>
       {visibleItems.length === items.length ? null : (
         <div className={smButtonWrap}>
-          <Button color="outline" onClick={showAll} style={{ marginTop: '1.5rem' }}>
+          <Button color="outline" onClick={showAll} style={{ marginTop: '1.5rem' }} {...btnProps}>
             Show all
           </Button>
         </div>

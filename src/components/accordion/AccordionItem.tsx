@@ -38,7 +38,7 @@ export const AccordionItem = memo<Props>(({ shorText, text, open = false }) => {
   return (
     <div className={accordionStyles.accordionItem}>
       <div onClick={toggle} className={accordionStyles.accordionLabel({ isOpen })}>
-        <Heading root="h3">{shorText}</Heading>
+        <Heading root="h4">{shorText}</Heading>
         {isOpen ? (
           <ArrowUpSline className={accordionStyles.accordionIcon} />
         ) : (
@@ -46,7 +46,9 @@ export const AccordionItem = memo<Props>(({ shorText, text, open = false }) => {
         )}
       </div>
       <animated.div ref={ref} style={openAnimation} className={accordionStyles.accordionTextContainer}>
-        <Paragraph className={accordionStyles.accordionText}>{text}</Paragraph>
+        <Paragraph variant="caption" className={accordionStyles.accordionText}>
+          {text}
+        </Paragraph>
       </animated.div>
     </div>
   );
