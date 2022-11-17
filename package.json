@@ -1,6 +1,6 @@
 {
   "name": "@sensearena/ui",
-  "version": "0.2.31",
+  "version": "0.2.32",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
