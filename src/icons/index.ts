@@ -30,6 +30,8 @@ export * from './PercentIcon';
 export * from './PerformanceIcon';
 export * from './PlayCircleIcon';
 export * from './RepeatIcon';
+export * from './SportHockeyIcon';
+export * from './SportTennisIcon';
 export * from './SearchIcon';
 export * from './ShareIcon';
 export * from './StarIcon';
