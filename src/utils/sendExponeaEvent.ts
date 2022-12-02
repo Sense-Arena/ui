@@ -23,6 +23,14 @@ export const sendExponeaEvent = (eventName: string, eventData: { [key: string]: 
   }, email);
 };
 
+export const exponeaIdentify = (key: string, value: string) => {
+  if (!window.exponea) {
+    console.debug('[SA]: skip identify, BR not inited');
+    return;
+  }
+  window.exponea.identify({ [key]: value });
+};
+
 const withIdentify = (fn: () => void, email?: string) => {
   if (email) {
     window.exponea.identify({ email_id: email.toLowerCase().trim() }, {}, () => {
