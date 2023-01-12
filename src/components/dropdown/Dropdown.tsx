@@ -3,8 +3,8 @@ import { useClickOutside } from '../../hooks/useClickOutside';
 import { useEventListener } from '../../hooks/useEventListener';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
-import { ddContainerStyle, ddIconStyle, ddText } from './dropdown.css';
 import { DropDownMenu } from '../dropdown-menu';
+import { ddContainerStyle, ddIconStyle, ddText } from './dropdown.css';
 
 type Props<TOption> = {
   disabled?: boolean;
@@ -21,6 +21,7 @@ type Props<TOption> = {
   fullWidth?: boolean;
   size?: 's' | 'm' | 'l';
   bRadius?: 8 | 10;
+  dataSAId?: string;
 };
 
 export function Dropdown<TOption>({
@@ -35,6 +36,7 @@ export function Dropdown<TOption>({
   fullWidth,
   size,
   bRadius,
+  dataSAId,
 }: Props<TOption>) {
   const [isOpen, setOpen] = useState(false);
 
@@ -62,6 +64,7 @@ export function Dropdown<TOption>({
       onClick={toggle}
       className={clsx(ddContainerStyle({ disabled, error, opened: isOpen, border, fullWidth, size, bRadius }), className)}
       ref={mainRef}
+      data-sa-id={dataSAId}
     >
       <span className={ddText}>{selectedOptionLabel}</span>
       <div>{isOpen ? <ArrowUpSline className={ddIconStyle} /> : <ArrowDownSline className={ddIconStyle} />}</div>
@@ -74,6 +77,7 @@ export function Dropdown<TOption>({
         options={options}
         size={size}
         bRadius={bRadius}
+        dataSAId={dataSAId}
       />
     </div>
   );
