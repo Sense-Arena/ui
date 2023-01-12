@@ -14,6 +14,7 @@ type Props<TOption> = {
   }[];
   size?: 's' | 'm' | 'l';
   bRadius?: 8 | 10;
+  dataSAId?: string;
 };
 
 export function DropDownMenu<TOption>({
@@ -25,6 +26,7 @@ export function DropDownMenu<TOption>({
   size,
   bRadius,
   menuRef,
+  dataSAId,
 }: Props<TOption>) {
   const styles = useSpring({
     opacity: isOpen ? 1 : 0,
@@ -42,11 +44,12 @@ export function DropDownMenu<TOption>({
       ref={menuRef}
       onClick={e => e.stopPropagation()}
     >
-      {options.map(o => (
+      {options.map((o, index) => (
         <div
           onClick={() => selectItem(o.value)}
           className={ddMenuItemStyle({ selected: o.value === selectedOption })}
           key={String(o.value)}
+          data-sa-id={dataSAId ? `${dataSAId}-child-${index}` : undefined}
         >
           {o.title}
         </div>
