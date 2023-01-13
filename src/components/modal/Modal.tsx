@@ -19,6 +19,7 @@ type PropsModal = PropsWithChildren<{
   handleClose: () => void;
   paddingHeader?: boolean;
   portalNodeId?: string;
+  dataSAId?: string;
 }>;
 
 export const Modal = ({
@@ -34,6 +35,7 @@ export const Modal = ({
   handleClose,
   paddingHeader = true,
   portalNodeId = 'root',
+  dataSAId,
 }: PropsModal) => {
   const [mounted, setMounted] = useState(open);
   const [contentTop, setContentTop] = useState(0);
@@ -110,6 +112,7 @@ export const Modal = ({
         onClick={onBGClick}
         style={{ paddingTop: paddingHeader ? headerHeight : 0 }}
         className={modalStyles.modalContentWrapper}
+        data-sa-id={dataSAId}
       >
         <animated.div ref={contentRef} style={styleContent} className={modalStyles.modalContent({ size })}>
           {withCard ? (
