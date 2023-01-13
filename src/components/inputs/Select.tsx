@@ -23,6 +23,7 @@ type Props<TOption> = {
   bRadius?: 8 | 10;
   label?: string;
   containerClassName?: string;
+  dataSAId?: string;
 } & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
 
 export function Select<TOption>({
@@ -38,6 +39,7 @@ export function Select<TOption>({
   fullWidth,
   bRadius,
   label,
+  dataSAId,
   ...rest
 }: Props<TOption>) {
   const [isOpen, setOpen] = useState(false);
@@ -66,7 +68,13 @@ export function Select<TOption>({
 
   return (
     <div className={className}>
-      <select disabled value={valueForSelect} className={selectStyles.select} {...rest}>
+      <select
+        data-sa-id={dataSAId ? `${dataSAId}-select` : dataSAId}
+        disabled
+        value={valueForSelect}
+        className={selectStyles.select}
+        {...rest}
+      >
         <option value={valueForSelect}>{selectedOptionLabel}</option>
       </select>
       <div
@@ -76,6 +84,7 @@ export function Select<TOption>({
           containerClassName,
         )}
         ref={mainRef}
+        data-sa-id={dataSAId}
       >
         {label ? <span className={selectStyles.label}>{label}</span> : null}
         <span className={selectStyles.text({ withLabel: !!label })}>{selectedOptionLabel}</span>
@@ -95,6 +104,7 @@ export function Select<TOption>({
           options={options}
           size="l"
           bRadius={bRadius}
+          dataSAId={dataSAId}
         />
       </div>
       <FieldError errorText={errorText} />
