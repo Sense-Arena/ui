@@ -3,6 +3,8 @@ import { stackItem } from './stack.css';
 
 type Props = PropsWithChildren<{
   direction: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  alignItems?: CSSProperties['alignItems'];
+  justifyContent?: CSSProperties['justifyContent'];
   style?: CSSProperties;
   className?: string;
 }>;
@@ -16,21 +18,25 @@ const getSideFromDirection = (direction: Props['direction']) => {
   }[direction];
 };
 
-export const Stack = forwardRef<HTMLDivElement, Props>(({ style, children, className, direction }, ref) => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: direction,
-        ...style,
-      }}
-      ref={ref}
-      className={className}
-    >
-      {children}
-    </div>
-  );
-});
+export const Stack = forwardRef<HTMLDivElement, Props>(
+  ({ style, children, className, direction, alignItems, justifyContent }, ref) => {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: direction,
+          alignItems,
+          justifyContent,
+          ...style,
+        }}
+        ref={ref}
+        className={className}
+      >
+        {children}
+      </div>
+    );
+  },
+);
 
 type StackItemProps = PropsWithChildren<{
   spacing?: number;
