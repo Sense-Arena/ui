@@ -75,7 +75,6 @@ export function Dropdown<TOption>({
         selectedOption={selectedOption}
         selectItem={selectItem}
         options={options}
-        size={size}
         bRadius={bRadius}
         dataSAId={dataSAId}
       />

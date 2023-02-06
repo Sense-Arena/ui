@@ -3,6 +3,7 @@ export * from './components/alert';
 export * from './components/avatar';
 export * from './components/button';
 export * from './components/card';
+export * from './components/chip';
 export * from './components/checkbox-button/CheckboxButton';
 export * from './components/divider';
 export * from './components/dropdown';
