@@ -102,7 +102,7 @@ export function MultiSelect<TOption>({
           <div className={multiSelectStyles.chips({ withLabel: !!label })}>
             {selectedOptions.map((item, index) => (
               <Chip
-                dataSAId={dataSAId ? `${dataSAId}-chip-${inde}` : dataSAId}
+                dataSAId={dataSAId ? `${dataSAId}-chip-${index}` : dataSAId}
                 key={`chip_${item}`}
                 className={multiSelectStyles.chip}
                 color="secondary"
