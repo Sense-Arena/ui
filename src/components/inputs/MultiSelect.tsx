@@ -3,16 +3,16 @@ import { useClickOutside } from '../../hooks/useClickOutside';
 import { useEventListener } from '../../hooks/useEventListener';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
 import { clsx } from '../../utils/clsx';
+import { Chip } from '../chip';
 import { DropDownMenu } from '../dropdown-menu';
 import { FieldError } from './FieldError';
-import { selectStyles } from './select.css';
+import { multiSelectStyles } from './multi-select.css';
 
 type Props<TOption> = {
+  selectedOptions: TOption[];
   disabled?: boolean;
   errorText?: ReactNode;
-  onChangeSelect?: (selected: TOption, name?: string) => void;
-  selectedOptionLabel: string;
-  selectedOption: TOption;
+  onChangeSelect?: (selected: TOption[], name?: string) => void;
   options: {
     title: string;
     value: TOption;
@@ -26,15 +26,14 @@ type Props<TOption> = {
   dataSAId?: string;
 } & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
 
-export function Select<TOption>({
+export function MultiSelect<TOption>({
+  selectedOptions,
   disabled,
   onChangeSelect,
-  selectedOptionLabel,
   containerClassName,
   options,
   errorText,
   className,
-  selectedOption,
   border,
   fullWidth,
   bRadius,
@@ -57,51 +56,76 @@ export function Select<TOption>({
 
   const selectItem = useCallback(
     (optionValue: TOption) => {
-      onChangeSelect?.(optionValue, rest.name);
+      onChangeSelect?.([...selectedOptions, optionValue]);
       close();
     },
     [onChangeSelect],
   );
 
-  const valueForSelect =
-    typeof selectedOption === 'number' || typeof selectedOption === 'string' ? selectedOption : String(selectedOption);
+  const deleteItem = useCallback(
+    (optionValue: TOption) => {
+      onChangeSelect?.([...selectedOptions.filter(item => item !== optionValue)]);
+      close();
+    },
+    [onChangeSelect],
+  );
 
   return (
     <div className={className}>
       <select
+        multiple
         data-sa-id={dataSAId ? `${dataSAId}-select` : dataSAId}
         disabled
-        value={valueForSelect}
-        className={selectStyles.select}
+        value={selectedOptions as string[]}
+        className={multiSelectStyles.select}
         {...rest}
       >
-        <option value={valueForSelect}>{selectedOptionLabel}</option>
+        {selectedOptions.map(item => (
+          <option key={`option_${item}`} value={item as string}>
+            {options.find(i => i.value === item)?.title || 'Not found'}
+          </option>
+        ))}
       </select>
       <div
         onClick={toggle}
         className={clsx(
-          selectStyles.container({ disabled, error: !!errorText, opened: isOpen, border, fullWidth, bRadius }),
+          multiSelectStyles.container({ disabled, error: !!errorText, opened: isOpen, border, fullWidth, bRadius }),
           containerClassName,
         )}
         ref={mainRef}
         data-sa-id={dataSAId}
       >
-        {label ? <span className={selectStyles.label}>{label}</span> : null}
-        <span className={selectStyles.text({ withLabel: !!label })}>{selectedOptionLabel}</span>
+        {label ? <span className={multiSelectStyles.label}>{label}</span> : null}
+        {!selectedOptions.length ? (
+          <span className={multiSelectStyles.text({ withLabel: !!label })}>Select options</span>
+        ) : (
+          <div className={multiSelectStyles.chips({ withLabel: !!label })}>
+            {selectedOptions.map(item => (
+              <Chip
+                key={`chip_${item}`}
+                className={multiSelectStyles.chip}
+                color="secondary"
+                onDelete={() => deleteItem(item)}
+              >
+                {options.find(i => i.value === item)?.title || 'Not Found'}
+              </Chip>
+            ))}
+          </div>
+        )}
+
         <div>
           {isOpen ? (
-            <ArrowUpSline className={selectStyles.iconStyle} />
+            <ArrowUpSline className={multiSelectStyles.iconStyle} />
           ) : (
-            <ArrowDownSline className={selectStyles.iconStyle} />
+            <ArrowDownSline className={multiSelectStyles.iconStyle} />
           )}
         </div>
         <DropDownMenu
           menuRef={ref}
           isOpen={isOpen}
           mainRef={mainRef}
-          selectedOption={selectedOption}
           selectItem={selectItem}
-          options={options}
+          options={options.filter(item => !selectedOptions.some(i => item.value === i))}
           bRadius={bRadius}
           dataSAId={dataSAId}
         />

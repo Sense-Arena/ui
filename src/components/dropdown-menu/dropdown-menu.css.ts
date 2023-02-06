@@ -1,3 +1,4 @@
+import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '../../theme/vars.css';
 
@@ -16,17 +17,6 @@ export const ddMenuStyle = recipe({
     boxShadow: `0 2px 20px -5px rgba(0,0,0,0.5)`,
   },
   variants: {
-    size: {
-      s: {
-        top: '46px',
-      },
-      m: {
-        top: '58px',
-      },
-      l: {
-        top: '70px',
-      },
-    },
     bRadius: {
       10: {
         borderRadius: '10px',
@@ -37,7 +27,6 @@ export const ddMenuStyle = recipe({
     },
   },
   defaultVariants: {
-    size: 'm',
     bRadius: 10,
   },
 });
@@ -64,4 +53,12 @@ export const ddMenuItemStyle = recipe({
       },
     },
   },
+});
+
+export const ddMenuItemNotFound = style({
+  padding: '8px 14px',
+  display: 'block',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 });
