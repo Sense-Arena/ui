@@ -1,18 +1,17 @@
 import { animated as a, useSpring } from '@react-spring/web';
 import { RefObject } from 'react';
-import { ddMenuItemStyle, ddMenuStyle } from './dropdown-menu.css';
+import { ddMenuItemNotFound, ddMenuItemStyle, ddMenuStyle } from './dropdown-menu.css';
 
 type Props<TOption> = {
   isOpen: boolean;
   mainRef: RefObject<HTMLDivElement>;
   menuRef: RefObject<HTMLDivElement>;
-  selectedOption: TOption;
+  selectedOption?: TOption;
   selectItem: (value: TOption) => void;
   options: {
     title: string;
     value: TOption;
   }[];
-  size?: 's' | 'm' | 'l';
   bRadius?: 8 | 10;
   dataSAId?: string;
 };
@@ -23,7 +22,6 @@ export function DropDownMenu<TOption>({
   options,
   selectedOption,
   selectItem,
-  size,
   bRadius,
   menuRef,
   dataSAId,
@@ -39,21 +37,29 @@ export function DropDownMenu<TOption>({
 
   return (
     <a.div
-      style={{ ...styles, width: mainRef.current?.getClientRects()[0].width }}
-      className={ddMenuStyle({ size, bRadius })}
+      style={{
+        ...styles,
+        width: mainRef.current?.getClientRects()[0].width,
+        top: (mainRef.current?.getClientRects()[0].height || 0) + 11,
+      }}
+      className={ddMenuStyle({ bRadius })}
       ref={menuRef}
       onClick={e => e.stopPropagation()}
     >
-      {options.map((o, index) => (
-        <div
-          onClick={() => selectItem(o.value)}
-          className={ddMenuItemStyle({ selected: o.value === selectedOption })}
-          key={String(o.value)}
-          data-sa-id={dataSAId ? `${dataSAId}-child-${index}` : undefined}
-        >
-          {o.title}
-        </div>
-      ))}
+      {options.length ? (
+        options.map((o, index) => (
+          <div
+            onClick={() => selectItem(o.value)}
+            className={ddMenuItemStyle({ selected: o.value === selectedOption })}
+            key={String(o.value)}
+            data-sa-id={dataSAId ? `${dataSAId}-child-${index}` : undefined}
+          >
+            {o.title}
+          </div>
+        ))
+      ) : (
+        <div className={ddMenuItemNotFound}>No options</div>
+      )}
     </a.div>
   );
 }

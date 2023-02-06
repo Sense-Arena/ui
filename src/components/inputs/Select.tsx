@@ -102,7 +102,6 @@ export function Select<TOption>({
           selectedOption={selectedOption}
           selectItem={selectItem}
           options={options}
-          size="l"
           bRadius={bRadius}
           dataSAId={dataSAId}
         />
