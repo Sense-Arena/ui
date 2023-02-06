@@ -56,7 +56,7 @@ export function MultiSelect<TOption>({
 
   const selectItem = useCallback(
     (optionValue: TOption) => {
-      onChangeSelect?.([...selectedOptions, optionValue]);
+      onChangeSelect?.(selectedOptions.concat(optionValue));
       close();
     },
     [onChangeSelect],
@@ -64,7 +64,7 @@ export function MultiSelect<TOption>({
 
   const deleteItem = useCallback(
     (optionValue: TOption) => {
-      onChangeSelect?.([...selectedOptions.filter(item => item !== optionValue)]);
+      onChangeSelect?.(selectedOptions.filter(item => item !== optionValue));
       close();
     },
     [onChangeSelect],
@@ -100,8 +100,9 @@ export function MultiSelect<TOption>({
           <span className={multiSelectStyles.text({ withLabel: !!label })}>Select options</span>
         ) : (
           <div className={multiSelectStyles.chips({ withLabel: !!label })}>
-            {selectedOptions.map(item => (
+            {selectedOptions.map((item, index) => (
               <Chip
+                dataSAId={dataSAId ? `${dataSAId}-chip-${inde}` : dataSAId}
                 key={`chip_${item}`}
                 className={multiSelectStyles.chip}
                 color="secondary"

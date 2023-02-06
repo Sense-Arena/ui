@@ -10,11 +10,16 @@ type Props = PropsWithChildren<{
   color?: 'primary' | 'secondary' | 'warning' | 'dark';
   onDelete?: () => void;
   className?: string;
+  dataSAId?: string;
 }>;
 
-export const Chip = ({ children, size, color, onDelete, className }: Props) => {
+export const Chip = ({ children, size, color, onDelete, className, dataSAId }: Props) => {
   return (
-    <div onClick={e => e.stopPropagation()} className={clsx(chipStyles.chipContainer({ size, color }), className)}>
+    <div
+      data-sa-id={dataSAId}
+      onClick={e => e.stopPropagation()}
+      className={clsx(chipStyles.chipContainer({ size, color }), className)}
+    >
       <Stack direction="row" alignItems="center">
         <StackItem direction="row" spacing={0.25}>
           <div className={chipStyles.chipText({ size })}>
