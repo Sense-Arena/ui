@@ -12,6 +12,7 @@ type PropsModal = PropsWithChildren<{
   title?: ReactNode;
   action?: ReactNode | false;
   withPadding?: boolean;
+  withDivider?: boolean;
   className?: string;
   cardClassName?: string;
   withCard?: boolean;
@@ -28,6 +29,7 @@ export const Modal = ({
   title,
   action,
   withPadding,
+  withDivider,
   className,
   cardClassName,
   withCard = true,
@@ -130,6 +132,7 @@ export const Modal = ({
               <Card
                 title={title}
                 withPadding={withPadding}
+                withDivider={withDivider}
                 className={cardClassName}
                 classNameHeader={modalStyles.cardHeader}
               >
