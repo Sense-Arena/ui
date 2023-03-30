@@ -1,5 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
+import React from 'react';
 import { Button } from '../components/button';
 import { ShowMore } from '../components/show-more';
 

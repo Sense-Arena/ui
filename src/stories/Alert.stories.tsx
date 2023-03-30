@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import { Alert } from '../components/alert';
 import { Paragraph } from '../components/typography';
 
