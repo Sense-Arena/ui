@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -34,7 +34,7 @@ jobs:
           rm -rf ./dist
           pnpm build-storybook
       - name: Deploy Storybook 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: dist # The folder the action should deploy.
