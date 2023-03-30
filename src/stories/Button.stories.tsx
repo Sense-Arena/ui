@@ -1,10 +1,11 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../components/button/Button';
 import { ArrowRightCircle } from '../icons';
 
-export default {
+const meta = {
   title: 'UI/Button',
   component: Button,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
@@ -16,63 +17,74 @@ export default {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof Button>;
+} satisfies Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  children: 'Button',
+export const Primary: Story = {
+  args: {
+    children: 'Button',
+  },
 };
-export const Secondary = Template.bind({});
-Secondary.args = {
-  children: 'Button',
-  color: 'secondary',
+export const Secondary: Story = {
+  args: {
+    children: 'Button',
+    color: 'secondary',
+  },
 };
-export const SecondaryAction = Template.bind({});
-SecondaryAction.args = {
-  children: 'Button',
-  color: 'secondary_action',
-  mode: 'square',
+export const SecondaryAction: Story = {
+  args: {
+    children: 'Button',
+    color: 'secondary_action',
+    mode: 'square',
+  },
 };
-export const Outline = Template.bind({});
-Outline.args = {
-  children: 'Button',
-  color: 'outline',
+export const Outline: Story = {
+  args: {
+    children: 'Button',
+    color: 'outline',
+  },
 };
-export const OutlineSecondary = Template.bind({});
-OutlineSecondary.args = {
-  children: 'Button',
-  color: 'outline_secondary',
+export const OutlineSecondary: Story = {
+  args: {
+    children: 'Button',
+    color: 'outline_secondary',
+  },
 };
-export const PrimaryBig = Template.bind({});
-PrimaryBig.args = {
-  children: 'Button',
-  size: 'l',
+export const PrimaryBig: Story = {
+  args: {
+    children: 'Button',
+    size: 'l',
+  },
 };
-export const PrimarySmall = Template.bind({});
-PrimarySmall.args = {
-  children: 'Button',
-  size: 's',
-};
-
-export const Loading = Template.bind({});
-Loading.args = {
-  children: 'Test long description',
-  loading: true,
-};
-
-export const SquareMinWidth = Template.bind({});
-SquareMinWidth.args = {
-  minWidth: true,
-  mode: 'square',
-  children: 'Button',
+export const PrimarySmall: Story = {
+  args: {
+    children: 'Button',
+    size: 's',
+  },
 };
 
-export const SquareFullWidth = Template.bind({});
-SquareFullWidth.args = {
-  fullWidth: true,
-  mode: 'square',
-  children: 'Button',
-  icon: <ArrowRightCircle />,
+export const Loading: Story = {
+  args: {
+    children: 'Test long description',
+    loading: true,
+  },
+};
+
+export const SquareMinWidth: Story = {
+  args: {
+    minWidth: true,
+    mode: 'square',
+    children: 'Button',
+  },
+};
+
+export const SquareFullWidth: Story = {
+  args: {
+    fullWidth: true,
+    mode: 'square',
+    children: 'Button',
+    icon: <ArrowRightCircle />,
+  },
 };

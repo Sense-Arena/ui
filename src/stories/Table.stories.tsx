@@ -1,14 +1,16 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Table, TCell, TBody, THead, TRow } from '../components/table';
+import { Meta, StoryFn } from '@storybook/react';
 import { IconButton } from '../components/icon-button';
+import { Table, TBody, TCell, THead, TRow } from '../components/table';
 import { RepeatIcon } from '../icons';
 
-export default {
+const meta = {
   title: 'UI/Table',
   component: Table,
-} as ComponentMeta<typeof Table>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof Table>;
+export default meta;
 
-const Template: ComponentStory<typeof Table> = args => {
+const Template: StoryFn<typeof Table> = args => {
   return (
     <Table>
       <THead>
@@ -40,7 +42,7 @@ const Template: ComponentStory<typeof Table> = args => {
   );
 };
 
-const TemplateWithClick: ComponentStory<typeof Table> = args => {
+const TemplateWithClick: StoryFn<typeof Table> = args => {
   return (
     <Table>
       <THead>
@@ -73,7 +75,5 @@ const TemplateWithClick: ComponentStory<typeof Table> = args => {
 };
 
 export const Base = Template.bind({});
-Base.args = {};
 
 export const Hover = TemplateWithClick.bind({});
-Hover.args = {};

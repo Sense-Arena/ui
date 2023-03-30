@@ -1,19 +1,22 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { RadioField } from '../../components/inputs';
 import { Stack, StackItem } from '../../components/stack/Stack';
 
-export default {
+const meta = {
   title: 'UI/Inputs/RadioField',
   component: RadioField,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof RadioField>;
+} satisfies Meta<typeof RadioField>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof RadioField> = args => {
+const Template: StoryFn<typeof RadioField> = args => {
   const [checked, setChecked] = useState(1);
   return (
     <Stack direction="row">
@@ -27,10 +30,12 @@ const Template: ComponentStory<typeof RadioField> = args => {
   );
 };
 
-export const Base = Template.bind({});
-Base.args = {
-  label: 'First Name',
-  radioProps: {
-    name: 'first_name',
+export const Base: Story = {
+  args: {
+    label: 'First Name',
+    radioProps: {
+      name: 'first_name',
+    },
   },
+  render: Template,
 };

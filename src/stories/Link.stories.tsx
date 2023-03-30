@@ -1,9 +1,10 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Link } from '../components/link';
 
-export default {
+const meta = {
   title: 'UI/Link',
   component: Link,
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       defaultValue: 'primary',
@@ -13,17 +14,19 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Link>;
+} satisfies Meta<typeof Link>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof Link> = args => <Link {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-  children: 'Go to store',
+export const Primary: Story = {
+  args: {
+    children: 'Go to store',
+  },
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  children: 'Edit',
-  variant: 'secondary',
+export const Secondary: Story = {
+  args: {
+    children: 'Edit',
+    variant: 'secondary',
+  },
 };
