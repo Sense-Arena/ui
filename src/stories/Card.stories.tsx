@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
+import React from 'react';
 import { Button } from '../components/button';
 import { Card } from '../components/card';
 import { Paragraph } from '../components/typography';

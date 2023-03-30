@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components/button';
 import { IconButton } from '../components/icon-button';
 import { Modal } from '../components/modal';

@@ -1,5 +1,5 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { CheckboxField } from '../../components/inputs';
 import { Stack, StackItem } from '../../components/stack/Stack';
 
