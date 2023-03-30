@@ -9,5 +9,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  async viteFinal(config, { configType }) {
+    if (configType === 'PRODUCTION') {
+      // Your production configuration goes here.
+      config.base = '/ui/';
+    }
+    return config;
+  },
 };
 export default config;
