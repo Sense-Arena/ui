@@ -7,7 +7,7 @@
     "build:test": "tsc && vite build --config vite.test.ts",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o dist"
   },
   "devDependencies": {
     "@react-spring/web": "9.7.1",
