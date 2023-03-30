@@ -1,0 +1,9 @@
+export declare const modalContainer: string;
+export declare const modalHead: string;
+export declare const modalBtns: string;
+export declare const modalText: string;
+export declare const modalLink: string;
+export declare const switchContainer: string;
+export declare const switchHead: string;
+export declare const switchText: string;
+export declare const stickySave: string;
