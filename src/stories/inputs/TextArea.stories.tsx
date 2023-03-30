@@ -1,49 +1,55 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { TextArea } from '../../components/inputs';
 
-export default {
+const meta = {
   title: 'UI/Inputs/TextArea',
   component: TextArea,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof TextArea>;
+} satisfies Meta<typeof TextArea>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof TextArea> = args => <TextArea {...args} />;
-
-export const Base = Template.bind({});
-Base.args = {
-  label: 'First Name',
-  name: 'first_name',
-  placeholder: 'write',
+export const Base: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    placeholder: 'write',
+  },
 };
 
-export const Filled = Template.bind({});
-Filled.args = {
-  label: 'First Name',
-  name: 'first_name',
-  value: 'Konstantin',
+export const Filled: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    value: 'GON',
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  label: 'First Name',
-  name: 'first_name',
-  disabled: true,
+export const Disabled: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    disabled: true,
+  },
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  label: 'Last Name',
-  name: 'last_name',
-  errorText: 'Error message lorem ipsum',
+export const Error: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    errorText: 'Error message lorem ipsum',
+  },
 };
-export const ErrorFilled = Template.bind({});
-ErrorFilled.args = {
-  label: 'Last Name',
-  name: 'last_name',
-  value: 'AAAAAAAA',
-  errorText: 'Error message lorem ipsum',
+export const ErrorFilled: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    value: 'AAAAAAAA',
+    errorText: 'Error message lorem ipsum',
+  },
 };

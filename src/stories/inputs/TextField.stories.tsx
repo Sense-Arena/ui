@@ -1,68 +1,77 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { TextField } from '../../components/inputs';
+import { Meta, StoryObj } from '@storybook/react';
 import { IconButton } from '../../components/icon-button';
+import { TextField } from '../../components/inputs';
 import { SearchIcon } from '../../icons';
 
-export default {
+const meta = {
   title: 'UI/Inputs/TextField',
   component: TextField,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof TextField>;
+} satisfies Meta<typeof TextField>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof TextField> = args => <TextField {...args} />;
-
-export const Base = Template.bind({});
-Base.args = {
-  label: 'First Name',
-  name: 'first_name',
-  placeholder: 'write',
+export const Base: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    placeholder: 'write',
+  },
 };
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-  label: 'First Name',
-  name: 'first_name',
-  endIcon: <SearchIcon />,
-};
-
-export const WithIconButton = Template.bind({});
-WithIconButton.args = {
-  label: 'First Name',
-  name: 'first_name',
-  endAdornment: (
-    <IconButton>
-      <SearchIcon />
-    </IconButton>
-  ),
+export const WithIcon: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    endIcon: <SearchIcon />,
+  },
 };
 
-export const Filled = Template.bind({});
-Filled.args = {
-  label: 'First Name',
-  name: 'first_name',
-  value: 'Konstantin',
+export const WithIconButton: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    endAdornment: (
+      <IconButton>
+        <SearchIcon />
+      </IconButton>
+    ),
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  label: 'First Name',
-  name: 'first_name',
-  disabled: true,
+export const Filled: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    placeholder: 'write',
+    value: 'Konstantin',
+  },
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  label: 'Last Name',
-  name: 'last_name',
-  errorText: 'Error message lorem ipsum',
+export const Disabled: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    disabled: true,
+  },
 };
-export const ErrorFilled = Template.bind({});
-ErrorFilled.args = {
-  label: 'Last Name',
-  name: 'last_name',
-  value: 'AAAAAAAA',
-  errorText: 'Error message lorem ipsum',
+
+export const Error: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    errorText: 'Error message lorem ipsum',
+  },
+};
+export const ErrorFilled: Story = {
+  args: {
+    label: 'First Name',
+    name: 'first_name',
+    value: 'AAAAAAAA',
+    errorText: 'Error message lorem ipsum',
+  },
 };

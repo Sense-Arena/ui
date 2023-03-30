@@ -1,18 +1,20 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { IconButton } from '../components/icon-button';
 import { TrophyIcon } from '../icons';
 
-export default {
+const meta = {
   title: 'UI/Icon Button',
   component: IconButton,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof IconButton>;
+} satisfies Meta<typeof IconButton>;
+export default meta;
 
-const Template: ComponentStory<typeof IconButton> = args => <IconButton {...args} children={<TrophyIcon />} />;
+const Template: StoryFn<typeof IconButton> = args => <IconButton {...args} children={<TrophyIcon />} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

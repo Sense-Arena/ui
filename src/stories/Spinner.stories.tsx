@@ -1,17 +1,17 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Spinner } from '../components/spinner';
 
-export default {
+const meta = {
   title: 'UI/Spinner',
   component: Spinner,
-  argTypes: {},
-} as ComponentMeta<typeof Spinner>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof Spinner>;
+export default meta;
 
-const Template: ComponentStory<typeof Spinner> = args => (
+const Template: StoryFn<typeof Spinner> = args => (
   <div style={{ color: 'white', backgroundColor: 'grey', padding: '1rem' }}>
-    <Spinner />
+    <Spinner {...args} />
   </div>
 );
 
 export const Base = Template.bind({});
-Base.args = {};

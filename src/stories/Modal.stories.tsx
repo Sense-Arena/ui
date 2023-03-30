@@ -1,16 +1,18 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Modal } from '../components/modal';
+import { Meta, StoryFn } from '@storybook/react';
+import { useState } from 'react';
 import { Button } from '../components/button';
 import { IconButton } from '../components/icon-button';
-import { useState } from 'react';
+import { Modal } from '../components/modal';
 import { DeleteIcon } from '../icons';
 
-export default {
+const meta = {
   title: 'UI/Modal',
+  tags: ['autodocs'],
   component: Modal,
-} as ComponentMeta<typeof Modal>;
+} satisfies Meta<typeof Modal>;
+export default meta;
 
-const Template: ComponentStory<typeof Modal> = args => {
+const Template: StoryFn<typeof Modal> = args => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -21,7 +23,7 @@ const Template: ComponentStory<typeof Modal> = args => {
   );
 };
 
-const TemplateUpdateModalContent: ComponentStory<typeof Modal> = args => {
+const TemplateUpdateModalContent: StoryFn<typeof Modal> = args => {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   return (

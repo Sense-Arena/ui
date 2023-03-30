@@ -1,16 +1,19 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { MultiSelect } from '../../components/inputs';
 
-export default {
+const meta = {
   title: 'UI/Inputs/MultiSelect',
   component: MultiSelect,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof MultiSelect>;
+} satisfies Meta<typeof MultiSelect>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const options = [
   {
@@ -55,7 +58,7 @@ const options = [
   },
 ];
 
-const Template: ComponentStory<typeof MultiSelect> = args => {
+const Template: StoryFn<typeof MultiSelect> = args => {
   const [selected, setSelected] = useState<string[]>(args.selectedOptions as string[]);
   return (
     <MultiSelect
@@ -71,48 +74,48 @@ const Template: ComponentStory<typeof MultiSelect> = args => {
   );
 };
 
-export const Base = Template.bind({});
-Base.args = {
-  selectedOptions: [],
-  onChangeSelect: console.debug,
-  options,
-  border: 'grey',
-  label: 'Title',
+export const Base: Story = {
+  args: {
+    selectedOptions: [],
+    onChangeSelect: console.debug,
+    options,
+    border: 'grey',
+    label: 'Title',
+  },
+  render: Template,
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  selectedOptions: [],
-  onChangeSelect: console.debug,
-  label: 'Title',
-  options,
-  disabled: true,
+export const Disabled: Story = {
+  args: {
+    selectedOptions: [],
+    onChangeSelect: console.debug,
+    label: 'Title',
+    options,
+    disabled: true,
+  },
+  render: Template,
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  selectedOptions: [],
-  onChangeSelect: console.debug,
-  label: 'Title',
-  options,
-  errorText: 'Error message text',
-  border: 'grey',
+export const Error: Story = {
+  args: {
+    selectedOptions: [],
+    onChangeSelect: console.debug,
+    label: 'Title',
+    options,
+    errorText: 'Error message text',
+    border: 'grey',
+  },
+  render: Template,
 };
 
-export const WithoutLabel = Template.bind({});
-WithoutLabel.args = {
-  selectedOptions: [],
-  onChangeSelect: console.debug,
-  options,
-  border: 'grey',
-};
-
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  selectedOptions: [],
-  onChangeSelect: console.debug,
-  options,
-  border: 'grey',
-  fullWidth: true,
-  name: 'select',
+export const FullWidth: Story = {
+  args: {
+    selectedOptions: [],
+    onChangeSelect: console.debug,
+    options,
+    border: 'grey',
+    fullWidth: true,
+    name: 'select',
+  },
+  render: Template,
 };
