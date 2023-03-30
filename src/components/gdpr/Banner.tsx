@@ -40,8 +40,10 @@ export const Banner = () => {
           </p>
         </div>
         <div className={gdprStyles.cookieBtns}>
-          <Button onClick={onAccept}>{config.banner?.btnOk}</Button>
-          <Button onClick={openModal} color="secondary">
+          <Button onClick={onAccept} dataSAId="gdpr-accept-all">
+            {config.banner?.btnOk}
+          </Button>
+          <Button onClick={openModal} dataSAId="gdpr-edit-settings" color="secondary">
             {config.banner?.btnEdit}
           </Button>
         </div>
