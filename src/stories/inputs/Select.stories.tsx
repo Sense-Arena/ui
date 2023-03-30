@@ -1,16 +1,19 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Select } from '../../components/inputs';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
+import { Select } from '../../components/inputs';
 
-export default {
+const meta = {
   title: 'UI/Inputs/Select',
   component: Select,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof Select>;
+} satisfies Meta<typeof Select>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const options = [
   {
@@ -35,9 +38,7 @@ const options = [
   },
 ];
 
-const Template: ComponentStory<typeof Select> = args => <Select {...args} />;
-
-const ControlledTemplate: ComponentStory<typeof Select> = () => {
+const ControlledTemplate: StoryFn<typeof Select> = () => {
   const [value, setValue] = useState(options[0].value);
   return (
     <Select
@@ -56,73 +57,79 @@ const ControlledTemplate: ComponentStory<typeof Select> = () => {
   );
 };
 
-export const Base = Template.bind({});
-Base.args = {
-  selectedOption: '1',
-  selectedOptionLabel: '1',
-  onChangeSelect: console.debug,
-  options,
-  border: 'grey',
-  label: 'Title',
-};
-export const LongValue = Template.bind({});
-LongValue.args = {
-  selectedOption: '1',
-  selectedOptionLabel:
-    'Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey',
-  onChangeSelect: console.debug,
-  label: 'Title',
-  options,
+export const Base: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: '1',
+    onChangeSelect: console.debug,
+    options,
+    border: 'grey',
+    label: 'Title',
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onChangeSelect: console.debug,
-  label: 'Title',
-  options,
-  disabled: true,
+export const LongValue: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel:
+      'Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey',
+    onChangeSelect: console.debug,
+    label: 'Title',
+    options,
+  },
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onChangeSelect: console.debug,
-  label: 'Title',
-  options,
-  errorText: 'Error message text',
-  border: 'grey',
+export const Disabled: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onChangeSelect: console.debug,
+    label: 'Title',
+    options,
+    disabled: true,
+  },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onChangeSelect: console.debug,
-  options,
-  border: 'grey',
+export const Error: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onChangeSelect: console.debug,
+    label: 'Title',
+    options,
+    errorText: 'Error message text',
+    border: 'grey',
+  },
+};
+export const Small: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onChangeSelect: console.debug,
+    options,
+    border: 'grey',
+  },
+};
+export const Large: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onChangeSelect: console.debug,
+    options,
+    border: 'grey',
+  },
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onChangeSelect: console.debug,
-  options,
-  border: 'grey',
-};
-
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onChangeSelect: console.debug,
-  options,
-  border: 'grey',
-  fullWidth: true,
-  name: 'select',
+export const FullWidth: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onChangeSelect: console.debug,
+    options,
+    border: 'grey',
+    fullWidth: true,
+    name: 'select',
+  },
 };
 
 export const Controlled = ControlledTemplate.bind({});

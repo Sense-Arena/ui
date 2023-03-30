@@ -1,27 +1,30 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Alert } from '../components/alert';
 import { Paragraph } from '../components/typography';
 
-export default {
+const meta = {
   title: 'UI/Alert',
+  tags: ['autodocs'],
   component: Alert,
-} as ComponentMeta<typeof Alert>;
+} satisfies Meta<typeof Alert>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof Alert> = args => <Alert {...args} />;
-
-export const Base = Template.bind({});
-Base.args = {
-  severity: 'error',
-  children: <Paragraph variant="caption">This is an error alert — check it out!</Paragraph>,
+export const Base: Story = {
+  args: {
+    severity: 'error',
+    children: <Paragraph variant="caption">This is an error alert — check it out!</Paragraph>,
+  },
 };
-export const LongGrid = Template.bind({});
-LongGrid.args = {
-  severity: 'error',
-  children: (
-    <Paragraph>
-      This is an error alert — check it out! This is an error alert — check it out! This is an error alert — check it out!
-      This is an error alert — check it out! This is an error alert — check it out! This is an error alert — check it out!
-      This is an error alert — check it out!
-    </Paragraph>
-  ),
+export const LongGrid: Story = {
+  args: {
+    severity: 'error',
+    children: (
+      <Paragraph>
+        This is an error alert — check it out! This is an error alert — check it out! This is an error alert — check it out!
+        This is an error alert — check it out! This is an error alert — check it out! This is an error alert — check it out!
+        This is an error alert — check it out!
+      </Paragraph>
+    ),
+  },
 };

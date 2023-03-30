@@ -1,21 +1,23 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Divider } from '../components/divider/Divider';
 
-export default {
+const meta = {
   title: 'UI/Divider',
   component: Divider,
+  tags: ['autodocs'],
   argTypes: {},
-} as ComponentMeta<typeof Divider>;
+} satisfies Meta<typeof Divider>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof Divider> = args => <Divider {...args} />;
-
-export const Base = Template.bind({});
-Base.args = {};
-export const Middle = Template.bind({});
-Middle.args = {
-  variant: 'middle',
+export const Base: Story = {};
+export const Middle: Story = {
+  args: {
+    variant: 'middle',
+  },
 };
-export const WithChildren = Template.bind({});
-WithChildren.args = {
-  children: 'Divider',
+export const WithChildren: Story = {
+  args: {
+    children: 'Divider',
+  },
 };

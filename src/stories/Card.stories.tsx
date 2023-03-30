@@ -1,11 +1,12 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Card } from '../components/card';
+import { Meta, StoryFn } from '@storybook/react';
 import { Button } from '../components/button';
+import { Card } from '../components/card';
 import { Paragraph } from '../components/typography';
 
-export default {
+const meta = {
   title: 'UI/Card',
   component: Card,
+  tags: ['autodocs'],
   argTypes: {
     withPadding: {
       type: 'boolean',
@@ -17,9 +18,10 @@ export default {
       type: 'string',
     },
   },
-} as ComponentMeta<typeof Card>;
+} satisfies Meta<typeof Card>;
+export default meta;
 
-const Template: ComponentStory<typeof Card> = args => {
+const Template: StoryFn<typeof Card> = args => {
   return (
     <div style={{ position: 'relative', backgroundColor: '#eceff9', height: '100vh', padding: 24 }}>
       <Card withPadding={args.withPadding} title={args.title} action={args.action}>

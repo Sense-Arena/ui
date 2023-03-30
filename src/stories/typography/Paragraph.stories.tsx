@@ -1,9 +1,10 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Paragraph } from '../../components/typography';
 
-export default {
+const meta = {
   title: 'UI/Typography/Paragraph',
   component: Paragraph,
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       defaultValue: 'body',
@@ -13,35 +14,38 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Paragraph>;
+} satisfies Meta<typeof Paragraph>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof Paragraph> = args => <Paragraph {...args} />;
-
-export const Perex = Template.bind({});
-Perex.args = {
-  children: 'Boost your decision-making skills and gain confidence to improve your on-ice performance.',
-  variant: 'perex',
+export const Perex: Story = {
+  args: {
+    children: 'Boost your decision-making skills and gain confidence to improve your on-ice performance.',
+    variant: 'perex',
+  },
 };
 
-export const Body = Template.bind({});
-Body.args = {
-  children: 'Boost your decision-making skills and gain confidence to improve your on-ice performance.',
+export const Body: Story = {
+  args: {
+    children: 'Boost your decision-making skills and gain confidence to improve your on-ice performance.',
+  },
+};
+export const Caption: Story = {
+  args: {
+    children: 'Vice President, Athlete Care, New Jersey Devils',
+    variant: 'caption',
+  },
+};
+export const Note: Story = {
+  args: {
+    children: 'Error message lorem ipsum',
+    variant: 'note',
+  },
 };
 
-export const Caption = Template.bind({});
-Caption.args = {
-  children: 'Vice President, Athlete Care, New Jersey Devils',
-  variant: 'caption',
-};
-
-export const Note = Template.bind({});
-Note.args = {
-  children: 'Error message lorem ipsum',
-  variant: 'note',
-};
-
-export const Label = Template.bind({});
-Label.args = {
-  children: 'Error message lorem ipsum',
-  variant: 'label',
+export const Label: Story = {
+  args: {
+    children: 'Error message lorem ipsum',
+    variant: 'label',
+  },
 };

@@ -1,15 +1,18 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Skeleton } from '../components/skeleton/Skeleton';
 
-export default {
+const meta = {
   title: 'UI/Skeleton',
   component: Skeleton,
-} as ComponentMeta<typeof Skeleton>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof Skeleton>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const Template: ComponentStory<typeof Skeleton> = args => <Skeleton {...args}>Content after loading</Skeleton>;
-
-export const Base = Template.bind({});
-Base.args = {
-  loading: true,
-  count: 5,
+export const Base: Story = {
+  args: {
+    loading: true,
+    count: 5,
+    children: 'Content after loading',
+  },
 };

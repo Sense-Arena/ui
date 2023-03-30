@@ -1,15 +1,18 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Dropdown } from '../components/dropdown';
 
-export default {
+const meta = {
   title: 'UI/Dropdown',
   component: Dropdown,
+  tags: ['autodocs'],
   argTypes: {
     disabled: {
       type: 'boolean',
     },
   },
-} as ComponentMeta<typeof Dropdown>;
+} satisfies Meta<typeof Dropdown>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const options = [
   {
@@ -34,71 +37,75 @@ const options = [
   },
 ];
 
-const Template: ComponentStory<typeof Dropdown> = args => <Dropdown {...args} />;
-
-export const Base = Template.bind({});
-Base.args = {
-  selectedOption: '1',
-  selectedOptionLabel: '1',
-  onSelect: console.debug,
-  options,
-  border: 'grey',
+export const Base: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: '1',
+    onSelect: console.debug,
+    options,
+    border: 'grey',
+  },
 };
-export const LongValue = Template.bind({});
-LongValue.args = {
-  selectedOption: '1',
-  selectedOptionLabel:
-    'Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey',
-  onSelect: console.debug,
-  options,
+export const LongValue: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel:
+      'Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey Sense Arena Hockey',
+    onSelect: console.debug,
+    options,
+  },
 };
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
-  options,
-  disabled: true,
-};
-
-export const Error = Template.bind({});
-Error.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
-  options,
-  error: true,
-  border: 'grey',
+export const Disabled: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onSelect: console.debug,
+    options,
+    disabled: true,
+  },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
-  options,
-  border: 'grey',
-  size: 's',
+export const Error: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onSelect: console.debug,
+    options,
+    error: true,
+    border: 'grey',
+  },
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
-  options,
-  border: 'grey',
-  size: 'l',
+export const Small: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onSelect: console.debug,
+    options,
+    border: 'grey',
+    size: 's',
+  },
 };
 
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  selectedOption: '1',
-  selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
-  onSelect: console.debug,
-  options,
-  border: 'grey',
-  size: 'l',
-  fullWidth: true,
+export const Large: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onSelect: console.debug,
+    options,
+    border: 'grey',
+    size: 'l',
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    selectedOption: '1',
+    selectedOptionLabel: 'Sense Arena Hockey dsfsdkf ',
+    onSelect: console.debug,
+    options,
+    border: 'grey',
+    size: 'l',
+    fullWidth: true,
+  },
 };
