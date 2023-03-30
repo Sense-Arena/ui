@@ -1,4 +1,5 @@
 import '../src/theme/theme.css';
+import React from 'react';
 
 export default {
   parameters: {
