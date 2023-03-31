@@ -1,7 +1,7 @@
+import type { Preview } from '@storybook/react';
 import '../src/theme/theme.css';
-import React from 'react';
 
-export default {
+const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -12,3 +12,5 @@ export default {
     },
   },
 };
+
+export default preview;

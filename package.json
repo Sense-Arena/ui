@@ -7,7 +7,7 @@
     "build:test": "tsc && vite build --config vite.test.ts",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -o dist"
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@react-spring/web": "9.7.1",
@@ -27,6 +27,7 @@
     "@vanilla-extract/vite-plugin": "3.8.0",
     "@vitejs/plugin-react": "3.1.0",
     "babel-loader": "9.1.2",
+    "chromatic": "^6.17.2",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -57,5 +58,7 @@
       "require": "./dist/@sa-ui.umd.js"
     },
     "./theme.css": "./dist/style.css"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@sensearena/ui@0.2.41"
 }
