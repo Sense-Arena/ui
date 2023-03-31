@@ -1,4 +1,4 @@
-import { createGlobalTheme, createGlobalThemeContract, style } from '@vanilla-extract/css';
+import { createGlobalTheme, createGlobalThemeContract, globalStyle, style } from '@vanilla-extract/css';
 
 export const vars = createGlobalThemeContract(
   {
@@ -90,4 +90,28 @@ export const textNoWrap = style({
   overflow: 'hidden',
   whiteSpace: 'nowrap',
   textOverflow: 'ellipsis',
+});
+
+globalStyle('body', {
+  fontFamily: vars.font.family,
+  fontWeight: 400,
+  fontStyle: 'normal',
+  fontStretch: 'normal',
+  lineHeight: 'initial',
+  fontSize: '16px',
+  color: vars.colors.text,
+});
+globalStyle(`*`, {
+  boxSizing: 'border-box',
+});
+globalStyle(`html, body`, {
+  minHeight: '100%',
+  margin: 0,
+});
+globalStyle(`#__next`, {
+  height: '100%',
+});
+
+globalStyle(`${linkInsertion} > span`, {
+  textTransform: 'unset',
 });
