@@ -1,17 +1,19 @@
 import { animated, useSpring } from '@react-spring/web';
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { ReactNode, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useWindowListener } from '../../hooks';
 import { ArrowDownSline, ArrowUpSline } from '../../icons';
+import { clsx } from '../../utils';
 import { Heading, Paragraph } from '../typography';
 import { accordionStyles } from './accordion.style.css';
 
 type Props = {
-  shorText: string;
-  text: string;
+  shorText: ReactNode;
+  text: ReactNode;
   open?: boolean;
+  className?: string;
 };
 
-export const AccordionItem = memo<Props>(({ shorText, text, open = false }) => {
+export const AccordionItem = memo<Props>(({ shorText, text, open = false, className }) => {
   const [isOpen, setOpen] = useState(open);
   const [contentMaxHeight, setContentMaxHeight] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -36,7 +38,7 @@ export const AccordionItem = memo<Props>(({ shorText, text, open = false }) => {
   }, []);
 
   return (
-    <div className={accordionStyles.accordionItem}>
+    <div className={clsx(accordionStyles.accordionItem, className)}>
       <div onClick={toggle} className={accordionStyles.accordionLabel({ isOpen })}>
         <Heading root="h4">{shorText}</Heading>
         {isOpen ? (
