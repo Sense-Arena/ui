@@ -57,7 +57,6 @@ export function MultiSelect<TOption>({
   const selectItem = useCallback(
     (optionValue: TOption) => {
       onChangeSelect?.(selectedOptions.concat(optionValue));
-      close();
     },
     [onChangeSelect],
   );
@@ -65,7 +64,6 @@ export function MultiSelect<TOption>({
   const deleteItem = useCallback(
     (optionValue: TOption) => {
       onChangeSelect?.(selectedOptions.filter(item => item !== optionValue));
-      close();
     },
     [onChangeSelect],
   );
