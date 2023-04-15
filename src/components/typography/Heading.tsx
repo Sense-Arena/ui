@@ -3,7 +3,7 @@ import { clsx } from '../../utils/clsx';
 import { h1Style } from './typography.style.css';
 
 type Props = {
-  weight?: 'light' | 'medium' | 'normal';
+  weight?: 'light' | 'medium' | 'normal' | 'bold' | 'semiBold';
   children?: ReactNode;
   root?: 'h1' | 'h2' | 'h3' | 'h4';
   variant?: 'headline' | 'title' | 'base' | 'baseM' | 'baseS';
