@@ -12,11 +12,17 @@ export const h1Style = recipe({
       light: {
         fontWeight: 300,
       },
+      normal: {
+        fontWeight: 400,
+      },
       medium: {
         fontWeight: 500,
       },
-      normal: {
-        fontWeight: 400,
+      semiBold: {
+        fontWeight: 600,
+      },
+      bold: {
+        fontWeight: 700,
       },
     },
     root: {
@@ -65,6 +71,51 @@ export const h1Style = recipe({
         fontSize: '18px',
         letterSpacing: '0',
         lineHeight: '22px',
+      },
+    },
+    variant: {
+      headline: {
+        fontSize: '64px',
+        lineHeight: '70px',
+        letterSpacing: '-0.022em',
+        '@media': {
+          'screen and (max-width: 768px)': {
+            fontSize: '48px',
+            lineHeight: '53px',
+          },
+        },
+      },
+      title: {
+        fontSize: '58px',
+        lineHeight: '53px',
+        letterSpacing: '-0.022em',
+        '@media': {
+          'screen and (max-width: 768px)': {
+            fontSize: '20px',
+            lineHeight: '18px',
+          },
+        },
+      },
+      base: {
+        fontSize: '40px',
+        lineHeight: '60px',
+        letterSpacing: '-0.022em',
+      },
+      baseM: {
+        fontSize: '36px',
+        lineHeight: '36px',
+        letterSpacing: '-0.022em',
+      },
+      baseS: {
+        fontSize: '32px',
+        lineHeight: '32px',
+        letterSpacing: '-0.022em',
+        '@media': {
+          'screen and (max-width: 768px)': {
+            fontSize: '24px',
+            lineHeight: '24px',
+          },
+        },
       },
     },
   },

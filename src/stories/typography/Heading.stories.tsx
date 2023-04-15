@@ -8,16 +8,21 @@ const meta = {
   argTypes: {
     weight: {
       name: 'weight',
-      defaultValue: 'medium',
-      options: ['light', 'medium'],
+      options: ['light', 'medium', 'normal', 'bold', 'semiBold'],
       control: {
         type: 'select',
       },
     },
     root: {
       name: 'Root component',
-      defaultValue: 'h1',
       options: ['h1', 'h2', 'h3', 'h4'],
+      control: {
+        type: 'select',
+      },
+    },
+    variant: {
+      name: 'Variant',
+      options: ['headline', 'title', 'base', 'baseM', 'baseS'],
       control: {
         type: 'select',
       },
