@@ -100,11 +100,25 @@ export const h1Style = recipe({
         fontSize: '40px',
         lineHeight: '60px',
         letterSpacing: '-0.022em',
+        '@media': {
+          'screen and (max-width: 834px)': {
+            fontSize: '40px',
+            lineHeight: '60px',
+            letterSpacing: '-0.022em',
+          },
+        },
       },
       baseM: {
         fontSize: '36px',
         lineHeight: '36px',
         letterSpacing: '-0.022em',
+        '@media': {
+          'screen and (max-width: 834px)': {
+            fontSize: '36px',
+            lineHeight: '36px',
+            letterSpacing: '-0.022em',
+          },
+        },
       },
       baseS: {
         fontSize: '32px',
