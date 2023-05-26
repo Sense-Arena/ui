@@ -1,0 +1,2 @@
+import{c as o}from"./clsx-9a51c995.js";import{p as n}from"./typography.style.css-66a1d45e.js";const e=({children:a,variant:r,className:t,style:p,...l})=>React.createElement("p",{style:p,className:o(n({variant:r}),t),...l},a);try{e.displayName="Paragraph",e.__docgenInfo={description:"",displayName:"Paragraph",props:{variant:{defaultValue:null,description:"",name:"variant",required:!1,type:{name:"enum",value:[{value:'"note"'},{value:'"perex"'},{value:'"body"'},{value:'"caption"'},{value:'"label"'}]}}}}}catch{}export{e as P};
+//# sourceMappingURL=Paragraph-12e09905.js.map
