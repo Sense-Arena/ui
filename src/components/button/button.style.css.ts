@@ -62,7 +62,7 @@ export const btnStyle = recipe({
             background: `linear-gradient(270deg, ${vars.colors.black} 0%, ${vars.colors.black} 100%)`,
           },
           '&:active:not(:disabled)': {
-            background: `linear-gradient(270deg, ${vars.colors.black} 0%, ${vars.colors.black} 100%)`,
+            background: `linear-gradient(270deg, ${vars.colors.text} 0%, ${vars.colors.text} 100%)`,
             transform: 'translateY(2px)',
           },
         },
@@ -72,7 +72,7 @@ export const btnStyle = recipe({
         color: vars.colors.blackMetal,
         selectors: {
           '&:hover:not(:disabled)': {
-            background: `linear-gradient(270deg, ${vars.colors.grey} 0%, ${vars.colors.grey} 100%)`,
+            background: `linear-gradient(270deg, ${vars.colors.greyLight} 0%, ${vars.colors.greyLight} 100%)`,
           },
           '&:active:not(:disabled)': {
             background: `linear-gradient(270deg, ${vars.colors.grey} 0%, ${vars.colors.grey} 100%)`,
@@ -89,7 +89,7 @@ export const btnStyle = recipe({
             background: `linear-gradient(270deg, ${vars.colors.greyLight2} 0%, ${vars.colors.greyLight2} 100%)`,
           },
           '&:active:not(:disabled)': {
-            background: `linear-gradient(270deg, ${vars.colors.greyLight2} 0%, ${vars.colors.greyLight2} 100%)`,
+            background: `linear-gradient(270deg, ${vars.colors.greyLight} 0%, ${vars.colors.greyLight} 100%)`,
             transform: 'translateY(2px)',
           },
         },
@@ -103,7 +103,7 @@ export const btnStyle = recipe({
             background: `linear-gradient(270deg, ${vars.colors.greyLight2} 0%, ${vars.colors.greyLight2} 100%)`,
           },
           '&:active:not(:disabled)': {
-            background: `linear-gradient(270deg, ${vars.colors.greyLight2} 0%, ${vars.colors.greyLight2} 100%)`,
+            background: `linear-gradient(270deg, ${vars.colors.greyLight} 0%, ${vars.colors.greyLight} 100%)`,
             transform: 'translateY(2px)',
           },
         },
