@@ -25,6 +25,7 @@ export const vars = createGlobalThemeContract(
       atpNavy: 'atp-navy',
       atpBlue: 'atp-blue',
       atpBlack: 'atp-black',
+      atpGrey: 'atp-grey',
     },
     font: {
       family: 'font',
@@ -66,6 +67,7 @@ createGlobalTheme('body', vars, {
     atpNavy: '#051224',
     atpBlue: '#121FFF',
     atpBlack: '#1E1E1E',
+    atpGrey: '#455A64',
   },
   font: {
     family: 'Rubik, sans-serif',
