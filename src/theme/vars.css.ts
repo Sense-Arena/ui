@@ -21,9 +21,14 @@ export const vars = createGlobalThemeContract(
       logoBlack: 'logo-black',
       blueCola: 'blue-cola',
       orange: 'orange',
+      atpYellow: 'atp-yellow',
+      atpNavy: 'atp-navy',
+      atpBlue: 'atp-blue',
+      atpBlack: 'atp-black',
     },
     font: {
       family: 'font',
+      atpFamily: 'atp-font',
     },
     zIndex: {
       menu: 'menu',
@@ -57,9 +62,14 @@ createGlobalTheme('body', vars, {
     logoBlack: '#1c1d1c',
     blueCola: '#0288d1',
     orange: '#f57c00',
+    atpYellow: '#E4F53B',
+    atpNavy: '#051224',
+    atpBlue: '#121FFF',
+    atpBlack: '#1E1E1E',
   },
   font: {
     family: 'Rubik, sans-serif',
+    atpFamily: '"termina",sans-serif;',
   },
   zIndex: {
     menu: '11000',
