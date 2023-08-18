@@ -1,4 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 import { hex2rgba } from '../../theme/utils';
 import { vars } from '../../theme/vars.css';
 
@@ -13,15 +14,27 @@ export const modalContainer = style({
   position: 'relative',
 });
 
-export const modalHead = style({
-  fontSize: '24px',
-  lineHeight: '28px',
-  fontWeight: 600,
-  marginBottom: '8px',
-  marginTop: 0,
-  color: '#626262',
-  padding: '16px 16px 0',
-  letterSpacing: '0.5px',
+export const modalHead = recipe({
+  base: {
+    fontSize: '24px',
+    lineHeight: '28px',
+    fontWeight: 600,
+    marginBottom: '8px',
+    marginTop: 0,
+    color: '#626262',
+    padding: '16px 16px 0',
+    letterSpacing: '0.5px',
+  },
+  variants: {
+    variant: {
+      atp: {
+        fontFamily: vars.font.atpFamily,
+      },
+      old: {
+        fontFamily: vars.font.family,
+      },
+    },
+  },
 });
 export const modalBtns = style({
   margin: '16px',

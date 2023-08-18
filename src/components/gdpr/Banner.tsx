@@ -1,13 +1,14 @@
 import { useCallback, useContext, useState } from 'react';
+import { vars } from '../../theme/vars.css';
 import { LS, LSKeys } from '../../utils/local-store';
 import { Button } from '../button';
 import { Modal } from '../modal';
+import { ModalContainer } from './ModalContainer';
 import { ConsentContext } from './consent-context';
 import { gdprStyles } from './gdpr.css';
-import { ModalContainer } from './ModalContainer';
 
 export const Banner = () => {
-  const { setConsent, config, onSave } = useContext(ConsentContext);
+  const { setConsent, config, onSave, variant } = useContext(ConsentContext);
   const [opened, setOpen] = useState(false);
 
   const onAccept = useCallback(() => {
@@ -29,9 +30,9 @@ export const Banner = () => {
 
   return (
     <>
-      <div className={gdprStyles.cookieContainer}>
+      <div className={gdprStyles.cookieContainer({ variant })}>
         <div>
-          <h1 className={gdprStyles.cookieHead}>{config.banner?.heading}</h1>
+          <h1 className={gdprStyles.cookieHead({ variant })}>{config.banner?.heading}</h1>
           <p className={gdprStyles.cookieText}>
             {config.banner?.text}{' '}
             <a className={gdprStyles.cookieLink} href={config.findOut?.link} target="_blank">
@@ -40,10 +41,22 @@ export const Banner = () => {
           </p>
         </div>
         <div className={gdprStyles.cookieBtns}>
-          <Button onClick={onAccept} dataSAId="gdpr-accept-all">
+          <Button
+            onClick={onAccept}
+            dataSAId="gdpr-accept-all"
+            style={{
+              borderRadius: variant === 'atp' ? 0 : undefined,
+              background: variant === 'atp' ? vars.colors.atpBlue : undefined,
+            }}
+          >
             {config.banner?.btnOk}
           </Button>
-          <Button onClick={openModal} dataSAId="gdpr-edit-settings" color="secondary">
+          <Button
+            onClick={openModal}
+            dataSAId="gdpr-edit-settings"
+            color="secondary"
+            style={{ borderRadius: variant === 'atp' ? 0 : undefined }}
+          >
             {config.banner?.btnEdit}
           </Button>
         </div>
