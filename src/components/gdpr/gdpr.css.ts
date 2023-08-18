@@ -1,16 +1,16 @@
 import { globalStyle, style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 import { hex2rgba } from '../../theme/utils';
 import { vars } from '../../theme/vars.css';
 
-const cookieContainer = style([
-  {
+const cookieContainer = recipe({
+  base: {
     fontFamily: vars.font.family,
     position: 'fixed',
     bottom: '16px',
     left: '16px',
     right: '16px',
     backgroundColor: vars.colors.white,
-    borderRadius: '16px',
     boxShadow: '0 4px 20px 0 rgb(0 0 0 / 40%)',
     color: vars.colors.text,
     padding: '24px 16px 16px',
@@ -25,15 +25,37 @@ const cookieContainer = style([
       },
     },
   },
-]);
+  variants: {
+    variant: {
+      atp: {
+        borderRadius: '0',
+      },
+      old: {
+        borderRadius: '16px',
+      },
+    },
+  },
+});
 
-const cookieHead = style({
-  fontSize: '16px',
-  lineHeight: '24px',
-  fontWeight: 600,
-  marginBottom: '4px',
-  marginTop: 0,
-  letterSpacing: '0.5px',
+const cookieHead = recipe({
+  base: {
+    fontSize: '16px',
+    lineHeight: '24px',
+    fontWeight: 600,
+    marginBottom: '4px',
+    marginTop: 0,
+    letterSpacing: '0.5px',
+  },
+  variants: {
+    variant: {
+      atp: {
+        fontFamily: vars.font.atpFamily,
+      },
+      old: {
+        fontFamily: vars.font.family,
+      },
+    },
+  },
 });
 const cookieText = style({
   fontSize: '14px',

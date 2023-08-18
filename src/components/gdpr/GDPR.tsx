@@ -37,9 +37,10 @@ export const gdprDefaultConfig: GDPRConfig = {
 type Props = {
   config?: GDPRConfig;
   onSave?: (consent: CookieConsentModel) => void;
+  variant?: 'atp' | 'old';
 };
 
-export const GDPR = ({ config = gdprDefaultConfig, onSave = noop }: Props) => {
+export const GDPR = ({ config = gdprDefaultConfig, onSave = noop, variant = 'old' }: Props) => {
   const [hasConsent, setConsent] = useState(true);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ export const GDPR = ({ config = gdprDefaultConfig, onSave = noop }: Props) => {
   if (hasConsent) return null;
 
   return (
-    <ConsentContext.Provider value={{ setConsent, config, onSave }}>
+    <ConsentContext.Provider value={{ setConsent, config, onSave, variant }}>
       <Banner />
     </ConsentContext.Provider>
   );
