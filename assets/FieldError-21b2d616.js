@@ -1,2 +1,0 @@
-import{r as a,R as t}from"./index-8db94870.js";import{P as o}from"./Paragraph-f2c324a5.js";var s="ts11uf0";const e=a.memo(({errorText:r})=>r?t.createElement(o,{variant:"note",className:s},r):null);try{e.displayName="FieldError",e.__docgenInfo={description:"",displayName:"FieldError",props:{errorText:{defaultValue:null,description:"",name:"errorText",required:!1,type:{name:"ReactNode"}}}}}catch{}export{e as F};
-//# sourceMappingURL=FieldError-21b2d616.js.map
