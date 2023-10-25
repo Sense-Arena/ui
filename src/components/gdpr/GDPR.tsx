@@ -37,7 +37,7 @@ export const gdprDefaultConfig: GDPRConfig = {
 type Props = {
   config?: GDPRConfig;
   onSave?: (consent: CookieConsentModel) => void;
-  variant?: 'atp' | 'old';
+  variant?: 'atp' | 'nhl' | 'old';
 };
 
 export const GDPR = ({ config = gdprDefaultConfig, onSave = noop, variant = 'old' }: Props) => {

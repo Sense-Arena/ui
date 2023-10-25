@@ -45,7 +45,7 @@ export const Banner = () => {
             onClick={onAccept}
             dataSAId="gdpr-accept-all"
             style={{
-              borderRadius: variant === 'atp' ? 0 : undefined,
+              borderRadius: variant !== 'old' ? 0 : undefined,
               background: variant === 'atp' ? vars.colors.atpBlue : undefined,
             }}
           >
@@ -55,7 +55,7 @@ export const Banner = () => {
             onClick={openModal}
             dataSAId="gdpr-edit-settings"
             color="secondary"
-            style={{ borderRadius: variant === 'atp' ? 0 : undefined }}
+            style={{ borderRadius: variant !== 'old' ? 0 : undefined }}
           >
             {config.banner?.btnEdit}
           </Button>

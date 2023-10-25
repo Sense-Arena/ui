@@ -3,15 +3,24 @@ import { recipe } from '@vanilla-extract/recipes';
 import { hex2rgba } from '../../theme/utils';
 import { vars } from '../../theme/vars.css';
 
-export const modalContainer = style({
-  fontFamily: vars.font.family,
-  borderRadius: '16px',
-  backgroundColor: vars.colors.white,
-  border: '1px solid rgba(255, 255, 255, 0.3)',
-  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-  overflowY: 'auto',
-  maxHeight: '70vh',
-  position: 'relative',
+export const modalContainer = recipe({
+  base: {
+    fontFamily: vars.font.atpFamily,
+    backgroundColor: vars.colors.white,
+    border: '1px solid rgba(255, 255, 255, 0.3)',
+    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+    overflowY: 'auto',
+    maxHeight: '70vh',
+    position: 'relative',
+  },
+  variants: {
+    isOld: {
+      true: {
+        fontFamily: vars.font.family,
+        borderRadius: '16px',
+      },
+    },
+  },
 });
 
 export const modalHead = recipe({
@@ -28,6 +37,9 @@ export const modalHead = recipe({
   variants: {
     variant: {
       atp: {
+        fontFamily: vars.font.atpFamily,
+      },
+      nhl: {
         fontFamily: vars.font.atpFamily,
       },
       old: {

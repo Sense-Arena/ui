@@ -31,7 +31,7 @@ export const ModalContainer = () => {
   }, [choices, onSave]);
 
   return (
-    <div className={modalContainer} onClick={e => e.stopPropagation()}>
+    <div className={modalContainer({ isOld: variant === 'old' })} onClick={e => e.stopPropagation()}>
       <h2 className={modalHead({ variant })}>{config.modal?.heading}</h2>
       <p className={modalText}>{config.modal?.text}</p>
       <a className={modalLink} href={config.findOut?.link} target="_blank">
@@ -42,7 +42,7 @@ export const ModalContainer = () => {
         <Button
           onClick={accept}
           style={{
-            borderRadius: variant === 'atp' ? 0 : undefined,
+            borderRadius: variant !== 'old' ? 0 : undefined,
             background: variant === 'atp' ? vars.colors.atpBlue : undefined,
           }}
         >
@@ -50,7 +50,7 @@ export const ModalContainer = () => {
         </Button>
         <Button
           style={{
-            borderRadius: variant === 'atp' ? 0 : undefined,
+            borderRadius: variant !== 'old' ? 0 : undefined,
           }}
           onClick={deny}
           color="secondary"
@@ -84,7 +84,7 @@ export const ModalContainer = () => {
         <Button
           onClick={save}
           style={{
-            borderRadius: variant === 'atp' ? 0 : undefined,
+            borderRadius: variant !== 'old' ? 0 : undefined,
             background: variant === 'atp' ? vars.colors.atpBlue : undefined,
           }}
         >
