@@ -7,7 +7,7 @@ export const ConsentContext = createContext<{
   setConsent: Dispatch<SetStateAction<boolean>>;
   config: GDPRConfig;
   onSave: (consent: CookieConsentModel) => void;
-  variant: 'atp' | 'old';
+  variant: 'atp' | 'nhl' | 'old';
 }>({
   setConsent: noop,
   onSave: noop,

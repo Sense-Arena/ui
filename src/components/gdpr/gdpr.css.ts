@@ -30,6 +30,9 @@ const cookieContainer = recipe({
       atp: {
         borderRadius: '0',
       },
+      nhl: {
+        borderRadius: '0',
+      },
       old: {
         borderRadius: '16px',
       },
@@ -49,6 +52,9 @@ const cookieHead = recipe({
   variants: {
     variant: {
       atp: {
+        fontFamily: vars.font.atpFamily,
+      },
+      nhl: {
         fontFamily: vars.font.atpFamily,
       },
       old: {
