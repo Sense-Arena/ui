@@ -13,9 +13,7 @@ declare global {
   }
 }
 
-let exponeaEventsStore: Record<string, Record<string, any>> = {};
-
-const runStoreWatcher = () => {
+const runStoreWatcher = (exponeaEventsStore: Record<string, Record<string, any>>) => {
   const timer = setInterval(() => {
     if (window.exponea) {
       console.debug('runStoreWatcher when BR is ready', exponeaEventsStore);
@@ -24,8 +22,6 @@ const runStoreWatcher = () => {
 
         window.exponea.track(eventName, exponeaEventsStore[eventName]);
       });
-
-      exponeaEventsStore = {};
       clearInterval(timer);
     }
   }, 1000);
@@ -34,11 +30,10 @@ const runStoreWatcher = () => {
 export const sendExponeaEvent = (eventName: string, eventData: Record<string, any>, email?: string) => {
   if (!window.exponea) {
     console.debug('[SA]: skip event, BR not inited', eventName);
-    exponeaEventsStore = {
-      ...exponeaEventsStore,
-      eventName: eventData,
-    };
-    runStoreWatcher();
+
+    runStoreWatcher({
+      [eventName]: eventData,
+    });
     return;
   }
   withIdentify(() => {
