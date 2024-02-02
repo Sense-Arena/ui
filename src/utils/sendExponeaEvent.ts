@@ -16,13 +16,17 @@ declare global {
 let exponeaEventsStore: Record<string, Record<string, any>> = {};
 
 const runStoreWatcher = () => {
-  const hasStoreValues = Object.keys(exponeaEventsStore).length;
   const timer = setInterval(() => {
-    if (window.exponea && hasStoreValues) {
-      clearInterval(timer);
+    if (window.exponea) {
+      console.debug('runStoreWatcher when BR is ready', exponeaEventsStore);
       Object.keys(exponeaEventsStore).forEach((eventName: keyof typeof exponeaEventsStore) => {
+        console.debug('runStoreWatcher push', eventName, exponeaEventsStore[eventName]);
+
         window.exponea.track(eventName, exponeaEventsStore[eventName]);
       });
+
+      exponeaEventsStore = {};
+      clearInterval(timer);
     }
   }, 1000);
 };
