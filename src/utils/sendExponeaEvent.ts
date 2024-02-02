@@ -1,10 +1,10 @@
 declare global {
   interface Window {
     exponea: {
-      track: (eventName: string, eventData: { [key: string]: any }) => void;
+      track: (eventName: string, eventData: Record<string, any>) => void;
       identify: (
-        userObject: { [key: string]: any },
-        options?: { [key: string]: any },
+        userObject: Record<string, any>,
+        options?: Record<string, any>,
         successCallback?: () => void,
         errorCallback?: () => void,
         immediate?: boolean,
@@ -13,9 +13,28 @@ declare global {
   }
 }
 
-export const sendExponeaEvent = (eventName: string, eventData: { [key: string]: any }, email?: string) => {
+let exponeaEventsStore: Record<string, Record<string, any>> = {};
+
+const runStoreWatcher = () => {
+  const hasStoreValues = Object.keys(exponeaEventsStore).length;
+  const timer = setInterval(() => {
+    if (window.exponea && hasStoreValues) {
+      clearInterval(timer);
+      Object.keys(exponeaEventsStore).forEach((eventName: keyof typeof exponeaEventsStore) => {
+        window.exponea.track(eventName, exponeaEventsStore[eventName]);
+      });
+    }
+  }, 1000);
+};
+
+export const sendExponeaEvent = (eventName: string, eventData: Record<string, any>, email?: string) => {
   if (!window.exponea) {
     console.debug('[SA]: skip event, BR not inited', eventName);
+    exponeaEventsStore = {
+      ...exponeaEventsStore,
+      eventName: eventData,
+    };
+    runStoreWatcher();
     return;
   }
   withIdentify(() => {
