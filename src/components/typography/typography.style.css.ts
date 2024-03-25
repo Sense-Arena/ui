@@ -193,3 +193,46 @@ export const paragraphStyle = recipe({
     variant: 'body',
   },
 });
+
+export const uniTypoStyle = recipe({
+  base: {
+    letterSpacing: 0,
+    margin: 0,
+  },
+  variants: {
+    weight: {
+      light: {
+        fontWeight: 300,
+      },
+      normal: {
+        fontWeight: 400,
+      },
+      medium: {
+        fontWeight: 500,
+      },
+      semiBold: {
+        fontWeight: 600,
+      },
+      bold: {
+        fontWeight: 700,
+      },
+    },
+    font: {
+      base: {
+        fontFamily: vars.font.family,
+      },
+      atp: {
+        fontFamily: vars.font.atpFamily,
+      },
+    },
+    transform: {
+      up: {
+        textTransform: 'uppercase',
+      },
+    },
+  },
+  defaultVariants: {
+    weight: 'normal',
+    font: 'base',
+  },
+});
