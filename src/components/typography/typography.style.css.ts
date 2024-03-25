@@ -230,9 +230,71 @@ export const uniTypoStyle = recipe({
         textTransform: 'uppercase',
       },
     },
+    variant: {
+      corph1: {
+        fontSize: '34px',
+        lineHeight: '46px',
+        '@media': {
+          'screen and (max-width: 500px)': {
+            fontSize: '18px',
+            lineHeight: '26px',
+          },
+        },
+      },
+      corph2: {
+        fontSize: '26px',
+        lineHeight: 'normal',
+        '@media': {
+          'screen and (max-width: 500px)': {
+            fontSize: '18px',
+            lineHeight: '26px',
+          },
+        },
+      },
+      corplabel: {
+        fontSize: '18px',
+        lineHeight: 'normal',
+        fontWeight: 600,
+        '@media': {
+          'screen and (max-width: 500px)': {
+            fontSize: '10px',
+            lineHeight: '14px',
+            fontWeight: 500,
+          },
+        },
+      },
+      corpsmall: {
+        fontSize: '13px',
+        lineHeight: '20px',
+        '@media': {
+          'screen and (max-width: 500px)': {
+            lineHeight: 'normal',
+          },
+        },
+      },
+      corpextrasmall: {
+        fontSize: '10px',
+        lineHeight: '14px',
+        '@media': {
+          'screen and (max-width: 500px)': {
+            lineHeight: 'normal',
+          },
+        },
+      },
+      corpp: {
+        fontSize: '18px',
+        lineHeight: '26px',
+        '@media': {
+          'screen and (max-width: 500px)': {
+            fontSize: '14px',
+            lineHeight: '22px',
+          },
+        },
+      },
+    },
   },
   defaultVariants: {
     weight: 'normal',
-    font: 'base',
+    font: 'atp',
   },
 });

@@ -8,25 +8,15 @@ export type UniTypographyProps = {
   root?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
   font?: 'base' | 'atp';
   transform?: 'up';
-  size?: string | number;
-  lineHeight?: string | number;
+  variant?: 'corph1' | 'corph2' | 'corplabel' | 'corpsmall' | 'corpextrasmall' | 'corpp';
 } & DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 export const UniTypography = forwardRef<HTMLHeadingElement, UniTypographyProps>(
-  ({ weight, font, children, root = 'p', className, transform, style = {}, lineHeight, size, ...rest }, ref) => {
+  ({ weight, font, children, root = 'p', className, transform, style = {}, variant, ...rest }, ref) => {
     const Root = root;
 
     return (
-      <Root
-        ref={ref}
-        style={{
-          lineHeight,
-          fontSize: size,
-          ...style,
-        }}
-        className={clsx(className, uniTypoStyle({ font, weight, transform }))}
-        {...rest}
-      >
+      <Root ref={ref} className={clsx(className, uniTypoStyle({ font, weight, transform, variant }))} {...rest}>
         {children}
       </Root>
     );
