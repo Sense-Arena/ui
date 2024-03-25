@@ -10,7 +10,10 @@ type Props = {
   className?: string;
   style?: CSSProperties;
 };
-
+/**
+ *
+ * @deprecated use UniTypography
+ */
 export const Heading: FC<Props> = ({ children, weight, root = 'h1', className, style, variant }) => {
   const Root = root;
   return (

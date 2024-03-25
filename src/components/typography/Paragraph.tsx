@@ -7,6 +7,10 @@ type Props = {
   children?: ReactNode;
 } & DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
+/**
+ *
+ * @deprecated use UniTypography
+ */
 export const Paragraph: FC<Props> = ({ children, variant, className, style, ...rest }) => {
   return (
     <p style={style} className={clsx(paragraphStyle({ variant }), className)} {...rest}>
