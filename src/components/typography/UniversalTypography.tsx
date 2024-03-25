@@ -12,8 +12,8 @@ export type UniTypographyProps = {
   lineHeight?: string | number;
 } & DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
-export const UniTypography = forwardRef<HTMLElement, UniTypographyProps>(
-  ({ weight, font, children, root = 'p', ref, className, transform, style = {}, lineHeight, size, ...rest }) => {
+export const UniTypography = forwardRef<HTMLHeadingElement, UniTypographyProps>(
+  ({ weight, font, children, root = 'p', className, transform, style = {}, lineHeight, size, ...rest }, ref) => {
     const Root = root;
 
     return (
