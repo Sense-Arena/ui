@@ -16,7 +16,7 @@ export const UniTypography = forwardRef<HTMLHeadingElement, UniTypographyProps>(
     const Root = root;
 
     return (
-      <Root ref={ref} className={clsx(className, uniTypoStyle({ font, weight, transform, variant }))} {...rest}>
+      <Root ref={ref} className={clsx(uniTypoStyle({ font, weight, transform, variant }), className)} {...rest}>
         {children}
       </Root>
     );
