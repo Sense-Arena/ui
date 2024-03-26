@@ -12,7 +12,7 @@ export type UniTypographyProps = {
 } & DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 export const UniTypography = forwardRef<HTMLHeadingElement, UniTypographyProps>(
-  ({ weight, font, children, root = 'p', className, transform, style = {}, variant, ...rest }, ref) => {
+  ({ weight, font, children, root = 'p', className, transform, variant, ...rest }, ref) => {
     const Root = root;
 
     return (
