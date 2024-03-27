@@ -284,12 +284,6 @@ export const uniTypoStyle = recipe({
       corpp: {
         fontSize: '18px',
         lineHeight: '26px',
-        '@media': {
-          'screen and (max-width: 500px)': {
-            fontSize: '14px',
-            lineHeight: '22px',
-          },
-        },
       },
     },
   },
