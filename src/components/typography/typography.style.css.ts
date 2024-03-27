@@ -257,7 +257,7 @@ export const uniTypoStyle = recipe({
         fontWeight: 600,
         '@media': {
           'screen and (max-width: 500px)': {
-            fontSize: '10px',
+            fontSize: '13px',
             lineHeight: '14px',
             fontWeight: 500,
           },
