@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-vite';
 import React, { useState } from 'react';
 import { Button } from '../components/button';
 import { IconButton } from '../components/icon-button';

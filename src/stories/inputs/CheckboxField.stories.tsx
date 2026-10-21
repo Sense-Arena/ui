@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
 import React, { useState } from 'react';
 import { CheckboxField } from '../../components/inputs';
 import { Stack, StackItem } from '../../components/stack/Stack';

@@ -1,5 +1,5 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
+import { Meta, StoryFn, StoryObj } from '@storybook/react-vite';
+import { userEvent, within } from 'storybook/test';
 import React from 'react';
 import { Button } from '../components/button';
 import { ShowMore } from '../components/show-more';
@@ -36,7 +36,7 @@ export const Base: Story = {
 
     const showMore = canvas.getByText(/show all/i);
 
-    userEvent.click(showMore);
+    await userEvent.click(showMore);
 
     canvas.findByText(/kek3/i);
     canvas.findByText(/kek4/i);

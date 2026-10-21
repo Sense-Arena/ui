@@ -15,10 +15,10 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 24
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24.x
       - name: Up version
         run: |
           git config user.name github-actions
