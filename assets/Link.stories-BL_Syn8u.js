@@ -1,0 +1,10 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{t}from"./react-DlPsW1c0.js";import{t as n}from"./jsx-runtime-MKhVqBIO.js";import"./vars.css.ts.vanilla-BOXTzfgW.js";import{n as r,t as i}from"./createRuntimeFn-62c9670f.esm-DfHgPyBA.js";import{n as a,t as o}from"./clsx-CRapKfbA.js";var s,c,l;function u(){return(u=e((()=>{r(),s=`_1tkctm10`,c=i({defaultClassName:`_1tkctm11`,variantClassNames:{variant:{primary:`_1tkctm12`,secondary:`_1tkctm13`}},defaultVariants:{variant:`primary`},compoundVariants:[]}),l={primary:`_1tkctm14`,secondary:`_1tkctm15`}})))()}var d,f,p;function m(){return(m=e((()=>{d=t(),a(),u(),f=n(),p=(0,d.forwardRef)(({className:e,children:t,variant:n=`primary`,icon:r,...i},a)=>(0,f.jsxs)(`a`,{ref:a,className:o(s,c({variant:n}),e),...i,children:[(0,f.jsx)(`span`,{className:l[n],children:t}),n===`primary`?r:null]})),p.__docgenInfo={description:``,methods:[],displayName:`Link`,props:{variant:{required:!1,tsType:{name:`union`,raw:`'primary' | 'secondary'`,elements:[{name:`literal`,value:`'primary'`},{name:`literal`,value:`'secondary'`}]},description:``,defaultValue:{value:`'primary'`,computed:!1}},icon:{required:!1,tsType:{name:`ReactNode`},description:`only for primaty variant`}}}})))()}var h,g,_,v;function y(){return(y=e((()=>{m(),h={title:`UI/Link`,component:p,tags:[`autodocs`],argTypes:{variant:{defaultValue:`primary`,options:[`primary`,`secondary`],control:{type:`select`}}}},g={args:{children:`Go to store`}},_={args:{children:`Edit`,variant:`secondary`}},v=[`Primary`,`Secondary`],g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: 'Go to store'
+  }
+}`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: 'Edit',
+    variant: 'secondary'
+  }
+}`,..._.parameters?.docs?.source}}}})))()}y();export{g as Primary,_ as Secondary,v as __namedExportsOrder,h as default};

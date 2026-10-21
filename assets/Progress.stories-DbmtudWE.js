@@ -1,0 +1,5 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{t}from"./jsx-runtime-MKhVqBIO.js";import"./vars.css.ts.vanilla-BOXTzfgW.js";import{n,t as r}from"./clsx-CRapKfbA.js";var i;function a(){return(a=e((()=>{i={progressContainer:`_1ug66720`,progressLine:`_1ug66721`}})))()}var o,s;function c(){return(c=e((()=>{a(),n(),o=t(),s=({className:e,value:t})=>(0,o.jsx)(`div`,{className:r(i.progressContainer,e),children:(0,o.jsx)(`div`,{style:{width:`${t}%`},className:i.progressLine})}),s.__docgenInfo={description:``,methods:[],displayName:`Progress`,props:{className:{required:!1,tsType:{name:`string`},description:``},value:{required:!0,tsType:{name:`number`},description:``}}}})))()}var l,u,d;function f(){return(f=e((()=>{c(),l={title:`UI/Progress`,tags:[`autodocs`],component:s},u={args:{value:50}},d=[`Base`],u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  args: {
+    value: 50
+  }
+}`,...u.parameters?.docs?.source}}}})))()}f();export{u as Base,d as __namedExportsOrder,l as default};
