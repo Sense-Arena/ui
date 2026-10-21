@@ -11,7 +11,7 @@ type Props = {
   endIcon?: ReactNode;
   bRadius?: 8 | 10;
   containerClassName?: string;
-  inputRef?: RefObject<HTMLInputElement>;
+  inputRef?: RefObject<HTMLInputElement | null>;
   dataSAId?: string;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 

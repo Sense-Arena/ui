@@ -6,19 +6,21 @@
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
     "outDir": "./dist",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "incremental": true,
-    "declaration": true
+    "rootDir": "./src",
+    "types": [
+      "react",
+      "react-dom"
+    ]
   },
   "include": [
     "src"

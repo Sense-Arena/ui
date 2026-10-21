@@ -1,28 +1,31 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { GDPR } from '../components/gdpr';
 import { LS, LSKeys } from '../utils/local-store';
-LS.deleteItem(LSKeys.CookieConsent);
 
 const meta = {
   title: 'UI/GDPR',
   component: GDPR,
+  beforeEach: () => LS.deleteItem(LSKeys.CookieConsent),
   tags: ['autodocs'],
-  argTypes: {},
+  args: { onSave: fn() },
 } satisfies Meta<typeof GDPR>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
 
-    const edit = canvas.getByText(/edit settings/i);
+    const edit = await canvas.findByRole('button', { name: /edit settings/i });
 
-    userEvent.click(edit);
+    await userEvent.click(edit);
 
-    const acceptAll = canvas.getByText(/accept all/i);
+    const body = within(document.body);
+    await body.findByRole('heading', { name: /information about cookies/i });
+    const acceptAll = body.getAllByRole('button', { name: /accept all/i }).at(-1)!;
 
-    userEvent.click(acceptAll);
+    await userEvent.click(acceptAll);
+    await expect(args.onSave).toHaveBeenCalledWith({ required: true, advertising: true, functional: true });
   },
 };

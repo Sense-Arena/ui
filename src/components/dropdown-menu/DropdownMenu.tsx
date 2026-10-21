@@ -4,8 +4,8 @@ import { ddMenuItemNotFound, ddMenuItemStyle, ddMenuStyle } from './dropdown-men
 
 type Props<TOption> = {
   isOpen: boolean;
-  mainRef: RefObject<HTMLDivElement>;
-  menuRef: RefObject<HTMLDivElement>;
+  mainRef: RefObject<HTMLDivElement | null>;
+  menuRef: RefObject<HTMLDivElement | null>;
   selectedOption?: TOption;
   selectItem: (value: TOption) => void;
   options: {
